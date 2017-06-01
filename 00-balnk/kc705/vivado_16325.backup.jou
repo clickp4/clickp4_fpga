@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Thu Jun  1 21:58:54 2017
+# Process ID: 16325
+# Current directory: /home/yhs/clickp4_fpga/00-balnk/kc705
+# Command line: vivado -notrace -mode batch -source /home/yhs/connectal/scripts/connectal-synth-pcie.tcl
+# Log file: /home/yhs/clickp4_fpga/00-balnk/kc705/vivado.log
+# Journal file: /home/yhs/clickp4_fpga/00-balnk/kc705/vivado.jou
+#-----------------------------------------------------------
+source /home/yhs/connectal/scripts/connectal-synth-pcie.tcl -notrace

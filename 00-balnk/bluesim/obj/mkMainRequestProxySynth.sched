@@ -1,0 +1,527 @@
+=== Generated schedule for mkMainRequestProxySynth ===
+
+Method schedule
+---------------
+Method: portalIfc_slave_read_server_readReq_put
+Ready signal: memslave_req_ars.i_notFull &&
+	      memslave_rs.i_notFull && memslave_rsCtrl.i_notFull
+Conflict-free: portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_interrupt__read,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Conflicts: portalIfc_slave_read_server_readReq_put
+ 
+Method: portalIfc_slave_read_server_readData_get
+Ready signal: memslave_rvFifo.i_notEmpty
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_interrupt__read,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Conflicts: portalIfc_slave_read_server_readData_get
+ 
+Method: portalIfc_slave_write_server_writeReq_put
+Ready signal: memslave_req_aws.i_notFull &&
+	      memslave_ws.i_notFull && memslave_wsCtrl.i_notFull
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_interrupt__read,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Conflicts: portalIfc_slave_write_server_writeReq_put
+ 
+Method: portalIfc_slave_write_server_writeData_put
+Ready signal: memslave_wsCtrl.i_notEmpty &&
+	      memslave_fifoWriteAddrGenerator_addrBeatFifo.i_notEmpty &&
+	      ((! memslave_fifoWriteAddrGenerator_addrBeatFifo.first[0]) ||
+	       memslave_fifoWriteDoneFifo.i_notFull)
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: portalIfc_slave_write_server_writeData_put
+ 
+Method: portalIfc_slave_write_server_writeDone_get
+Ready signal: memslave_doneFifo.i_notEmpty
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_interrupt__read,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Conflicts: portalIfc_slave_write_server_writeDone_get
+ 
+Method: portalIfc_interrupt__read
+Ready signal: True
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_interrupt__read
+Sequenced before (restricted): portalIfc_slave_write_server_writeData_put,
+			       portalIfc_num_portals__write,
+			       ifc_read_version,
+			       ifc_writePacketData,
+			       ifc_set_verbosity,
+			       ifc_writePktGenData,
+			       ifc_pktgen_start,
+			       ifc_pktgen_stop,
+			       ifc_pktcap_start,
+			       ifc_pktcap_stop,
+			       ifc_writeMetaGenData,
+			       ifc_metagen_start,
+			       ifc_metagen_stop,
+			       ifc_read_pktcap_perf_info
+ 
+Method: portalIfc_num_portals__write
+Ready signal: True
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced before (restricted): portalIfc_num_portals__write
+Sequenced after (restricted): portalIfc_interrupt__read
+ 
+Method: ifc_read_version
+Ready signal: dut.RDY_ifc_read_version
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_read_version
+ 
+Method: ifc_writePacketData
+Ready signal: dut.RDY_ifc_writePacketData
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_writePacketData
+ 
+Method: ifc_set_verbosity
+Ready signal: dut.RDY_ifc_set_verbosity
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_set_verbosity
+ 
+Method: ifc_writePktGenData
+Ready signal: dut.RDY_ifc_writePktGenData
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_writePktGenData
+ 
+Method: ifc_pktgen_start
+Ready signal: dut.RDY_ifc_pktgen_start
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_pktgen_start
+ 
+Method: ifc_pktgen_stop
+Ready signal: dut.RDY_ifc_pktgen_stop
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_pktgen_stop
+ 
+Method: ifc_pktcap_start
+Ready signal: dut.RDY_ifc_pktcap_start
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_pktcap_start
+ 
+Method: ifc_pktcap_stop
+Ready signal: dut.RDY_ifc_pktcap_stop
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_pktcap_stop
+ 
+Method: ifc_writeMetaGenData
+Ready signal: dut.RDY_ifc_writeMetaGenData
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_metagen_start,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_writeMetaGenData
+ 
+Method: ifc_metagen_start
+Ready signal: dut.RDY_ifc_metagen_start
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_stop,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_metagen_start
+ 
+Method: ifc_metagen_stop
+Ready signal: dut.RDY_ifc_metagen_stop
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_read_pktcap_perf_info
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_metagen_stop
+ 
+Method: ifc_read_pktcap_perf_info
+Ready signal: dut.RDY_ifc_read_pktcap_perf_info
+Conflict-free: portalIfc_slave_read_server_readReq_put,
+	       portalIfc_slave_read_server_readData_get,
+	       portalIfc_slave_write_server_writeReq_put,
+	       portalIfc_slave_write_server_writeData_put,
+	       portalIfc_slave_write_server_writeDone_get,
+	       portalIfc_num_portals__write,
+	       ifc_read_version,
+	       ifc_writePacketData,
+	       ifc_set_verbosity,
+	       ifc_writePktGenData,
+	       ifc_pktgen_start,
+	       ifc_pktgen_stop,
+	       ifc_pktcap_start,
+	       ifc_pktcap_stop,
+	       ifc_writeMetaGenData,
+	       ifc_metagen_start,
+	       ifc_metagen_stop
+Sequenced after (restricted): portalIfc_interrupt__read
+Conflicts: ifc_read_pktcap_perf_info
+ 
+Rule schedule
+-------------
+Rule: ctrlPort_count
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: memslave_fifoReadAddrGenerator_addrBeatRule
+Predicate: memslave_fifoReadAddrGenerator_requestFifo.i_notEmpty &&
+	   memslave_fifoReadAddrGenerator_addrBeatFifo.i_notFull
+Blocking rules: (none)
+ 
+Rule: memslave_fifoWriteAddrGenerator_addrBeatRule
+Predicate: memslave_fifoWriteAddrGenerator_requestFifo.i_notEmpty &&
+	   memslave_fifoWriteAddrGenerator_addrBeatFifo.i_notFull
+Blocking rules: (none)
+ 
+Rule: memslave_write_done
+Predicate: memslave_fifoWriteDoneFifo.i_notEmpty &&
+	   memslave_ws.i_notEmpty &&
+	   memslave_wsCtrl.i_notEmpty && memslave_doneFifo.i_notFull
+Blocking rules: (none)
+ 
+Rule: memslave_req_aw
+Predicate: memslave_req_aws.i_notEmpty &&
+	   memslave_fifoWriteAddrGenerator_requestFifo.i_notFull
+Blocking rules: (none)
+ 
+Rule: memslave_req_ar
+Predicate: memslave_req_ars.i_notEmpty &&
+	   memslave_fifoReadAddrGenerator_requestFifo.i_notFull
+Blocking rules: (none)
+ 
+Rule: memslave_rvrule
+Predicate: memslave_fifoReadAddrGenerator_addrBeatFifo.i_notEmpty &&
+	   memslave_rsCtrl.i_notEmpty &&
+	   memslave_rs.i_notEmpty &&
+	   memslave_rvFifo.i_notFull &&
+	   (memslave_rsCtrl.first ||
+	    (((! (memslave_fifoReadAddrGenerator_addrBeatFifo.first[23:19] ==
+		  5'd0)) ||
+	      case memslave_rs.first of
+	      4'd0 -> dut.RDY_portalIfc_indications_0_deq
+	      4'd1 -> dut.RDY_portalIfc_indications_1_deq
+	      4'd2 -> dut.RDY_portalIfc_indications_2_deq
+	      4'd3 -> dut.RDY_portalIfc_indications_3_deq
+	      4'd4 -> dut.RDY_portalIfc_indications_4_deq
+	      4'd5 -> dut.RDY_portalIfc_indications_5_deq
+	      4'd6 -> dut.RDY_portalIfc_indications_6_deq
+	      4'd7 -> dut.RDY_portalIfc_indications_7_deq
+	      4'd8 -> dut.RDY_portalIfc_indications_8_deq
+	      4'd9 -> dut.RDY_portalIfc_indications_9_deq
+	      4'd10 -> dut.RDY_portalIfc_indications_10_deq
+	      4'd11 -> dut.RDY_portalIfc_indications_11_deq
+	      _ -> 1'd1) &&
+	     ((! (memslave_fifoReadAddrGenerator_addrBeatFifo.first[23:19] ==
+		  5'd0)) ||
+	      case memslave_rs.first of
+	      4'd0 -> dut.RDY_portalIfc_indications_0_first
+	      4'd1 -> dut.RDY_portalIfc_indications_1_first
+	      4'd2 -> dut.RDY_portalIfc_indications_2_first
+	      4'd3 -> dut.RDY_portalIfc_indications_3_first
+	      4'd4 -> dut.RDY_portalIfc_indications_4_first
+	      4'd5 -> dut.RDY_portalIfc_indications_5_first
+	      4'd6 -> dut.RDY_portalIfc_indications_6_first
+	      4'd7 -> dut.RDY_portalIfc_indications_7_first
+	      4'd8 -> dut.RDY_portalIfc_indications_8_first
+	      4'd9 -> dut.RDY_portalIfc_indications_9_first
+	      4'd10 -> dut.RDY_portalIfc_indications_10_first
+	      4'd11 -> dut.RDY_portalIfc_indications_11_first
+	      _ -> 1'd1)))
+Blocking rules: (none)
+ 
+Logical execution order: portalIfc_slave_read_server_readReq_put,
+			 portalIfc_slave_read_server_readData_get,
+			 portalIfc_slave_write_server_writeReq_put,
+			 portalIfc_slave_write_server_writeDone_get,
+			 portalIfc_interrupt__read,
+			 memslave_req_aw,
+			 memslave_req_ar,
+			 memslave_rvrule,
+			 portalIfc_slave_write_server_writeData_put,
+			 portalIfc_num_portals__write,
+			 ifc_read_version,
+			 ifc_writePacketData,
+			 ifc_set_verbosity,
+			 ifc_writePktGenData,
+			 ifc_pktgen_start,
+			 ifc_pktgen_stop,
+			 ifc_pktcap_start,
+			 ifc_writeMetaGenData,
+			 ifc_pktcap_stop,
+			 ifc_metagen_start,
+			 ifc_read_pktcap_perf_info,
+			 ifc_metagen_stop,
+			 ctrlPort_count,
+			 memslave_write_done,
+			 memslave_fifoReadAddrGenerator_addrBeatRule,
+			 memslave_fifoWriteAddrGenerator_addrBeatRule
+
+=======================================================

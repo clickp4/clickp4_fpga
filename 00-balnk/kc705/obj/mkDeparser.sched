@@ -1,0 +1,180 @@
+=== Generated schedule for mkDeparser ===
+
+Method schedule
+---------------
+Method: metadata_enq
+Ready signal: meta_in_ff.i_notFull
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty,
+	       set_verbosity,
+	       read_perf_info
+Sequenced after: metadata_notFull
+Conflicts: metadata_enq
+ 
+Method: metadata_notFull
+Ready signal: True
+Conflict-free: metadata_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty,
+	       set_verbosity,
+	       read_perf_info
+Sequenced before: metadata_enq
+ 
+Method: writeServer_enq
+Ready signal: data_in_ff.i_notFull
+Conflict-free: metadata_enq,
+	       metadata_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty,
+	       set_verbosity,
+	       read_perf_info
+Sequenced after: writeServer_notFull
+Conflicts: writeServer_enq
+ 
+Method: writeServer_notFull
+Ready signal: True
+Conflict-free: metadata_enq,
+	       metadata_notFull,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty,
+	       set_verbosity,
+	       read_perf_info
+Sequenced before: writeServer_enq
+ 
+Method: writeClient_first
+Ready signal: data_out_ff.i_notEmpty
+Conflict-free: metadata_enq,
+	       metadata_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_notEmpty,
+	       set_verbosity,
+	       read_perf_info
+Sequenced before: writeClient_deq
+ 
+Method: writeClient_deq
+Ready signal: data_out_ff.i_notEmpty
+Conflict-free: metadata_enq,
+	       metadata_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       set_verbosity,
+	       read_perf_info
+Sequenced after: writeClient_first, writeClient_notEmpty
+Conflicts: writeClient_deq
+ 
+Method: writeClient_notEmpty
+Ready signal: True
+Conflict-free: metadata_enq,
+	       metadata_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_notEmpty,
+	       set_verbosity,
+	       read_perf_info
+Sequenced before: writeClient_deq
+ 
+Method: set_verbosity
+Ready signal: True
+Conflict-free: metadata_enq,
+	       metadata_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty,
+	       read_perf_info
+Sequenced before (restricted): set_verbosity
+ 
+Method: read_perf_info
+Ready signal: True
+Conflict-free: metadata_enq,
+	       metadata_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty,
+	       set_verbosity,
+	       read_perf_info
+ 
+Rule schedule
+-------------
+Rule: data_ff_incCtr
+Predicate: data_ff_x_wire.whas &&
+	   data_ff_enqueueing.whas && (! data_ff_dequeueing.whas)
+Blocking rules: (none)
+ 
+Rule: data_ff_decCtr
+Predicate: data_ff_dequeueing.whas && (! data_ff_enqueueing.whas)
+Blocking rules: (none)
+ 
+Rule: data_ff_both
+Predicate: data_ff_x_wire.whas &&
+	   data_ff_dequeueing.whas && data_ff_enqueueing.whas
+Blocking rules: (none)
+ 
+Rule: rl_deparse_start
+Predicate: meta_in_ff.i_notEmpty && data_in_ff.i_notEmpty &&
+	   deparse_done && data_in_ff.first[1]
+Blocking rules: (none)
+ 
+Rule: rl_deparse_payload
+Predicate: data_in_ff.i_notEmpty && data_out_ff.i_notFull && deparse_done
+Blocking rules: rl_deparse_start
+ 
+Rule: rl_stage2_apply_metadata
+Predicate: stage2_ff.i_notEmpty && stage3_ff.i_notFull
+Blocking rules: (none)
+ 
+Rule: rl_stage3_begin
+Predicate: stage3_ff.i_notEmpty && (! deparsing)
+Blocking rules: (none)
+ 
+Rule: rl_stage3_cont
+Predicate: data_out_ff.i_notFull && deparsing && (! (rg_beat == 10'd0))
+Blocking rules: rl_deparse_payload
+ 
+Rule: rl_stage3_end
+Predicate: data_out_ff.i_notFull && stage3_ff.i_notEmpty &&
+	   deparsing && (rg_beat == 10'd0)
+Blocking rules: rl_deparse_payload
+ 
+Rule: rl_header_completion
+Predicate: data_out_ff.i_notFull &&
+	   (! deparse_done) && (! deparsing) && header_done &&
+	   (rg_processed == 10'd0)
+Blocking rules: rl_stage3_begin
+ 
+Logical execution order: metadata_notFull,
+			 metadata_enq,
+			 writeServer_notFull,
+			 writeServer_enq,
+			 writeClient_first,
+			 writeClient_notEmpty,
+			 writeClient_deq,
+			 set_verbosity,
+			 read_perf_info,
+			 rl_deparse_start,
+			 rl_stage2_apply_metadata,
+			 rl_stage3_begin,
+			 rl_deparse_payload,
+			 rl_stage3_cont,
+			 rl_stage3_end,
+			 rl_header_completion,
+			 data_ff_incCtr,
+			 data_ff_decCtr,
+			 data_ff_both
+
+==========================================

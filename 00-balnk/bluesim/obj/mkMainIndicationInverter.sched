@@ -1,0 +1,38 @@
+=== Generated schedule for mkMainIndicationInverter ===
+
+Method schedule
+---------------
+Method: ifc_read_version_rsp
+Ready signal: fifo_read_version_rsp.i_notFull
+Conflict-free: ifc_read_pktcap_perf_info_resp,
+	       inverseIfc_read_version_rsp,
+	       inverseIfc_read_pktcap_perf_info_resp
+Conflicts: ifc_read_version_rsp
+ 
+Method: ifc_read_pktcap_perf_info_resp
+Ready signal: fifo_read_pktcap_perf_info_resp.i_notFull
+Conflict-free: ifc_read_version_rsp,
+	       inverseIfc_read_version_rsp,
+	       inverseIfc_read_pktcap_perf_info_resp
+Conflicts: ifc_read_pktcap_perf_info_resp
+ 
+Method: inverseIfc_read_version_rsp
+Ready signal: fifo_read_version_rsp.i_notEmpty
+Conflict-free: ifc_read_version_rsp,
+	       ifc_read_pktcap_perf_info_resp,
+	       inverseIfc_read_pktcap_perf_info_resp
+Conflicts: inverseIfc_read_version_rsp
+ 
+Method: inverseIfc_read_pktcap_perf_info_resp
+Ready signal: fifo_read_pktcap_perf_info_resp.i_notEmpty
+Conflict-free: ifc_read_version_rsp,
+	       ifc_read_pktcap_perf_info_resp,
+	       inverseIfc_read_version_rsp
+Conflicts: inverseIfc_read_pktcap_perf_info_resp
+ 
+Logical execution order: ifc_read_version_rsp,
+			 ifc_read_pktcap_perf_info_resp,
+			 inverseIfc_read_version_rsp,
+			 inverseIfc_read_pktcap_perf_info_resp
+
+========================================================

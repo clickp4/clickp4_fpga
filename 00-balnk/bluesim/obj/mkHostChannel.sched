@@ -1,0 +1,313 @@
+=== Generated schedule for mkHostChannel ===
+
+Method schedule
+---------------
+Method: writeServer_enq
+Ready signal: pktBuff.RDY_writeServer_enq
+Conflict-free: writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_deq,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+Sequenced after: writeServer_notFull
+Conflicts: writeServer_enq
+ 
+Method: writeServer_notFull
+Ready signal: True
+Conflict-free: writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_deq,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+Sequenced before: writeServer_enq
+ 
+Method: writeClient_writeReq_get
+Ready signal: ringToMem_writeReqFifo.i_notEmpty
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_deq,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+Conflicts: writeClient_writeReq_get
+ 
+Method: writeClient_writeData_get
+Ready signal: ringToMem_writeDataFifo.i_notEmpty
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_deq,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+Conflicts: writeClient_writeData_get
+ 
+Method: writeClient_writeDone_put
+Ready signal: ringToMem_writeDoneFifo.i_notFull
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_deq,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+Conflicts: writeClient_writeDone_put
+ 
+Method: mallocClient_mallocReq_get
+Ready signal: ringToMem_mallocReqFifo.i_notEmpty
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_deq,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+Conflicts: mallocClient_mallocReq_get
+ 
+Method: mallocClient_mallocDone_put
+Ready signal: ringToMem_mallocDoneFifo.i_notFull
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       next_first,
+	       next_deq,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+Conflicts: mallocClient_mallocDone_put
+ 
+Method: next_first
+Ready signal: outReqFifo.i_notEmpty
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+Sequenced before: next_deq
+ 
+Method: next_deq
+Ready signal: outReqFifo.i_notEmpty
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+Sequenced after: next_first, next_notEmpty
+Conflicts: next_deq
+ 
+Method: next_notEmpty
+Ready signal: True
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+Sequenced before: next_deq
+ 
+Method: read_debug_info
+Ready signal: True
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_deq,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+ 
+Method: read_parser_perf_info
+Ready signal: True
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_deq,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info,
+	       set_verbosity
+ 
+Method: set_verbosity
+Ready signal: True
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_writeReq_get,
+	       writeClient_writeData_get,
+	       writeClient_writeDone_put,
+	       mallocClient_mallocReq_get,
+	       mallocClient_mallocDone_put,
+	       next_first,
+	       next_deq,
+	       next_notEmpty,
+	       read_debug_info,
+	       read_parser_perf_info
+Sequenced before (restricted): set_verbosity
+ 
+Rule schedule
+-------------
+Rule: tap_tapIntoReadData
+Predicate: tap_readDataFifoIn.i_notEmpty &&
+	   (! tap_readDataFifoOut_rv.port0__read[178]) &&
+	   (! tap_readDataFifoTap_rv.port0__read[178])
+Blocking rules: (none)
+ 
+Rule: ringToMem_packetReadStart
+Predicate: ringToMem_readLenFifo.i_notEmpty &&
+	   ringToMem_mallocReqFifo.i_notFull &&
+	   ringToMem_pktLenFifo.i_notFull &&
+	   (! ringToMem_readStarted)
+Blocking rules: (none)
+ 
+Rule: ringToMem_allocMemory
+Predicate: ringToMem_pktLenFifo.i_notEmpty &&
+	   ringToMem_mallocDoneFifo.i_notEmpty &&
+	   ((! ringToMem_mallocDoneFifo.first[5]) ||
+	    (ringToMem_readReqFifo.i_notFull &&
+	     ringToMem_writeReqFifo.i_notFull &&
+	     ringToMem_eventPktReceivedFifo.i_notFull))
+Blocking rules: (none)
+ 
+Rule: ringToMem_packetReadInProgress
+Predicate: ringToMem_readDataFifo.i_notEmpty &&
+	   ringToMem_writeDataFifo.i_notFull &&
+	   ringToMem_readStarted && ringToMem_mallocd
+Blocking rules: (none)
+ 
+Rule: ringToMem_packetReadDone
+Predicate: ringToMem_writeDoneFifo.i_notEmpty &&
+	   ringToMem_eventPktReceivedFifo.i_notEmpty &&
+	   ringToMem_eventPktCommittedFifo.i_notFull
+Blocking rules: (none)
+ 
+Rule: mkConnectionGetPut
+Predicate: tap_readReqFifo_rv.port1__read[16] &&
+	   pktBuff.RDY_readServer_readReq_put
+Blocking rules: (none)
+ 
+Rule: mkConnectionGetPut_1
+Predicate: pktBuff.RDY_readServer_readData_get && tap_readDataFifoIn.i_notFull
+Blocking rules: (none)
+ 
+Rule: mkConnectionGetPut_2
+Predicate: pktBuff.RDY_readServer_readLen_get &&
+	   (! tap_readLenFifo_rv.port0__read[16])
+Blocking rules: (none)
+ 
+Rule: mkConnectionGetPut_3
+Predicate: ringToMem_readReqFifo.i_notEmpty &&
+	   (! tap_readReqFifo_rv.port0__read[16])
+Blocking rules: (none)
+ 
+Rule: mkConnectionGetPut_4
+Predicate: tap_readDataFifoOut_rv.port1__read[178] &&
+	   ringToMem_readDataFifo.i_notFull
+Blocking rules: (none)
+ 
+Rule: mkConnectionGetPut_5
+Predicate: tap_readLenFifo_rv.port1__read[16] &&
+	   ringToMem_readLenFifo.i_notFull
+Blocking rules: (none)
+ 
+Rule: mkConnectionGetPut_6
+Predicate: tap_readDataFifoTap_rv.port1__read[178] && parser.RDY_frameIn_put
+Blocking rules: (none)
+ 
+Rule: dispatch_packet
+Predicate: parser.RDY_meta_get &&
+	   ringToMem_eventPktCommittedFifo.i_notEmpty && outReqFifo.i_notFull
+Blocking rules: (none)
+ 
+Logical execution order: writeServer_notFull,
+			 writeServer_enq,
+			 writeClient_writeReq_get,
+			 writeClient_writeData_get,
+			 writeClient_writeDone_put,
+			 mallocClient_mallocReq_get,
+			 mallocClient_mallocDone_put,
+			 next_first,
+			 next_notEmpty,
+			 next_deq,
+			 read_debug_info,
+			 read_parser_perf_info,
+			 set_verbosity,
+			 mkConnectionGetPut_1,
+			 mkConnectionGetPut_2,
+			 mkConnectionGetPut_3,
+			 mkConnectionGetPut,
+			 mkConnectionGetPut_5,
+			 dispatch_packet,
+			 tap_tapIntoReadData,
+			 mkConnectionGetPut_4,
+			 mkConnectionGetPut_6,
+			 ringToMem_packetReadStart,
+			 ringToMem_packetReadInProgress,
+			 ringToMem_allocMemory,
+			 ringToMem_packetReadDone
+
+=============================================

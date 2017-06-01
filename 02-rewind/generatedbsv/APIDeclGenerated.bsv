@@ -1,0 +1,1 @@
+method pipeline_rewind_rewind_table_add_entry = prog.pipeline_rewind_rewind_table_add_entry;
