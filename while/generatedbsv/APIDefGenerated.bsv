@@ -1,0 +1,5 @@
+method Action module_while_while_equal_add_entry(ModuleWhileWhileEqualReqT key, ModuleWhileWhileEqualRspT val);
+method Action module_while_while_init_add_entry(ModuleWhileWhileInitReqT key, ModuleWhileWhileInitRspT val);
+method Action module_while_while_large_add_entry(ModuleWhileWhileLargeReqT key, ModuleWhileWhileLargeRspT val);
+method Action module_while_while_small_add_entry(ModuleWhileWhileSmallReqT key, ModuleWhileWhileSmallRspT val);
+method Action pipeline_start_tbl_pipeline_start_add_entry(PipelineStartTblPipelineStartReqT key, PipelineStartTblPipelineStartRspT val);

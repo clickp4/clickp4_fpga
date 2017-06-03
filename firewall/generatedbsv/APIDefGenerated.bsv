@@ -1,0 +1,3 @@
+method Action module_firewall_firewall_with_tcp_add_entry(ModuleFirewallFirewallWithTcpReqT key, ModuleFirewallFirewallWithTcpRspT val);
+method Action module_firewall_firewall_with_udp_add_entry(ModuleFirewallFirewallWithUdpReqT key, ModuleFirewallFirewallWithUdpRspT val);
+method Action pipeline_start_tbl_pipeline_start_add_entry(PipelineStartTblPipelineStartReqT key, PipelineStartTblPipelineStartRspT val);

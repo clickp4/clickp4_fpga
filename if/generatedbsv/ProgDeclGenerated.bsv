@@ -1,0 +1,4 @@
+method module_if_if_equal_add_entry=ingress.module_if_if_equal_add_entry;
+method module_if_if_large_add_entry=ingress.module_if_if_large_add_entry;
+method module_if_if_small_add_entry=ingress.module_if_if_small_add_entry;
+method pipeline_start_tbl_pipeline_start_add_entry=ingress.pipeline_start_tbl_pipeline_start_add_entry;

@@ -14,9 +14,9 @@ typedef enum {
     REWIND0,
     NOACTION1
 } PipelineRewindRewindTableActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(10, 45, 1, pipeline_rewind_rewind_table)
+`MATCHTABLE_SIM(26, 45, 1, pipeline_rewind_rewind_table)
 typedef Table#(2, MetadataRequest, PipelineRewindRewindTableParam, ConnectalTypes::PipelineRewindRewindTableReqT, ConnectalTypes::PipelineRewindRewindTableRspT) PipelineRewindRewindTableTable;
-typedef MatchTable#(1, 10, 256, SizeOf#(ConnectalTypes::PipelineRewindRewindTableReqT), SizeOf#(ConnectalTypes::PipelineRewindRewindTableRspT)) PipelineRewindRewindTableMatchTable;
+typedef MatchTable#(1, 26, 256, SizeOf#(ConnectalTypes::PipelineRewindRewindTableReqT), SizeOf#(ConnectalTypes::PipelineRewindRewindTableRspT)) PipelineRewindRewindTableMatchTable;
 `SynthBuildModule1(mkMatchTable, String, PipelineRewindRewindTableMatchTable, mkMatchTable_PipelineRewindRewindTable)
 instance Table_request #(ConnectalTypes::PipelineRewindRewindTableReqT);
     function ConnectalTypes::PipelineRewindRewindTableReqT table_request(MetadataRequest data);

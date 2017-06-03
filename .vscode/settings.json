@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.bsv": "c",
+        "*.p4": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp"
+    }
+}

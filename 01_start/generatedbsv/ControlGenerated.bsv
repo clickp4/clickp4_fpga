@@ -15,9 +15,9 @@ typedef enum {
     ACTSETBITMAP0,
     NOACTION1
 } PipelineStartTblPipelineStartActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(9, 72, 2, pipeline_start_tbl_pipeline_start)
+`MATCHTABLE_SIM(25, 72, 2, pipeline_start_tbl_pipeline_start)
 typedef Table#(3, MetadataRequest, PipelineStartTblPipelineStartParam, ConnectalTypes::PipelineStartTblPipelineStartReqT, ConnectalTypes::PipelineStartTblPipelineStartRspT) PipelineStartTblPipelineStartTable;
-typedef MatchTable#(1, 9, 256, SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartReqT), SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartRspT)) PipelineStartTblPipelineStartMatchTable;
+typedef MatchTable#(1, 25, 256, SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartReqT), SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartRspT)) PipelineStartTblPipelineStartMatchTable;
 `SynthBuildModule1(mkMatchTable, String, PipelineStartTblPipelineStartMatchTable, mkMatchTable_PipelineStartTblPipelineStart)
 instance Table_request #(ConnectalTypes::PipelineStartTblPipelineStartReqT);
     function ConnectalTypes::PipelineStartTblPipelineStartReqT table_request(MetadataRequest data);
@@ -33,6 +33,19 @@ instance Table_execute #(ConnectalTypes::PipelineStartTblPipelineStartRspT, Pipe
     function Action table_execute(ConnectalTypes::PipelineStartTblPipelineStartRspT resp, MetadataRequest metadata, Vector#(3, FIFOF#(Tuple2#(MetadataRequest, PipelineStartTblPipelineStartParam))) fifos);
         action
         case (unpack(resp._action)) matches
+        /////*****
+        ACTSETCHAIN0： begin
+            PipelineStartTblPipelineStartParam req1 = tagged ActSetChainReqT {_chainid: resp._chainid};
+            fifos[0].enq(tuple2(metadata,req1));
+        end
+        ACTSETBITMAP0: begin
+            PipelineStartTblPipelineStartParam req2 = tagged ActSetBitmapReqT {_bitmap:resp._bitmap};
+            fifos[1].enq(tuple2(metadata),req2);
+        end
+        NOACTION1: begin
+            fifos[2].enq(tuple2(metadata,?));
+        end
+        /////*****
         endcase
         endaction
     endfunction
