@@ -1,4 +1,3 @@
 method module_for_for_end_add_entry=ingress.module_for_for_end_add_entry;
 method module_for_for_init_add_entry=ingress.module_for_for_init_add_entry;
 method module_for_for_loop_add_entry=ingress.module_for_for_loop_add_entry;
-method pipeline_start_tbl_pipeline_start_add_entry=ingress.pipeline_start_tbl_pipeline_start_add_entry;

@@ -124,7 +124,6 @@ typedef struct {
     Maybe#(Header#(UdpT)) udp;
 } Headers deriving (Bits, Eq, FShow);
 typedef struct {
-    Maybe#(Bit#(8)) proto;
     Maybe#(Bit#(16)) dst_port;
     Maybe#(Bit#(16)) src_port;
     Maybe#(Bit#(16)) dst_port;

@@ -12,11 +12,11 @@ import Lists::*;
 `include "MatchTable.defines"
 typedef enum {
     SETDMAC0,
-    NOACTION2
+    NOACTION1
 } ModuleL3SwitchForwardTableActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(0, 36, 1, module_l3_switch_forward_table)
+`MATCHTABLE_SIM(19, 36, 1, module_l3_switch_forward_table)
 typedef Table#(2, MetadataRequest, ModuleL3SwitchForwardTableParam, ConnectalTypes::ModuleL3SwitchForwardTableReqT, ConnectalTypes::ModuleL3SwitchForwardTableRspT) ModuleL3SwitchForwardTableTable;
-typedef MatchTable#(1, 0, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchForwardTableReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchForwardTableRspT)) ModuleL3SwitchForwardTableMatchTable;
+typedef MatchTable#(1, 19, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchForwardTableReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchForwardTableRspT)) ModuleL3SwitchForwardTableMatchTable;
 `SynthBuildModule1(mkMatchTable, String, ModuleL3SwitchForwardTableMatchTable, mkMatchTable_ModuleL3SwitchForwardTable)
 instance Table_request #(ConnectalTypes::ModuleL3SwitchForwardTableReqT);
     function ConnectalTypes::ModuleL3SwitchForwardTableReqT table_request(MetadataRequest data);
@@ -39,11 +39,11 @@ endinstance
 typedef enum {
     SETNHOP0,
     BLOCK0,
-    NOACTION3
+    NOACTION2
 } ModuleL3SwitchIpv4NhopActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(1, 36, 2, module_l3_switch_ipv4_nhop)
+`MATCHTABLE_SIM(20, 36, 2, module_l3_switch_ipv4_nhop)
 typedef Table#(3, MetadataRequest, ModuleL3SwitchIpv4NhopParam, ConnectalTypes::ModuleL3SwitchIpv4NhopReqT, ConnectalTypes::ModuleL3SwitchIpv4NhopRspT) ModuleL3SwitchIpv4NhopTable;
-typedef MatchTable#(1, 1, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchIpv4NhopReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchIpv4NhopRspT)) ModuleL3SwitchIpv4NhopMatchTable;
+typedef MatchTable#(1, 20, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchIpv4NhopReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchIpv4NhopRspT)) ModuleL3SwitchIpv4NhopMatchTable;
 `SynthBuildModule1(mkMatchTable, String, ModuleL3SwitchIpv4NhopMatchTable, mkMatchTable_ModuleL3SwitchIpv4Nhop)
 instance Table_request #(ConnectalTypes::ModuleL3SwitchIpv4NhopReqT);
     function ConnectalTypes::ModuleL3SwitchIpv4NhopReqT table_request(MetadataRequest data);
@@ -66,11 +66,11 @@ endinstance
 typedef enum {
     SETSMAC0,
     BLOCK1,
-    NOACTION4
+    NOACTION3
 } ModuleL3SwitchSendFrameActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(2, 9, 2, module_l3_switch_send_frame)
+`MATCHTABLE_SIM(21, 9, 2, module_l3_switch_send_frame)
 typedef Table#(3, MetadataRequest, ModuleL3SwitchSendFrameParam, ConnectalTypes::ModuleL3SwitchSendFrameReqT, ConnectalTypes::ModuleL3SwitchSendFrameRspT) ModuleL3SwitchSendFrameTable;
-typedef MatchTable#(1, 2, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchSendFrameReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchSendFrameRspT)) ModuleL3SwitchSendFrameMatchTable;
+typedef MatchTable#(1, 21, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchSendFrameReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchSendFrameRspT)) ModuleL3SwitchSendFrameMatchTable;
 `SynthBuildModule1(mkMatchTable, String, ModuleL3SwitchSendFrameMatchTable, mkMatchTable_ModuleL3SwitchSendFrame)
 instance Table_request #(ConnectalTypes::ModuleL3SwitchSendFrameReqT);
     function ConnectalTypes::ModuleL3SwitchSendFrameReqT table_request(MetadataRequest data);
@@ -90,55 +90,7 @@ instance Table_execute #(ConnectalTypes::ModuleL3SwitchSendFrameRspT, ModuleL3Sw
         endaction
     endfunction
 endinstance
-typedef enum {
-    ACTSETCHAIN0,
-    ACTSETBITMAP0,
-    NOACTION1
-} PipelineStartTblPipelineStartActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(26, 72, 2, pipeline_start_tbl_pipeline_start)
-typedef Table#(3, MetadataRequest, PipelineStartTblPipelineStartParam, ConnectalTypes::PipelineStartTblPipelineStartReqT, ConnectalTypes::PipelineStartTblPipelineStartRspT) PipelineStartTblPipelineStartTable;
-typedef MatchTable#(1, 26, 256, SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartReqT), SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartRspT)) PipelineStartTblPipelineStartMatchTable;
-`SynthBuildModule1(mkMatchTable, String, PipelineStartTblPipelineStartMatchTable, mkMatchTable_PipelineStartTblPipelineStart)
-instance Table_request #(ConnectalTypes::PipelineStartTblPipelineStartReqT);
-    function ConnectalTypes::PipelineStartTblPipelineStartReqT table_request(MetadataRequest data);
-        ConnectalTypes::PipelineStartTblPipelineStartReqT v = defaultValue;
-        if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
-            v = ConnectalTypes::PipelineStartTblPipelineStartReqT {src_addr: src_addr,dst_addr: dst_addr,proto: proto};
-        end
-        return v;
-    endfunction
-endinstance
-instance Table_execute #(ConnectalTypes::PipelineStartTblPipelineStartRspT, PipelineStartTblPipelineStartParam, 3);
-    function Action table_execute(ConnectalTypes::PipelineStartTblPipelineStartRspT resp, MetadataRequest metadata, Vector#(3, FIFOF#(Tuple2#(MetadataRequest, PipelineStartTblPipelineStartParam))) fifos);
-        action
-        case (unpack(resp._action)) matches
-        endcase
-        endaction
-    endfunction
-endinstance
 typedef Engine#(1, MetadataRequest, ModuleL3SwitchSendFrameParam) NoActionAction;
-// INST (64) meta.click_metadata.click_bitmap; = bitmap;
-typedef Engine#(1, MetadataRequest, PipelineStartTblPipelineStartParam) ActSetBitmapAction;
-instance Action_execute #(PipelineStartTblPipelineStartParam);
-    function ActionValue#(MetadataRequest) step_1 (MetadataRequest meta, PipelineStartTblPipelineStartParam param);
-        actionvalue
-            $display("(%0d) step 1: ", $time, fshow(meta));
-            return meta;
-        endactionvalue
-    endfunction
-endinstance
-// INST (32) meta.click_metadata.click_id; = chain_id;
-// INST (64) meta.click_metadata.click_bitmap; = bitmap;
-typedef Engine#(1, MetadataRequest, PipelineStartTblPipelineStartParam) ActSetChainAction;
-instance Action_execute #(PipelineStartTblPipelineStartParam);
-    function ActionValue#(MetadataRequest) step_1 (MetadataRequest meta, PipelineStartTblPipelineStartParam param);
-        actionvalue
-            $display("(%0d) step 1: ", $time, fshow(meta));
-            return meta;
-        endactionvalue
-    endfunction
-endinstance
 // INST (1) meta.security_metadata.drop_flag; = 1
 // mark_to_drop 
 typedef Engine#(1, MetadataRequest, ModuleL3SwitchSendFrameParam) BlockAction;
@@ -181,7 +133,6 @@ interface Ingress;
     method Action module_l3_switch_forward_table_add_entry(ConnectalTypes::ModuleL3SwitchForwardTableReqT key, ConnectalTypes::ModuleL3SwitchForwardTableRspT value);
     method Action module_l3_switch_ipv4_nhop_add_entry(ConnectalTypes::ModuleL3SwitchIpv4NhopReqT key, ConnectalTypes::ModuleL3SwitchIpv4NhopRspT value);
     method Action module_l3_switch_send_frame_add_entry(ConnectalTypes::ModuleL3SwitchSendFrameReqT key, ConnectalTypes::ModuleL3SwitchSendFrameRspT value);
-    method Action pipeline_start_tbl_pipeline_start_add_entry(ConnectalTypes::PipelineStartTblPipelineStartReqT key, ConnectalTypes::PipelineStartTblPipelineStartRspT value);
     method Action set_verbosity(int verbosity);
 endinterface
 module mkIngress (Ingress);
@@ -194,17 +145,12 @@ module mkIngress (Ingress);
     FIFOF#(MetadataRequest) module_l3_switch_ipv4_nhop_rsp_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) module_l3_switch_send_frame_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) module_l3_switch_send_frame_rsp_ff <- mkFIFOF;
-    FIFOF#(MetadataRequest) pipeline_start_tbl_pipeline_start_req_ff <- mkFIFOF;
-    FIFOF#(MetadataRequest) pipeline_start_tbl_pipeline_start_rsp_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) node_2_req_ff <- mkFIFOF;
+    FIFOF#(MetadataRequest) node_3_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) node_4_req_ff <- mkFIFOF;
-    FIFOF#(MetadataRequest) node_5_req_ff <- mkFIFOF;
-    FIFOF#(MetadataRequest) node_6_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) exit_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) exit_rsp_ff <- mkFIFOF;
     Control::NoActionAction noAction_action <- mkEngine(toList(vec(step_1)));
-    Control::ActSetBitmapAction actsetbitmap_action <- mkEngine(toList(vec(step_1)));
-    Control::ActSetChainAction actsetchain_action <- mkEngine(toList(vec(step_1)));
     Control::BlockAction block_action <- mkEngine(toList(vec(step_1)));
     Control::SetDmacAction setdmac_action <- mkEngine(toList(vec(step_1)));
     Control::SetNhopAction setnhop_action <- mkEngine(toList(vec(step_1)));
@@ -221,10 +167,6 @@ module mkIngress (Ingress);
     Control::ModuleL3SwitchSendFrameTable module_l3_switch_send_frame <- mkTable(table_request, table_execute, module_l3_switch_send_frame_table);
     messageM(printType(typeOf(module_l3_switch_send_frame_table)));
     messageM(printType(typeOf(module_l3_switch_send_frame)));
-    PipelineStartTblPipelineStartMatchTable pipeline_start_tbl_pipeline_start_table <- mkMatchTable_PipelineStartTblPipelineStart("pipeline_start_tbl_pipeline_start");
-    Control::PipelineStartTblPipelineStartTable pipeline_start_tbl_pipeline_start <- mkTable(table_request, table_execute, pipeline_start_tbl_pipeline_start_table);
-    messageM(printType(typeOf(pipeline_start_tbl_pipeline_start_table)));
-    messageM(printType(typeOf(pipeline_start_tbl_pipeline_start)));
     mkConnection(toClient(module_l3_switch_forward_table_req_ff, module_l3_switch_forward_table_rsp_ff), module_l3_switch_forward_table.prev_control_state);
     mkConnection(module_l3_switch_forward_table.next_control_state[0], setdmac_action.prev_control_state);
     mkConnection(module_l3_switch_forward_table.next_control_state[1], noAction_action.prev_control_state);
@@ -236,10 +178,6 @@ module mkIngress (Ingress);
     mkConnection(module_l3_switch_send_frame.next_control_state[0], setsmac_action.prev_control_state);
     mkConnection(module_l3_switch_send_frame.next_control_state[1], block_action.prev_control_state);
     mkConnection(module_l3_switch_send_frame.next_control_state[2], noAction_action.prev_control_state);
-    mkConnection(toClient(pipeline_start_tbl_pipeline_start_req_ff, pipeline_start_tbl_pipeline_start_rsp_ff), pipeline_start_tbl_pipeline_start.prev_control_state);
-    mkConnection(pipeline_start_tbl_pipeline_start.next_control_state[0], actsetchain_action.prev_control_state);
-    mkConnection(pipeline_start_tbl_pipeline_start.next_control_state[1], actsetbitmap_action.prev_control_state);
-    mkConnection(pipeline_start_tbl_pipeline_start.next_control_state[2], noAction_action.prev_control_state);
     rule rl_entry if (entry_req_ff.notEmpty);
         entry_req_ff.deq;
         let _req = entry_req_ff.first;
@@ -253,65 +191,39 @@ module mkIngress (Ingress);
         node_2_req_ff.deq;
         let _req = node_2_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.click_bitmap10) begin
-            pipeline_start.tbl_pipeline_start_req_ff.enq(_req);
+        if (h.hdr.click_bitmap20) begin
+            node_3_req_ff.enq(_req);
             dbprint(3, $format("node_2 true", fshow(meta)));
         end
         else begin
-            node_4_req_ff.enq(_req);
+            _req_ff.enq(_req);
             dbprint(3, $format("node_2 false", fshow(meta)));
         end
     endrule
-    rule rl_pipeline_start_tbl_pipeline_start if (pipeline_start_tbl_pipeline_start_rsp_ff.notEmpty);
-        pipeline_start_tbl_pipeline_start_rsp_ff.deq;
-        let _rsp = pipeline_start_tbl_pipeline_start_rsp_ff.first;
-        let meta = _rsp.meta;
-        let pkt = _rsp.pkt;
-        case (_rsp) matches
-            default: begin
-                MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                node_4_req_ff.enq(req);
-                dbprint(3, $format("default ", fshow(meta)));
-            end
-        endcase
+    rule rl_node_3 if (node_3_req_ff.notEmpty);
+        node_3_req_ff.deq;
+        let _req = node_3_req_ff.first;
+        let meta = _req.meta;
+        if (h.hdr.state2) begin
+            node_4_req_ff.enq(_req);
+            dbprint(3, $format("node_3 true", fshow(meta)));
+        end
+        else begin
+            _req_ff.enq(_req);
+            dbprint(3, $format("node_3 false", fshow(meta)));
+        end
     endrule
     rule rl_node_4 if (node_4_req_ff.notEmpty);
         node_4_req_ff.deq;
         let _req = node_4_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.click_bitmap20) begin
-            node_5_req_ff.enq(_req);
+        if (meta.hdr.ipv4 matches tagged Valid .h &&& h.hdr.ttl > 0) begin
+            module_l3_switch.ipv4_nhop_req_ff.enq(_req);
             dbprint(3, $format("node_4 true", fshow(meta)));
         end
         else begin
             _req_ff.enq(_req);
             dbprint(3, $format("node_4 false", fshow(meta)));
-        end
-    endrule
-    rule rl_node_5 if (node_5_req_ff.notEmpty);
-        node_5_req_ff.deq;
-        let _req = node_5_req_ff.first;
-        let meta = _req.meta;
-        if (h.hdr.state2) begin
-            node_6_req_ff.enq(_req);
-            dbprint(3, $format("node_5 true", fshow(meta)));
-        end
-        else begin
-            _req_ff.enq(_req);
-            dbprint(3, $format("node_5 false", fshow(meta)));
-        end
-    endrule
-    rule rl_node_6 if (node_6_req_ff.notEmpty);
-        node_6_req_ff.deq;
-        let _req = node_6_req_ff.first;
-        let meta = _req.meta;
-        if (meta.hdr.ipv4 matches tagged Valid .h &&& h.hdr.ttl > 0) begin
-            module_l3_switch.ipv4_nhop_req_ff.enq(_req);
-            dbprint(3, $format("node_6 true", fshow(meta)));
-        end
-        else begin
-            _req_ff.enq(_req);
-            dbprint(3, $format("node_6 false", fshow(meta)));
         end
     endrule
     rule rl_module_l3_switch_ipv4_nhop if (module_l3_switch_ipv4_nhop_rsp_ff.notEmpty);
@@ -358,13 +270,11 @@ module mkIngress (Ingress);
     method module_l3_switch_forward_table_add_entry = module_l3_switch_forward_table.add_entry;
     method module_l3_switch_ipv4_nhop_add_entry = module_l3_switch_ipv4_nhop.add_entry;
     method module_l3_switch_send_frame_add_entry = module_l3_switch_send_frame.add_entry;
-    method pipeline_start_tbl_pipeline_start_add_entry = pipeline_start_tbl_pipeline_start.add_entry;
     method Action set_verbosity (int verbosity);
         cf_verbosity <= verbosity;
         module_l3_switch_forward_table.set_verbosity(verbosity);
         module_l3_switch_ipv4_nhop.set_verbosity(verbosity);
         module_l3_switch_send_frame.set_verbosity(verbosity);
-        pipeline_start_tbl_pipeline_start.set_verbosity(verbosity);
     endmethod
 endmodule
 // =============== control egress ==============

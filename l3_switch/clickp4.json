@@ -601,8 +601,8 @@
                 "ethernet",
                 "ipv6",
                 "ipv4",
-                "udp",
-                "tcp"
+                "tcp",
+                "udp"
             ]
         }
     ],
@@ -657,112 +657,8 @@
             ]
         },
         {
-            "name": "set_smac",
-            "id": 1,
-            "runtime_data": [
-                {
-                    "name": "smac",
-                    "bitwidth": 48
-                }
-            ],
-            "primitives": [
-                {
-                    "op": "modify_field",
-                    "parameters": [
-                        {
-                            "type": "field",
-                            "value": [
-                                "ethernet",
-                                "src_addr"
-                            ]
-                        },
-                        {
-                            "type": "runtime_data",
-                            "value": 0
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "act_set_chain",
-            "id": 2,
-            "runtime_data": [
-                {
-                    "name": "chain_id",
-                    "bitwidth": 32
-                },
-                {
-                    "name": "bitmap",
-                    "bitwidth": 64
-                }
-            ],
-            "primitives": [
-                {
-                    "op": "modify_field",
-                    "parameters": [
-                        {
-                            "type": "field",
-                            "value": [
-                                "click_metadata",
-                                "click_id"
-                            ]
-                        },
-                        {
-                            "type": "runtime_data",
-                            "value": 0
-                        }
-                    ]
-                },
-                {
-                    "op": "modify_field",
-                    "parameters": [
-                        {
-                            "type": "field",
-                            "value": [
-                                "click_metadata",
-                                "click_bitmap"
-                            ]
-                        },
-                        {
-                            "type": "runtime_data",
-                            "value": 1
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "act_set_bitmap",
-            "id": 3,
-            "runtime_data": [
-                {
-                    "name": "bitmap",
-                    "bitwidth": 64
-                }
-            ],
-            "primitives": [
-                {
-                    "op": "modify_field",
-                    "parameters": [
-                        {
-                            "type": "field",
-                            "value": [
-                                "click_metadata",
-                                "click_bitmap"
-                            ]
-                        },
-                        {
-                            "type": "runtime_data",
-                            "value": 0
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "name": "set_nhop",
-            "id": 4,
+            "id": 1,
             "runtime_data": [
                 {
                     "name": "nhop_ipv4",
@@ -805,8 +701,36 @@
             ]
         },
         {
+            "name": "set_smac",
+            "id": 2,
+            "runtime_data": [
+                {
+                    "name": "smac",
+                    "bitwidth": 48
+                }
+            ],
+            "primitives": [
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "ethernet",
+                                "src_addr"
+                            ]
+                        },
+                        {
+                            "type": "runtime_data",
+                            "value": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "block",
-            "id": 5,
+            "id": 3,
             "runtime_data": [],
             "primitives": [
                 {
@@ -839,53 +763,8 @@
             "init_table": "_condition_0",
             "tables": [
                 {
-                    "name": "tbl_pipeline_start",
-                    "id": 0,
-                    "match_type": "ternary",
-                    "type": "simple",
-                    "max_size": 16384,
-                    "with_counters": false,
-                    "direct_meters": null,
-                    "support_timeout": false,
-                    "key": [
-                        {
-                            "match_type": "ternary",
-                            "target": [
-                                "ipv4",
-                                "src_addr"
-                            ],
-                            "mask": null
-                        },
-                        {
-                            "match_type": "ternary",
-                            "target": [
-                                "ipv4",
-                                "dst_addr"
-                            ],
-                            "mask": null
-                        },
-                        {
-                            "match_type": "ternary",
-                            "target": [
-                                "ipv4",
-                                "proto"
-                            ],
-                            "mask": null
-                        }
-                    ],
-                    "actions": [
-                        "act_set_chain",
-                        "act_set_bitmap"
-                    ],
-                    "next_tables": {
-                        "act_set_chain": "_condition_1",
-                        "act_set_bitmap": "_condition_1"
-                    },
-                    "base_default_next": "_condition_1"
-                },
-                {
                     "name": "ipv4_nhop",
-                    "id": 1,
+                    "id": 0,
                     "match_type": "lpm",
                     "type": "simple",
                     "max_size": 1024,
@@ -914,7 +793,7 @@
                 },
                 {
                     "name": "forward_table",
-                    "id": 2,
+                    "id": 1,
                     "match_type": "exact",
                     "type": "simple",
                     "max_size": 1024,
@@ -941,7 +820,7 @@
                 },
                 {
                     "name": "send_frame",
-                    "id": 3,
+                    "id": 2,
                     "match_type": "exact",
                     "type": "simple",
                     "max_size": 1024,
@@ -1011,7 +890,7 @@
                             }
                         }
                     },
-                    "true_next": "tbl_pipeline_start",
+                    "true_next": "_condition_1",
                     "false_next": "_condition_1"
                 },
                 {

@@ -131,10 +131,8 @@ typedef struct {
 } Headers deriving (Bits, Eq, FShow);
 typedef struct {
     Maybe#(Bit#(9)) egress_spec;
-    Maybe#(Bit#(8)) proto;
     Maybe#(Bit#(32)) nhop_ipv4;
     Maybe#(Bit#(32)) dst_addr;
-    Maybe#(Bit#(32)) src_addr;
     Maybe#(ClickMetadataT) click_metadata;
     Maybe#(ConditionMetadataT) condition_metadata;
     Maybe#(ForMetadataT) for_metadata;

@@ -13,7 +13,7 @@ import Lists::*;
 typedef enum {
     LOOP0,
     LOOPEND0,
-    NOACTION2
+    NOACTION1
 } ModuleWhileWhileEqualActionT deriving (Bits, Eq, FShow);
 `MATCHTABLE_SIM(21, 36, 2, module_while_while_equal)
 typedef Table#(3, MetadataRequest, ModuleWhileWhileEqualParam, ConnectalTypes::ModuleWhileWhileEqualReqT, ConnectalTypes::ModuleWhileWhileEqualRspT) ModuleWhileWhileEqualTable;
@@ -39,7 +39,7 @@ instance Table_execute #(ConnectalTypes::ModuleWhileWhileEqualRspT, ModuleWhileW
 endinstance
 typedef enum {
     SETTHRESHOLD0,
-    NOACTION3
+    NOACTION2
 } ModuleWhileWhileInitActionT deriving (Bits, Eq, FShow);
 `MATCHTABLE_SIM(22, 72, 1, module_while_while_init)
 typedef Table#(2, MetadataRequest, ModuleWhileWhileInitParam, ConnectalTypes::ModuleWhileWhileInitReqT, ConnectalTypes::ModuleWhileWhileInitRspT) ModuleWhileWhileInitTable;
@@ -66,7 +66,7 @@ endinstance
 typedef enum {
     LOOP1,
     LOOPEND1,
-    NOACTION4
+    NOACTION3
 } ModuleWhileWhileLargeActionT deriving (Bits, Eq, FShow);
 `MATCHTABLE_SIM(23, 36, 2, module_while_while_large)
 typedef Table#(3, MetadataRequest, ModuleWhileWhileLargeParam, ConnectalTypes::ModuleWhileWhileLargeReqT, ConnectalTypes::ModuleWhileWhileLargeRspT) ModuleWhileWhileLargeTable;
@@ -93,7 +93,7 @@ endinstance
 typedef enum {
     LOOP2,
     LOOPEND2,
-    NOACTION5
+    NOACTION4
 } ModuleWhileWhileSmallActionT deriving (Bits, Eq, FShow);
 `MATCHTABLE_SIM(24, 36, 2, module_while_while_small)
 typedef Table#(3, MetadataRequest, ModuleWhileWhileSmallParam, ConnectalTypes::ModuleWhileWhileSmallReqT, ConnectalTypes::ModuleWhileWhileSmallRspT) ModuleWhileWhileSmallTable;
@@ -117,55 +117,7 @@ instance Table_execute #(ConnectalTypes::ModuleWhileWhileSmallRspT, ModuleWhileW
         endaction
     endfunction
 endinstance
-typedef enum {
-    ACTSETCHAIN0,
-    ACTSETBITMAP0,
-    NOACTION1
-} PipelineStartTblPipelineStartActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(17, 72, 2, pipeline_start_tbl_pipeline_start)
-typedef Table#(3, MetadataRequest, PipelineStartTblPipelineStartParam, ConnectalTypes::PipelineStartTblPipelineStartReqT, ConnectalTypes::PipelineStartTblPipelineStartRspT) PipelineStartTblPipelineStartTable;
-typedef MatchTable#(1, 17, 256, SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartReqT), SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartRspT)) PipelineStartTblPipelineStartMatchTable;
-`SynthBuildModule1(mkMatchTable, String, PipelineStartTblPipelineStartMatchTable, mkMatchTable_PipelineStartTblPipelineStart)
-instance Table_request #(ConnectalTypes::PipelineStartTblPipelineStartReqT);
-    function ConnectalTypes::PipelineStartTblPipelineStartReqT table_request(MetadataRequest data);
-        ConnectalTypes::PipelineStartTblPipelineStartReqT v = defaultValue;
-        if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
-            v = ConnectalTypes::PipelineStartTblPipelineStartReqT {src_addr: src_addr,dst_addr: dst_addr,proto: proto};
-        end
-        return v;
-    endfunction
-endinstance
-instance Table_execute #(ConnectalTypes::PipelineStartTblPipelineStartRspT, PipelineStartTblPipelineStartParam, 3);
-    function Action table_execute(ConnectalTypes::PipelineStartTblPipelineStartRspT resp, MetadataRequest metadata, Vector#(3, FIFOF#(Tuple2#(MetadataRequest, PipelineStartTblPipelineStartParam))) fifos);
-        action
-        case (unpack(resp._action)) matches
-        endcase
-        endaction
-    endfunction
-endinstance
 typedef Engine#(1, MetadataRequest, ModuleWhileWhileSmallParam) NoActionAction;
-// INST (64) meta.click_metadata.click_bitmap; = bitmap;
-typedef Engine#(1, MetadataRequest, PipelineStartTblPipelineStartParam) ActSetBitmapAction;
-instance Action_execute #(PipelineStartTblPipelineStartParam);
-    function ActionValue#(MetadataRequest) step_1 (MetadataRequest meta, PipelineStartTblPipelineStartParam param);
-        actionvalue
-            $display("(%0d) step 1: ", $time, fshow(meta));
-            return meta;
-        endactionvalue
-    endfunction
-endinstance
-// INST (32) meta.click_metadata.click_id; = chain_id;
-// INST (64) meta.click_metadata.click_bitmap; = bitmap;
-typedef Engine#(1, MetadataRequest, PipelineStartTblPipelineStartParam) ActSetChainAction;
-instance Action_execute #(PipelineStartTblPipelineStartParam);
-    function ActionValue#(MetadataRequest) step_1 (MetadataRequest meta, PipelineStartTblPipelineStartParam param);
-        actionvalue
-            $display("(%0d) step 1: ", $time, fshow(meta));
-            return meta;
-        endactionvalue
-    endfunction
-endinstance
 // INST (8) meta.click_metadata.click_state; = 0
 // INST (64) meta.click_metadata.click_bitmap; = bitmap;
 // INST (8) meta.click_metadata.click_input; = 0
@@ -208,7 +160,6 @@ interface Ingress;
     method Action module_while_while_init_add_entry(ConnectalTypes::ModuleWhileWhileInitReqT key, ConnectalTypes::ModuleWhileWhileInitRspT value);
     method Action module_while_while_large_add_entry(ConnectalTypes::ModuleWhileWhileLargeReqT key, ConnectalTypes::ModuleWhileWhileLargeRspT value);
     method Action module_while_while_small_add_entry(ConnectalTypes::ModuleWhileWhileSmallReqT key, ConnectalTypes::ModuleWhileWhileSmallRspT value);
-    method Action pipeline_start_tbl_pipeline_start_add_entry(ConnectalTypes::PipelineStartTblPipelineStartReqT key, ConnectalTypes::PipelineStartTblPipelineStartRspT value);
     method Action set_verbosity(int verbosity);
 endinterface
 module mkIngress (Ingress);
@@ -223,18 +174,13 @@ module mkIngress (Ingress);
     FIFOF#(MetadataRequest) module_while_while_large_rsp_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) module_while_while_small_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) module_while_while_small_rsp_ff <- mkFIFOF;
-    FIFOF#(MetadataRequest) pipeline_start_tbl_pipeline_start_req_ff <- mkFIFOF;
-    FIFOF#(MetadataRequest) pipeline_start_tbl_pipeline_start_rsp_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) node_2_req_ff <- mkFIFOF;
-    FIFOF#(MetadataRequest) node_4_req_ff <- mkFIFOF;
+    FIFOF#(MetadataRequest) node_3_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) node_5_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) node_7_req_ff <- mkFIFOF;
-    FIFOF#(MetadataRequest) node_9_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) exit_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) exit_rsp_ff <- mkFIFOF;
     Control::NoActionAction noAction_action <- mkEngine(toList(vec(step_1)));
-    Control::ActSetBitmapAction actsetbitmap_action <- mkEngine(toList(vec(step_1)));
-    Control::ActSetChainAction actsetchain_action <- mkEngine(toList(vec(step_1)));
     Control::LoopAction loop_action <- mkEngine(toList(vec(step_1)));
     Control::LoopEndAction loopend_action <- mkEngine(toList(vec(step_1)));
     Control::SetThresholdAction setthreshold_action <- mkEngine(toList(vec(step_1)));
@@ -254,10 +200,6 @@ module mkIngress (Ingress);
     Control::ModuleWhileWhileSmallTable module_while_while_small <- mkTable(table_request, table_execute, module_while_while_small_table);
     messageM(printType(typeOf(module_while_while_small_table)));
     messageM(printType(typeOf(module_while_while_small)));
-    PipelineStartTblPipelineStartMatchTable pipeline_start_tbl_pipeline_start_table <- mkMatchTable_PipelineStartTblPipelineStart("pipeline_start_tbl_pipeline_start");
-    Control::PipelineStartTblPipelineStartTable pipeline_start_tbl_pipeline_start <- mkTable(table_request, table_execute, pipeline_start_tbl_pipeline_start_table);
-    messageM(printType(typeOf(pipeline_start_tbl_pipeline_start_table)));
-    messageM(printType(typeOf(pipeline_start_tbl_pipeline_start)));
     mkConnection(toClient(module_while_while_equal_req_ff, module_while_while_equal_rsp_ff), module_while_while_equal.prev_control_state);
     mkConnection(module_while_while_equal.next_control_state[0], loop_action.prev_control_state);
     mkConnection(module_while_while_equal.next_control_state[1], loopend_action.prev_control_state);
@@ -273,10 +215,6 @@ module mkIngress (Ingress);
     mkConnection(module_while_while_small.next_control_state[0], loop_action.prev_control_state);
     mkConnection(module_while_while_small.next_control_state[1], loopend_action.prev_control_state);
     mkConnection(module_while_while_small.next_control_state[2], noAction_action.prev_control_state);
-    mkConnection(toClient(pipeline_start_tbl_pipeline_start_req_ff, pipeline_start_tbl_pipeline_start_rsp_ff), pipeline_start_tbl_pipeline_start.prev_control_state);
-    mkConnection(pipeline_start_tbl_pipeline_start.next_control_state[0], actsetchain_action.prev_control_state);
-    mkConnection(pipeline_start_tbl_pipeline_start.next_control_state[1], actsetbitmap_action.prev_control_state);
-    mkConnection(pipeline_start_tbl_pipeline_start.next_control_state[2], noAction_action.prev_control_state);
     rule rl_entry if (entry_req_ff.notEmpty);
         entry_req_ff.deq;
         let _req = entry_req_ff.first;
@@ -290,52 +228,26 @@ module mkIngress (Ingress);
         node_2_req_ff.deq;
         let _req = node_2_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.click_bitmap10) begin
-            pipeline_start.tbl_pipeline_start_req_ff.enq(_req);
+        if (h.hdr.click_bitmap20) begin
+            node_3_req_ff.enq(_req);
             dbprint(3, $format("node_2 true", fshow(meta)));
         end
         else begin
-            node_4_req_ff.enq(_req);
+            _req_ff.enq(_req);
             dbprint(3, $format("node_2 false", fshow(meta)));
         end
     endrule
-    rule rl_pipeline_start_tbl_pipeline_start if (pipeline_start_tbl_pipeline_start_rsp_ff.notEmpty);
-        pipeline_start_tbl_pipeline_start_rsp_ff.deq;
-        let _rsp = pipeline_start_tbl_pipeline_start_rsp_ff.first;
-        let meta = _rsp.meta;
-        let pkt = _rsp.pkt;
-        case (_rsp) matches
-            default: begin
-                MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                node_4_req_ff.enq(req);
-                dbprint(3, $format("default ", fshow(meta)));
-            end
-        endcase
-    endrule
-    rule rl_node_4 if (node_4_req_ff.notEmpty);
-        node_4_req_ff.deq;
-        let _req = node_4_req_ff.first;
-        let meta = _req.meta;
-        if (h.hdr.click_bitmap20) begin
-            node_5_req_ff.enq(_req);
-            dbprint(3, $format("node_4 true", fshow(meta)));
-        end
-        else begin
-            _req_ff.enq(_req);
-            dbprint(3, $format("node_4 false", fshow(meta)));
-        end
-    endrule
-    rule rl_node_5 if (node_5_req_ff.notEmpty);
-        node_5_req_ff.deq;
-        let _req = node_5_req_ff.first;
+    rule rl_node_3 if (node_3_req_ff.notEmpty);
+        node_3_req_ff.deq;
+        let _req = node_3_req_ff.first;
         let meta = _req.meta;
         if (h.hdr.threshold0) begin
             module_while.while_init_req_ff.enq(_req);
-            dbprint(3, $format("node_5 true", fshow(meta)));
+            dbprint(3, $format("node_3 true", fshow(meta)));
         end
         else begin
-            node_7_req_ff.enq(_req);
-            dbprint(3, $format("node_5 false", fshow(meta)));
+            node_5_req_ff.enq(_req);
+            dbprint(3, $format("node_3 false", fshow(meta)));
         end
     endrule
     rule rl_module_while_while_init if (module_while_while_init_rsp_ff.notEmpty);
@@ -346,22 +258,22 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                node_7_req_ff.enq(req);
+                node_5_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase
     endrule
-    rule rl_node_7 if (node_7_req_ff.notEmpty);
-        node_7_req_ff.deq;
-        let _req = node_7_req_ff.first;
+    rule rl_node_5 if (node_5_req_ff.notEmpty);
+        node_5_req_ff.deq;
+        let _req = node_5_req_ff.first;
         let meta = _req.meta;
         if (h.hdr.valueh.hdr.threshold) begin
             module_while.while_small_req_ff.enq(_req);
-            dbprint(3, $format("node_7 true", fshow(meta)));
+            dbprint(3, $format("node_5 true", fshow(meta)));
         end
         else begin
-            node_9_req_ff.enq(_req);
-            dbprint(3, $format("node_7 false", fshow(meta)));
+            node_7_req_ff.enq(_req);
+            dbprint(3, $format("node_5 false", fshow(meta)));
         end
     endrule
     rule rl_module_while_while_small if (module_while_while_small_rsp_ff.notEmpty);
@@ -377,17 +289,17 @@ module mkIngress (Ingress);
             end
         endcase
     endrule
-    rule rl_node_9 if (node_9_req_ff.notEmpty);
-        node_9_req_ff.deq;
-        let _req = node_9_req_ff.first;
+    rule rl_node_7 if (node_7_req_ff.notEmpty);
+        node_7_req_ff.deq;
+        let _req = node_7_req_ff.first;
         let meta = _req.meta;
         if (h.hdr.value > h.hdr.threshold) begin
             module_while.while_large_req_ff.enq(_req);
-            dbprint(3, $format("node_9 true", fshow(meta)));
+            dbprint(3, $format("node_7 true", fshow(meta)));
         end
         else begin
             module_while.while_equal_req_ff.enq(_req);
-            dbprint(3, $format("node_9 false", fshow(meta)));
+            dbprint(3, $format("node_7 false", fshow(meta)));
         end
     endrule
     rule rl_module_while_while_large if (module_while_while_large_rsp_ff.notEmpty);
@@ -422,14 +334,12 @@ module mkIngress (Ingress);
     method module_while_while_init_add_entry = module_while_while_init.add_entry;
     method module_while_while_large_add_entry = module_while_while_large.add_entry;
     method module_while_while_small_add_entry = module_while_while_small.add_entry;
-    method pipeline_start_tbl_pipeline_start_add_entry = pipeline_start_tbl_pipeline_start.add_entry;
     method Action set_verbosity (int verbosity);
         cf_verbosity <= verbosity;
         module_while_while_equal.set_verbosity(verbosity);
         module_while_while_init.set_verbosity(verbosity);
         module_while_while_large.set_verbosity(verbosity);
         module_while_while_small.set_verbosity(verbosity);
-        pipeline_start_tbl_pipeline_start.set_verbosity(verbosity);
     endmethod
 endmodule
 // =============== control egress ==============

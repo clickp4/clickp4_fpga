@@ -124,10 +124,7 @@ typedef struct {
     Maybe#(Header#(UdpT)) udp;
 } Headers deriving (Bits, Eq, FShow);
 typedef struct {
-    Maybe#(Bit#(8)) proto;
     Maybe#(Bit#(32)) click_id;
-    Maybe#(Bit#(32)) dst_addr;
-    Maybe#(Bit#(32)) src_addr;
     Maybe#(ClickMetadataT) click_metadata;
     Maybe#(ConditionMetadataT) condition_metadata;
     Maybe#(ForMetadataT) for_metadata;
