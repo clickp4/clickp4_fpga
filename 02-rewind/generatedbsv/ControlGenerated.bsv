@@ -22,7 +22,8 @@ instance Table_request #(ConnectalTypes::PipelineRewindRewindTableReqT);
     function ConnectalTypes::PipelineRewindRewindTableReqT table_request(MetadataRequest data);
         ConnectalTypes::PipelineRewindRewindTableReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+            let click_id = fromMaybe(?, data.meta.meta.click_id);
+            let click_state = fromMaybe(?, data.meta.meta.click_state);
             v = ConnectalTypes::PipelineRewindRewindTableReqT {click_id: click_id,click_state: click_state, padding: 0};
         end
         return v;
@@ -32,6 +33,13 @@ instance Table_execute #(ConnectalTypes::PipelineRewindRewindTableRspT, Pipeline
     function Action table_execute(ConnectalTypes::PipelineRewindRewindTableRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, PipelineRewindRewindTableParam))) fifos);
         action
         case (unpack(resp._action)) matches
+        REWIND0: begin
+            PipelineRewindRewindTableParam req = tagged RewindReqT {_state: resp._state, _bitmap: resp._bitmap};
+            fifos[0].enq(tuple2(metadata,req));
+        end
+        NOACTION1: begin
+            fifos[1].enq(tuple2(metadata,?));
+        end
         endcase
         endaction
     endfunction
@@ -89,12 +97,13 @@ module mkIngress (Ingress);
         node_2_req_ff.deq;
         let _req = node_2_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.click_bitmap21474836480) begin
+        let h = _req.meta.meta.click_metadata;
+        if (h.click_bitmap) begin
             node_3_req_ff.enq(_req);
             dbprint(3, $format("node_2 true", fshow(meta)));
         end
         else begin
-            _req_ff.enq(_req);
+            exit_req_ff.enq(_req);
             dbprint(3, $format("node_2 false", fshow(meta)));
         end
     endrule
@@ -102,12 +111,12 @@ module mkIngress (Ingress);
         node_3_req_ff.deq;
         let _req = node_3_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.click_id0) begin
+        if (h.click_id) begin
             pipeline_rewind.rewind_table_req_ff.enq(_req);
             dbprint(3, $format("node_3 true", fshow(meta)));
         end
         else begin
-            _req_ff.enq(_req);
+            exit_req_ff.enq(_req);
             dbprint(3, $format("node_3 false", fshow(meta)));
         end
     endrule
@@ -119,7 +128,7 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                _req_ff.enq(req);
+                pipeline_rewind_rewind_table_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase

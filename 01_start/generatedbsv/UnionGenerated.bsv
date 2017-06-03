@@ -2,11 +2,15 @@ import Ethernet::*;
 import StructDefines::*;
 typedef union tagged {
     struct {
-    } ReqT;
+        Bit#(32) _chainid; 
+        Bit#(64) _bitmap;
+    } ActSetChainReqT;
     struct {
-    } ReqT;
+        Bit#(64) _bitmap;
+    } ActSetBitmapReqT;
     struct {
-    } ReqT;
+        Bit#(0) unused;
+    } BoAction1ReqT;
 } PipelineStartTblPipelineStartParam deriving (Bits, Eq, FShow);
 import Ethernet::*;
 import StructDefines::*;

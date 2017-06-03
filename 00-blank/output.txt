@@ -5895,4 +5895,2235 @@ Bus 003 Device 003: ID 04ca:0061 Lite-On Technology Corp.
 Bus 003 Device 002: ID 413c:2107 Dell Computer Corp. 
 Bus 003 Device 005: ID 0403:6014 Future Technology Devices International, Ltd FT232H Single HS USB-UART/FIFO IC
 Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-[1m[7m%[27m[1m[0m                                                                                ]2;yhs@yhs-OptiPlex-9020: ~/clickp4_fpga/01_start]1;..fpga/01_start[0m[27m[24m[J[01;32m➜  [36m01_start[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=
+[1m[7m%[27m[1m[0m                                                                                ]2;yhs@yhs-OptiPlex-9020: ~/clickp4_fpga/01_start]1;..fpga/01_start[0m[27m[24m[J[01;32m➜  [36m01_start[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=mmake compile[1m [0m[0m [?1l>
+]2;make compile]1;makegrep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make build.bluesim -j8
+grep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make[1]: 正在进入目录 `/home/yhs/clickp4_fpga/01_start'
+BOARD=bluesim PROJECTDIR=bluesim make --no-print-directory gentarget prebuild 
+touch bluesim/Makefile.autotop
+topgen ['/home/yhs/connectal/scripts/topgen.py', '--project-dir', 'bluesim/generatedbsv', '--cnoc', '--wrapper', 'MainRequest:Main.request', '--proxy', 'Main:MainIndication,MemServerIndication:host']
+options.proxy: ['Main:MainIndication,MemServerIndication:host']
+options.wrapper: MainRequest:Main.request {'uparam': '', 'inverse': '', 'xparam': '', 'tparam': '', 'usermod': 'MainRequest', 'memFlag': '', 'name': 'Main.request'}
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/Top.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/../jni/topEnum.h
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)']
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)', 'MainClockPeriod=20', 'DerivedClockPeriod=10.000000']
+fpga_vendor None
+os.rename(/home/yhs/clickp4_fpga/01_start/bluesim/Makefile.new, /home/yhs/clickp4_fpga/01_start/bluesim/Makefile)
+os.rename(/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/ConnectalProjectConfig.bsv.new, /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/ConnectalProjectConfig.bsv)
+os.rename(/home/yhs/clickp4_fpga/01_start/bluesim/jni/ConnectalProjectConfig.h.new, /home/yhs/clickp4_fpga/01_start/bluesim/jni/ConnectalProjectConfig.h)
+make -C bluesim --no-print-directory all
+/home/yhs/connectal/scripts/Makefile.connectal.build:359: obj/Makefile: 没有那个文件或目录
+/home/yhs/p4fpga/bsv/infra/Main.bsv:111: Syntax error, token=TOKENDINSTANCE
+split ['PARSER', 'Parser']
+split ['DEPARSER', 'Deparser']
+split ['MATCHTABLE', 'Control']
+split ['TYPEDEF', 'StructDefines']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_METAGEN', '1']
+split ['NUM_PKTGEN', '1']
+split ['NicVersion', '2343625944']
+split ['DataBusWidth', '128']
+split ['ConnectalVersion', '16.11.1']
+split ['NumberOfMasters', '1']
+split ['PinType', 'Empty']
+split ['PinTypeInclude', 'Misc']
+split ['NumberOfUserTiles', '1']
+split ['SlaveDataBusWidth', '32']
+split ['SlaveControlAddrWidth', '5']
+split ['BurstLenSize', '12']
+split ['project_dir', '/home/yhs/clickp4_fpga/01_start/bluesim']
+split ['MainClockPeriod', '20']
+split ['DerivedClockPeriod', '10.000000']
+split ['PhysAddrWidth', '40']
+split ['CONNECTAL_BITS_DEPENDENCES', 'bsim']
+/home/yhs/connectal/scripts/bsvdepend.py -o obj/Makefile -D PARSER=Parser -D DEPARSER=Deparser -D MATCHTABLE=Control -D TYPEDEF=StructDefines -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D STREAM -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D NUM_METAGEN=1 -D NUM_PKTGEN=1 -D STREAM -D NicVersion=2343625944 -D DataBusWidth=128 -D IMPORT_HOSTIF -D BYTE_ENABLES -D ClockDefaultParam -D ConnectalVersion=16.11.1 -D NumberOfMasters=1 -D PinType=Empty -D PinTypeInclude=Misc -D NumberOfUserTiles=1 -D SlaveDataBusWidth=32 -D SlaveControlAddrWidth=5 -D BurstLenSize=12 -D project_dir=/home/yhs/clickp4_fpga/01_start/bluesim -D MainClockPeriod=20 -D DerivedClockPeriod=10.000000 -D CnocTop -D XsimHostInterface -D PhysAddrWidth=40 -D SIMULATION -D CONNECTAL_BITS_DEPENDENCES=bsim -D BOARD_bluesim --bsvpath=/home/yhs/p4fpga/bsv/infra:/home/yhs/connectal/bsv:/home/yhs/clickp4_fpga/01_start/generatedbsv:/home/yhs/sonic-lite/hw/bsv:/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv:/home/yhs/clickp4_fpga/01_start:/home/yhs/p4fpga/bsv/datapath:/home/yhs/p4fpga/bsv/generated:/home/yhs/p4fpga/bsv/library:/home/yhs/p4fpga/bsv/library/AsymmetricBRAM:/home/yhs/p4fpga/bsv/library/Bcam:/home/yhs/p4fpga/bsv/library/DMHC:/home/yhs/p4fpga/bsv:/home/yhs/connectal/lib/bsv:/home/yhs/connectal/generated/xilinx:/home/yhs/connectal/generated/altera --all /home/yhs/connectal/bsv/XsimTop.bsv
+bsvdepend: in /home/yhs/connectal/bsv/PS5LIB.bsv expecting module: (* always_ready, always_enabled, no_default_clock, no_default_reset, clock_prefix="", reset_prefix="" *)
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+prepare_bin_target
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/TlpReplay.o  /home/yhs/connectal/cpp/TlpReplay.cpp
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/BsimDma.o  /home/yhs/connectal/cpp/BsimDma.cpp
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/sock_utils.o  /home/yhs/connectal/cpp/sock_utils.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/portalPrintf.o  /home/yhs/connectal/cpp/portalPrintf.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimTop.o  /home/yhs/connectal/cpp/XsimTop.cpp
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/poller.o  /home/yhs/connectal/cpp/poller.cpp
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportSocket.o  /home/yhs/connectal/cpp/transportSocket.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportHardware.o  /home/yhs/connectal/cpp/transportHardware.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportXsim.o  /home/yhs/connectal/cpp/transportXsim.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/portal.o  /home/yhs/connectal/cpp/portal.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgRequest.c
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgIndication.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/GeneratedCppCallbacks.cpp
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/matchtable_model.o  /home/yhs/clickp4_fpga/01_start/matchtable_model.cpp
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/mem_model.o  /home/yhs/p4fpga/bsv/library/AsymmetricBRAM/mem_model.c
+BSV_BO [ /home/yhs/connectal/bsv/ConnectalConfig.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/GetPutM.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/ConnectalMemory.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/AxiMasterSlave.bsv]
+BSV_BO [ /home/yhs/connectal/generated/xilinx/BscanE2.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/SyncBits.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/BramMux.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/EHR.bsv]
+BSV_BO [ /home/yhs/connectal/lib/bsv/ConfigCounter.bsv]
+BSV_BO [ /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv]
+BSV_BO [ /home/yhs/connectal/lib/bsv/Leds.bsv]
+BSV_BO [ /home/yhs/connectal/lib/bsv/Arith.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/LinkerLib.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Stream.bsv]
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkEHR2BSV.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkEHR2BSV.ba
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Utils.bsv]
+BSV_BO [ /home/yhs/clickp4_fpga/01_start/generatedbsv/ConnectalTypes.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/DbgDefs.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Bcam/BcamTypes.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/DMHC/HashUnit.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/PrintTrace.bsv]
+Warning: "/home/yhs/p4fpga/bsv/library/Stream.bsv", line 26, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/TieOff.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/TieOff.defines
+BSV_BO [ /home/yhs/p4fpga/bsv/library/StringUtils.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/SynthBuilder.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/ConnectalClocks.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Lists.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/DbgTypes.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Sims.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/LedController.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/ConnectalXilinxCells.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/EHRM.bsv]
+ubuntu.exe
+"jni/ubuntu.exe" -> "bin/ubuntu.exe"
+ubuntu.exe done
+g++ -O -g -I/home/yhs/clickp4_fpga/01_start/bluesim/jni -shared -fpic -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -g -o /home/yhs/clickp4_fpga/01_start/bluesim/bin/libconnectal-sim.so /home/yhs/clickp4_fpga/01_start/bluesim/lib/TlpReplay.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/BsimDma.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/sock_utils.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portalPrintf.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimTop.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/poller.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportSocket.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportHardware.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportXsim.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portal.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/matchtable_model.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/mem_model.o
+BSV_BO [ /home/yhs/connectal/bsv/AxiStream.bsv]
+BSV_BO [ /home/yhs/connectal/lib/bsv/Bscan.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/ConnectalBram.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/PriorityEncoder.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/DMHC/DMHC.bsv]
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkLedController.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkLedController.ba
+BSV_BO [ /home/yhs/p4fpga/bsv/library/StreamGearbox.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/XBar.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/CFFIFO.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/ConnectalBramFifo.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/Pipe.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/PcieTracer.bsv]
+Warning: "/home/yhs/p4fpga/bsv/library/StreamGearbox.bsv", line 34, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/SynthBuilder.defines
+Warning: "/home/yhs/p4fpga/bsv/library/XBar.bsv", line 16, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/SynthBuilder.defines
+Warning: "/home/yhs/p4fpga/bsv/library/StreamGearbox.bsv", line 158, column 29: (T0054)
+  Field not defined: `getDataCount'
+Warning: "/home/yhs/p4fpga/bsv/library/StreamGearbox.bsv", line 158, column 29: (T0054)
+  Field not defined: `getIdleCount'
+Warning: "/home/yhs/p4fpga/bsv/library/StreamGearbox.bsv", line 158, column 29: (T0054)
+  Field not defined: `getSopCount'
+Warning: "/home/yhs/p4fpga/bsv/library/StreamGearbox.bsv", line 158, column 29: (T0054)
+  Field not defined: `getEopCount'
+Compilation message: Built SynthModule for type StreamGearbox::StreamGearbox#(16, 32)
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkStreamGearboxUp_16_32.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkStreamGearboxUp_16_32.ba
+Compilation message: Built SynthModule for type StreamGearbox::StreamGearbox#(32, 64)
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkStreamGearboxUp_32_64.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkStreamGearboxUp_32_64.ba
+Compilation message: Built SynthModule for type StreamGearbox::StreamGearbox#(32, 16)
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkStreamGearboxDn_32_16.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkStreamGearboxDn_32_16.ba
+Compilation message: Built SynthModule for type StreamGearbox::StreamGearbox#(64, 32)
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkStreamGearboxDn_64_32.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkStreamGearboxDn_64_32.ba
+Warning: "/home/yhs/p4fpga/bsv/library/DMHC/DMHC.bsv", line 80, column 15: (T0054)
+  Field not defined: `flush'
+Warning: "/home/yhs/connectal/bsv/ConnectalBramFifo.bsv", line 150, column 94: (T0054)
+  Field not defined: `clear'
+Warning: "/home/yhs/connectal/bsv/ConnectalBramFifo.bsv", line 160, column 93: (T0054)
+  Field not defined: `clear'
+Warning: "/home/yhs/connectal/bsv/PcieTracer.bsv", line 76, column 8: (G0010)
+  Rule "bramMuxReg_respond_1" was treated as more urgent than
+  "bramMuxReg_respond". Conflicts:
+    "bramMuxReg_respond_1" cannot fire before "bramMuxReg_respond":
+      calls to
+	bramMuxReg_responseFifo_rv.port1__write vs. bramMuxReg_responseFifo_rv.port1__read
+    "bramMuxReg_respond" cannot fire before "bramMuxReg_respond_1":
+      calls to
+	bramMuxReg_responseFifo_rv.port1__write vs. bramMuxReg_responseFifo_rv.port1__read
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPcieTracer.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPcieTracer.ba
+BSV_BO [ /home/yhs/connectal/bsv/Adapter.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Ethernet.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/AsymmetricBRAM/AsymmetricBRAM.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Register.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/TxRx.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/StructDefines.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/Engine.bsv]
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mem_create.ba
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mem_clean.ba
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mem_read.ba
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mem_write.ba
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Bcam/Ram9b.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/MemTypes.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Channel.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/UnionDefines.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Bcam/Bcam.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/AddressGenerator.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/ConnectalCompletionBuffer.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/SimDma.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/Axi4MasterSlave.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/PacketBuffer.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/EthMac.bsv]
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/simDma_init.ba
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/simDma_initfd.ba
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/simDma_idreturn.ba
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/write_simDma32.ba
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/write_simDma64.ba
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/read_simDma32.ba
+Foreign import file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/read_simDma64.ba
+Warning: "/home/yhs/p4fpga/bsv/library/Bcam/Bcam.bsv", line 494, column 23: (T0054)
+  Field not defined: `printServer'
+Warning: "/home/yhs/connectal/bsv/Axi4MasterSlave.bsv", line 187, column 20: (T0054)
+  Field not defined: `last'
+BSV_BO [ /home/yhs/connectal/bsv/AxiBits.bsv]
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkBinaryCamBSV.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkBinaryCamBSV.ba
+BSV_BO [ /home/yhs/p4fpga/bsv/library/MatchTable.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/PcieCsr.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/PhysMemSlaveFromBram.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/SharedBuffMMU.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/MMU.bsv]
+Warning: "/home/yhs/p4fpga/bsv/library/PacketBuffer.bsv", line 52, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/SynthBuilder.defines
+Compilation message: Built SynthModule1 for type PacketBuffer::PacketBuffer#(8, 8)
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPacketBuffer_8.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPacketBuffer_8.ba
+Compilation message: Built SynthModule1 for type PacketBuffer::PacketBuffer#(16, 8)
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPacketBuffer_16.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPacketBuffer_16.ba
+Compilation message: Built SynthModule1 for type PacketBuffer::PacketBuffer#(64, 4)
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPacketBuffer_64.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPacketBuffer_64.ba
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Tap.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/PktGen.bsv]
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 218, column 22: (T0054)
+  Field not defined: `awqos'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 218, column 22: (T0054)
+  Field not defined: `awlock'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 218, column 22: (T0054)
+  Field not defined: `arqos'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 218, column 22: (T0054)
+  Field not defined: `arlock'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 218, column 22: (T0054)
+  Field not defined: `aresetn'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 393, column 20: (T0054)
+  Field not defined: `last'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 523, column 20: (T0054)
+  Field not defined: `last'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 617, column 21: (T0054)
+  Field not defined: `lastbe'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 617, column 21: (T0054)
+  Field not defined: `firstbe'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 672, column 21: (T0054)
+  Field not defined: `lastbe'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 672, column 21: (T0054)
+  Field not defined: `firstbe'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 735, column 21: (T0054)
+  Field not defined: `lastbe'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 735, column 21: (T0054)
+  Field not defined: `firstbe'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 790, column 21: (T0054)
+  Field not defined: `lastbe'
+Warning: "/home/yhs/connectal/bsv/AxiBits.bsv", line 790, column 21: (T0054)
+  Field not defined: `firstbe'
+BSV_BO [ /home/yhs/p4fpga/bsv/generated/XilinxPhyWrap.bsv]
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 42, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/SynthBuilder.defines
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 79, column 38: (T0054)
+  Field not defined: `modify_entry'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 79, column 38: (T0054)
+  Field not defined: `delete_entry'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 79, column 38: (T0054)
+  Field not defined: `add_entry'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 79, column 38: (T0054)
+  Field not defined: `lookupPort'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 86, column 38: (T0054)
+  Field not defined: `modify_entry'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 86, column 38: (T0054)
+  Field not defined: `delete_entry'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 86, column 38: (T0054)
+  Field not defined: `add_entry'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 86, column 38: (T0054)
+  Field not defined: `lookupPort'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 92, column 38: (T0054)
+  Field not defined: `modify_entry'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 92, column 38: (T0054)
+  Field not defined: `delete_entry'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 92, column 38: (T0054)
+  Field not defined: `add_entry'
+Warning: "/home/yhs/p4fpga/bsv/library/MatchTable.bsv", line 92, column 38: (T0054)
+  Field not defined: `lookupPort'
+Compilation message: Built SynthModule for type DMHC::DMHCIfc#(1024, 4, 2, 64, 64)
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "lookup_gtables" was treated as more urgent than
+  "lookup_mtable". Conflicts:
+    "lookup_gtables" cannot fire before "lookup_mtable":
+      calls to rec_value.wset vs. rec_value.wset
+    "lookup_mtable" cannot fire before "lookup_gtables":
+      calls to rec_value.wset vs. rec_value.wset
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "lookup_key" was treated as more urgent than
+  "ldvn_action_l30c9". Conflicts:
+    "lookup_key" cannot fire before "ldvn_action_l30c9":
+      calls to
+	hash_units_0_g_table.a_put vs. hash_units_0_g_table.a_put
+	hash_units_1_g_table.a_put vs. hash_units_1_g_table.a_put
+	hash_units_2_g_table.a_put vs. hash_units_2_g_table.a_put
+	hash_units_3_g_table.a_put vs. hash_units_3_g_table.a_put
+    "ldvn_action_l30c9" cannot fire before "lookup_key":
+      calls to
+	hash_units_0_g_table.a_put vs. hash_units_0_g_table.a_put
+	hash_units_1_g_table.a_put vs. hash_units_1_g_table.a_put
+	hash_units_2_g_table.a_put vs. hash_units_2_g_table.a_put
+	hash_units_3_g_table.a_put vs. hash_units_3_g_table.a_put
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "ldvn_action_l30c9" was treated as more urgent than
+  "mslot_replacement_action_l128c9". Conflicts:
+    "ldvn_action_l30c9" cannot fire before "mslot_replacement_action_l128c9":
+      calls to
+	hash_units_0_g_table.a_put vs. hash_units_0_g_table.a_put
+	hash_units_1_g_table.a_put vs. hash_units_1_g_table.a_put
+	hash_units_2_g_table.a_put vs. hash_units_2_g_table.a_put
+	hash_units_3_g_table.a_put vs. hash_units_3_g_table.a_put
+    "mslot_replacement_action_l128c9" cannot fire before "ldvn_action_l30c9":
+      calls to
+	hash_units_0_g_table.a_put vs. hash_units_0_g_table.a_put
+	hash_units_1_g_table.a_put vs. hash_units_1_g_table.a_put
+	hash_units_2_g_table.a_put vs. hash_units_2_g_table.a_put
+	hash_units_3_g_table.a_put vs. hash_units_3_g_table.a_put
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "ldvn_action_l99c9" was treated as more urgent than
+  "mslot_replacement_action_l164c9". Conflicts:
+    "ldvn_action_l99c9" cannot fire before "mslot_replacement_action_l164c9":
+      calls to
+	hash_units_0_g_table.b_put vs. hash_units_0_g_table.b_put
+	hash_units_1_g_table.b_put vs. hash_units_1_g_table.b_put
+	hash_units_2_g_table.b_put vs. hash_units_2_g_table.b_put
+	hash_units_3_g_table.b_put vs. hash_units_3_g_table.b_put
+    "mslot_replacement_action_l164c9" cannot fire before "ldvn_action_l99c9":
+      calls to
+	hash_units_0_g_table.b_put vs. hash_units_0_g_table.b_put
+	hash_units_1_g_table.b_put vs. hash_units_1_g_table.b_put
+	hash_units_2_g_table.b_put vs. hash_units_2_g_table.b_put
+	hash_units_3_g_table.b_put vs. hash_units_3_g_table.b_put
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "ldvn_action_l30c9" was treated as more urgent than
+  "mslot_replacement_action_l172c9". Conflicts:
+    "ldvn_action_l30c9" cannot fire before "mslot_replacement_action_l172c9":
+      calls to
+	hash_units_0_g_table.a_put vs. hash_units_0_g_table.a_put
+	hash_units_1_g_table.a_put vs. hash_units_1_g_table.a_put
+	hash_units_2_g_table.a_put vs. hash_units_2_g_table.a_put
+	hash_units_3_g_table.a_put vs. hash_units_3_g_table.a_put
+    "mslot_replacement_action_l172c9" cannot fire before "ldvn_action_l30c9":
+      calls to
+	hash_units_0_g_table.a_put vs. hash_units_0_g_table.a_put
+	hash_units_1_g_table.a_put vs. hash_units_1_g_table.a_put
+	hash_units_2_g_table.a_put vs. hash_units_2_g_table.a_put
+	hash_units_3_g_table.a_put vs. hash_units_3_g_table.a_put
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "ldvn_action_l99c9" was treated as more urgent than
+  "mslot_replacement_action_l243c9". Conflicts:
+    "ldvn_action_l99c9" cannot fire before "mslot_replacement_action_l243c9":
+      calls to
+	hash_units_0_g_table.b_put vs. hash_units_0_g_table.b_put
+	hash_units_1_g_table.b_put vs. hash_units_1_g_table.b_put
+	hash_units_2_g_table.b_put vs. hash_units_2_g_table.b_put
+	hash_units_3_g_table.b_put vs. hash_units_3_g_table.b_put
+    "mslot_replacement_action_l243c9" cannot fire before "ldvn_action_l99c9":
+      calls to
+	hash_units_0_g_table.b_put vs. hash_units_0_g_table.b_put
+	hash_units_1_g_table.b_put vs. hash_units_1_g_table.b_put
+	hash_units_2_g_table.b_put vs. hash_units_2_g_table.b_put
+	hash_units_3_g_table.b_put vs. hash_units_3_g_table.b_put
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "new_key_value" was treated as more urgent than
+  "mslot_replacement_action_l251c9". Conflicts:
+    "new_key_value" cannot fire before "mslot_replacement_action_l251c9":
+      calls to
+	m_table.b_put vs. m_table.b_put
+	new_mslot.write vs. new_mslot.read
+    "mslot_replacement_action_l251c9" cannot fire before "new_key_value":
+      calls to
+	m_table.b_put vs. m_table.b_put
+	mslot_counter.write vs. mslot_counter.read
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "init_tables" was treated as more urgent than
+  "mslot_replacement_action_l251c9". Conflicts:
+    "init_tables" cannot fire before "mslot_replacement_action_l251c9":
+      calls to
+	m_table.b_put vs. m_table.b_put
+	mslot_counter.write vs. mslot_counter.read
+    "mslot_replacement_action_l251c9" cannot fire before "init_tables":
+      calls to
+	m_table.b_put vs. m_table.b_put
+	mslot_counter.write vs. mslot_counter.read
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "lookup_gtables" was treated as more urgent than
+  "mslot_replacement_action_l258c9". Conflicts:
+    "lookup_gtables" cannot fire before "mslot_replacement_action_l258c9":
+      calls to m_table.a_put vs. m_table.a_put
+    "mslot_replacement_action_l258c9" cannot fire before "lookup_gtables":
+      calls to
+	m_table.a_put vs. m_table.a_put
+	inited.write vs. inited.read
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "init_tables" was treated as more urgent than
+  "mslot_replacement_action_l258c9". Conflicts:
+    "init_tables" cannot fire before "mslot_replacement_action_l258c9":
+      calls to mslot_counter.write vs. mslot_counter.read
+    "mslot_replacement_action_l258c9" cannot fire before "init_tables":
+      calls to inited.write vs. inited.read
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "ldvn_fsm_start" was treated as more urgent than
+  "mslot_replacement_action_l258c9". Conflicts:
+    "ldvn_fsm_start" cannot fire before "mslot_replacement_action_l258c9":
+      calls to ldvn_start_reg.write vs. ldvn_start_reg.read
+    "mslot_replacement_action_l258c9" cannot fire before "ldvn_fsm_start":
+      calls to ldvn_start_reg.write vs. ldvn_start_reg.read
+Warning: "/home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines", line 8, column 9: (G0010)
+  Rule "new_key_value" was treated as more urgent than
+  "mslot_replacement_fsm_start". Conflicts:
+    "new_key_value" cannot fire before "mslot_replacement_fsm_start":
+      calls to
+	mslot_replacement_start_reg.write vs. mslot_replacement_start_reg.read
+    "mslot_replacement_fsm_start" cannot fire before "new_key_value":
+      calls to
+	mslot_replacement_start_reg.write vs. mslot_replacement_start_reg.read
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkDMHC_64.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkDMHC_64.ba
+BSV_BO [ /home/yhs/p4fpga/bsv/library/Library.bsv]
+Warning: "/home/yhs/connectal/bsv/PhysMemSlaveFromBram.bsv", line 251, column 43: (T0054)
+  Field not defined: `lastbe'
+Warning: "/home/yhs/connectal/bsv/PhysMemSlaveFromBram.bsv", line 251, column 43: (T0054)
+  Field not defined: `firstbe'
+Warning: "/home/yhs/connectal/bsv/PhysMemSlaveFromBram.bsv", line 267, column 44: (T0054)
+  Field not defined: `lastbe'
+Warning: "/home/yhs/connectal/bsv/PhysMemSlaveFromBram.bsv", line 267, column 44: (T0054)
+  Field not defined: `firstbe'
+Warning: "/home/yhs/p4fpga/bsv/library/SharedBuffMMU.bsv", line 272, column 21: (T0054)
+  Field not defined: `error'
+BSV_BO [ /home/yhs/p4fpga/bsv/library/SharedBuffMemServerInternal.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/MemMgmt.bsv]
+Warning: "/home/yhs/connectal/bsv/MMU.bsv", line 195, column 8: (G0010)
+  Rule "mkConnectionGetPut" was treated as more urgent than
+  "mkConnectionGetPut_1". Conflicts:
+    "mkConnectionGetPut" cannot fire before "mkConnectionGetPut_1":
+      calls to dmaErrorFifo.enq vs. dmaErrorFifo.enq
+    "mkConnectionGetPut_1" cannot fire before "mkConnectionGetPut":
+      calls to dmaErrorFifo.enq vs. dmaErrorFifo.enq
+Warning: "/home/yhs/connectal/bsv/MMU.bsv", line 195, column 8: (G0010)
+  Rule "request_sglist" was treated as more urgent than "stage4". Conflicts:
+    "request_sglist" cannot fire before "stage4":
+      calls to
+	translationTable_cbram_bram.a_put vs. translationTable_cbram_bram.a_put
+    "stage4" cannot fire before "request_sglist":
+      calls to
+	translationTable_cbram_bram.a_put vs. translationTable_cbram_bram.a_put
+Warning: "/home/yhs/connectal/bsv/MMU.bsv", line 195, column 8: (G0010)
+  Rule "request_region" was treated as more urgent than "stage1_1". Conflicts:
+    "request_region" cannot fire before "stage1_1":
+      calls to regall_cbram_bram.b_put vs. regall_cbram_bram.b_put
+    "stage1_1" cannot fire before "request_region":
+      calls to regall_cbram_bram.b_put vs. regall_cbram_bram.b_put
+Warning: "/home/yhs/connectal/bsv/MMU.bsv", line 195, column 8: (G0010)
+  Rule "stage2" was treated as more urgent than "stage2_1". Conflicts:
+    "stage2" cannot fire before "stage2_1":
+      calls to dmaErrorFifos_0.enq vs. dmaErrorFifos_0.enq
+    "stage2_1" cannot fire before "stage2":
+      calls to dmaErrorFifos_0.enq vs. dmaErrorFifos_0.enq
+Warning: "/home/yhs/connectal/bsv/MMU.bsv", line 195, column 8: (G0010)
+  Rule "stage4" was treated as more urgent than "stage4_1". Conflicts:
+    "stage4" cannot fire before "stage4_1":
+      calls to dmaErrorFifos_1.enq vs. dmaErrorFifos_1.enq
+    "stage4_1" cannot fire before "stage4":
+      calls to dmaErrorFifos_1.enq vs. dmaErrorFifos_1.enq
+Warning: "/home/yhs/connectal/bsv/MMU.bsv", line 195, column 8: (G0010)
+  Rule "stage1_1" was treated as more urgent than "idReturnRule". Conflicts:
+    "stage1_1" cannot fire before "idReturnRule":
+      calls to regall_cbram_bram.b_put vs. regall_cbram_bram.b_put
+    "idReturnRule" cannot fire before "stage1_1":
+      calls to regall_cbram_bram.b_put vs. regall_cbram_bram.b_put
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkMMUSynth.sched
+Warning: "/home/yhs/connectal/bsv/PcieCsr.bsv", line 77, column 8: (G0036)
+  Rule "traceClient_tlpTraceBramWrAddr__write" will appear to fire before
+  "writeDataRule2" when both fire in the same clock cycle, affecting:
+    calls to tlpTraceBramWrAddrReg.write vs. tlpTraceBramWrAddrReg.write
+Warning: "/home/yhs/connectal/bsv/PcieCsr.bsv", line 77, column 8: (G0036)
+  Rule "traceClient_tlpTraceLimit__write" will appear to fire before
+  "writeDataRule2" when both fire in the same clock cycle, affecting:
+    calls to tlpTraceLimitReg.write vs. tlpTraceLimitReg.write
+Warning: "/home/yhs/connectal/bsv/PcieCsr.bsv", line 77, column 8: (G0036)
+  Rule "traceClient_tlpTracing__write" will appear to fire before
+  "writeDataRule2" when both fire in the same clock cycle, affecting:
+    calls to tlpTracingReg.write vs. tlpTracingReg.write
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkMMUSynth.ba
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPcieControlAndStatusRegs.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPcieControlAndStatusRegs.ba
+BSV_BO [ /home/yhs/connectal/bsv/MemServerInternal.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/HostInterface.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/XilinxEthPhy.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/Parser.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/Deparser.bsv]
+Warning: "/home/yhs/p4fpga/bsv/library/MemMgmt.bsv", line 97, column 14: (T0054)
+  Field not defined: `error'
+Warning: "/home/yhs/p4fpga/bsv/library/MemMgmt.bsv", line 97, column 14: (T0054)
+  Field not defined: `configResp'
+BSV_BO [ /home/yhs/connectal/bsv/Portal.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/SharedBuffMemServer.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/MemServer.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/NfsumePins.bsv]
+Error: "/home/yhs/clickp4_fpga/01_start/generatedbsv/DeparserGenerated.bsv", line 4, column 1: (P0005)
+  Unexpected `}'; expected enum tag
+make[2]: *** [obj/Deparser.bo] 错误 1
+make[2]: *** 正在等待未完成的任务....
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 17: (T0054)
+  Field not defined: `read_perf_info'
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "rl_accept" was treated as more urgent than
+  "fsmrl_rl_extract". Conflicts:
+    "rl_accept" cannot fire before "fsmrl_rl_extract":
+      calls to
+	rg_tmp.write vs. rg_tmp.read
+	rg_buffered.port0__write vs. rg_buffered.port0__read
+    "fsmrl_rl_extract" cannot fire before "rl_accept":
+      calls to rg_tmp.write vs. rg_tmp.read
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "rl_accept" was treated as more urgent than
+  "fsmrl_rl_extract_1". Conflicts:
+    "rl_accept" cannot fire before "fsmrl_rl_extract_1":
+      calls to
+	rg_tmp.write vs. rg_tmp.read
+	rg_buffered.port0__write vs. rg_buffered.port0__read
+    "fsmrl_rl_extract_1" cannot fire before "rl_accept":
+      calls to rg_tmp.write vs. rg_tmp.read
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "rl_accept" was treated as more urgent than
+  "fsmrl_rl_extract_2". Conflicts:
+    "rl_accept" cannot fire before "fsmrl_rl_extract_2":
+      calls to
+	rg_tmp.write vs. rg_tmp.read
+	rg_buffered.port0__write vs. rg_buffered.port0__read
+    "fsmrl_rl_extract_2" cannot fire before "rl_accept":
+      calls to rg_tmp.write vs. rg_tmp.read
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "rl_accept" was treated as more urgent than
+  "fsmrl_rl_extract_3". Conflicts:
+    "rl_accept" cannot fire before "fsmrl_rl_extract_3":
+      calls to
+	rg_tmp.write vs. rg_tmp.read
+	rg_buffered.port0__write vs. rg_buffered.port0__read
+    "fsmrl_rl_extract_3" cannot fire before "rl_accept":
+      calls to rg_tmp.write vs. rg_tmp.read
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "fsmrl_rl_accept" was treated as more urgent than
+  "fsmrl_rl_accept_1". Conflicts:
+    "fsmrl_rl_accept" cannot fire before "fsmrl_rl_accept_1":
+      calls to w_parse_done.wset vs. w_parse_done.wset
+    "fsmrl_rl_accept_1" cannot fire before "fsmrl_rl_accept":
+      calls to w_parse_done.wset vs. w_parse_done.wset
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "rl_accept" was treated as more urgent than
+  "fsmrl_rl_extract_4". Conflicts:
+    "rl_accept" cannot fire before "fsmrl_rl_extract_4":
+      calls to
+	rg_tmp.write vs. rg_tmp.read
+	rg_buffered.port0__write vs. rg_buffered.port0__read
+    "fsmrl_rl_extract_4" cannot fire before "rl_accept":
+      calls to rg_tmp.write vs. rg_tmp.read
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "fsmrl_rl_cont" was treated as more urgent than
+  "fsmrl_rl_cont_1". Conflicts:
+    "fsmrl_rl_cont" cannot fire before "fsmrl_rl_cont_1":
+      calls to
+	parse_state_ff_rv.port1__write vs. parse_state_ff_rv.port1__read
+    "fsmrl_rl_cont_1" cannot fire before "fsmrl_rl_cont":
+      calls to
+	parse_state_ff_rv.port1__write vs. parse_state_ff_rv.port1__read
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "fsmrl_rl_cont_1" was treated as more urgent than
+  "fsmrl_rl_cont_2". Conflicts:
+    "fsmrl_rl_cont_1" cannot fire before "fsmrl_rl_cont_2":
+      calls to
+	parse_state_ff_rv.port1__write vs. parse_state_ff_rv.port1__read
+    "fsmrl_rl_cont_2" cannot fire before "fsmrl_rl_cont_1":
+      calls to
+	parse_state_ff_rv.port1__write vs. parse_state_ff_rv.port1__read
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "fsmrl_rl_accept_1" was treated as more urgent than
+  "fsmrl_rl_accept_2". Conflicts:
+    "fsmrl_rl_accept_1" cannot fire before "fsmrl_rl_accept_2":
+      calls to w_parse_done.wset vs. w_parse_done.wset
+    "fsmrl_rl_accept_2" cannot fire before "fsmrl_rl_accept_1":
+      calls to w_parse_done.wset vs. w_parse_done.wset
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "fsmrl_rl_cont_2" was treated as more urgent than
+  "fsmrl_rl_cont_3". Conflicts:
+    "fsmrl_rl_cont_2" cannot fire before "fsmrl_rl_cont_3":
+      calls to
+	parse_state_ff_rv.port1__write vs. parse_state_ff_rv.port1__read
+    "fsmrl_rl_cont_3" cannot fire before "fsmrl_rl_cont_2":
+      calls to
+	parse_state_ff_rv.port1__write vs. parse_state_ff_rv.port1__read
+Warning: "/home/yhs/p4fpga/bsv/datapath/Parser.bsv", line 45, column 8: (G0010)
+  Rule "fsmrl_rl_cont_3" was treated as more urgent than
+  "fsmrl_rl_cont_4". Conflicts:
+    "fsmrl_rl_cont_3" cannot fire before "fsmrl_rl_cont_4":
+      calls to
+	parse_state_ff_rv.port1__write vs. parse_state_ff_rv.port1__read
+    "fsmrl_rl_cont_4" cannot fire before "fsmrl_rl_cont_3":
+      calls to
+	parse_state_ff_rv.port1__write vs. parse_state_ff_rv.port1__read
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkParser.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkParser.ba
+make[1]: *** [build.bluesim] 错误 2
+make[1]:正在离开目录 `/home/yhs/clickp4_fpga/01_start'
+make: *** [compile] 错误 2
+[1m[7m%[27m[1m[0m                                                                                ]2;yhs@yhs-OptiPlex-9020: ~/clickp4_fpga/01_start]1;..fpga/01_start[0m[27m[24m[J[01;31m➜  [36m01_start[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=make compile[?1l>
+]2;make compile]1;makegrep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make build.bluesim -j8
+grep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make[1]: 正在进入目录 `/home/yhs/clickp4_fpga/01_start'
+BOARD=bluesim PROJECTDIR=bluesim make --no-print-directory gentarget prebuild 
+touch bluesim/Makefile.autotop
+topgen ['/home/yhs/connectal/scripts/topgen.py', '--project-dir', 'bluesim/generatedbsv', '--cnoc', '--wrapper', 'MainRequest:Main.request', '--proxy', 'Main:MainIndication,MemServerIndication:host']
+options.proxy: ['Main:MainIndication,MemServerIndication:host']
+options.wrapper: MainRequest:Main.request {'uparam': '', 'inverse': '', 'xparam': '', 'tparam': '', 'usermod': 'MainRequest', 'memFlag': '', 'name': 'Main.request'}
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/Top.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/../jni/topEnum.h
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)']
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)', 'MainClockPeriod=20', 'DerivedClockPeriod=10.000000']
+fpga_vendor None
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/Makefile.new)
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/ConnectalProjectConfig.bsv.new)
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/jni/ConnectalProjectConfig.h.new)
+make -C bluesim --no-print-directory all
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+/home/yhs/p4fpga/bsv/infra/Main.bsv:111: Syntax error, token=TOKENDINSTANCE
+split ['PARSER', 'Parser']
+split ['DEPARSER', 'Deparser']
+split ['MATCHTABLE', 'Control']
+split ['TYPEDEF', 'StructDefines']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_METAGEN', '1']
+split ['NUM_PKTGEN', '1']
+split ['NicVersion', '2343625944']
+split ['DataBusWidth', '128']
+split ['ConnectalVersion', '16.11.1']
+split ['NumberOfMasters', '1']
+split ['PinType', 'Empty']
+split ['PinTypeInclude', 'Misc']
+split ['NumberOfUserTiles', '1']
+split ['SlaveDataBusWidth', '32']
+split ['SlaveControlAddrWidth', '5']
+split ['BurstLenSize', '12']
+split ['project_dir', '/home/yhs/clickp4_fpga/01_start/bluesim']
+split ['MainClockPeriod', '20']
+split ['DerivedClockPeriod', '10.000000']
+split ['PhysAddrWidth', '40']
+split ['CONNECTAL_BITS_DEPENDENCES', 'bsim']
+/home/yhs/connectal/scripts/bsvdepend.py -o obj/Makefile -D PARSER=Parser -D DEPARSER=Deparser -D MATCHTABLE=Control -D TYPEDEF=StructDefines -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D STREAM -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D NUM_METAGEN=1 -D NUM_PKTGEN=1 -D STREAM -D NicVersion=2343625944 -D DataBusWidth=128 -D IMPORT_HOSTIF -D BYTE_ENABLES -D ClockDefaultParam -D ConnectalVersion=16.11.1 -D NumberOfMasters=1 -D PinType=Empty -D PinTypeInclude=Misc -D NumberOfUserTiles=1 -D SlaveDataBusWidth=32 -D SlaveControlAddrWidth=5 -D BurstLenSize=12 -D project_dir=/home/yhs/clickp4_fpga/01_start/bluesim -D MainClockPeriod=20 -D DerivedClockPeriod=10.000000 -D CnocTop -D XsimHostInterface -D PhysAddrWidth=40 -D SIMULATION -D CONNECTAL_BITS_DEPENDENCES=bsim -D BOARD_bluesim --bsvpath=/home/yhs/p4fpga/bsv/infra:/home/yhs/connectal/bsv:/home/yhs/clickp4_fpga/01_start/generatedbsv:/home/yhs/sonic-lite/hw/bsv:/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv:/home/yhs/clickp4_fpga/01_start:/home/yhs/p4fpga/bsv/datapath:/home/yhs/p4fpga/bsv/generated:/home/yhs/p4fpga/bsv/library:/home/yhs/p4fpga/bsv/library/AsymmetricBRAM:/home/yhs/p4fpga/bsv/library/Bcam:/home/yhs/p4fpga/bsv/library/DMHC:/home/yhs/p4fpga/bsv:/home/yhs/connectal/lib/bsv:/home/yhs/connectal/generated/xilinx:/home/yhs/connectal/generated/altera --all /home/yhs/connectal/bsv/XsimTop.bsv
+bsvdepend: in /home/yhs/connectal/bsv/PS5LIB.bsv expecting module: (* always_ready, always_enabled, no_default_clock, no_default_reset, clock_prefix="", reset_prefix="" *)
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+prepare_bin_target
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgRequest.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgIndication.c
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/GeneratedCppCallbacks.cpp
+BSV_BO [ /home/yhs/connectal/bsv/CnocPortal.bsv]
+BSV_BO [ /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/CtrlMux.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/SharedBuff.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/Deparser.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/infra/Board.bsv]
+ubuntu.exe
+g++ -O -g -I/home/yhs/clickp4_fpga/01_start/bluesim/jni -shared -fpic -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -g -o /home/yhs/clickp4_fpga/01_start/bluesim/bin/libconnectal-sim.so /home/yhs/clickp4_fpga/01_start/bluesim/lib/TlpReplay.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/BsimDma.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/sock_utils.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portalPrintf.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimTop.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/poller.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportSocket.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportHardware.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportXsim.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portal.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/matchtable_model.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/mem_model.o
+"jni/ubuntu.exe" -> "bin/ubuntu.exe"
+ubuntu.exe done
+Error: Unknown position: (S0058)
+  Bluespec is unable to checkout the required license. Information from
+  license software is given below.
+  Cannot connect to license server system.
+   The license server manager (lmgrd) has not been started yet,
+   the wrong port@host or license file is being used, or the
+   port or hostname in the license file has been changed.
+  Feature:       BCOMP
+  Server name:   59.66.24.99
+  License path:  27000@59.66.24.99
+  FLEXnet Licensing error:-15,570.  System Error: 115 "Operation now in progress"
+  For further information, refer to the FLEXnet Licensing End User Guide,
+  available at "www.macrovision.com".
+Error: Unknown position: (S0058)
+  Bluespec is unable to checkout the required license. Information from
+  license software is given below.
+  Cannot connect to license server system.
+   The license server manager (lmgrd) has not been started yet,
+   the wrong port@host or license file is being used, or the
+   port or hostname in the license file has been changed.
+  Feature:       BCOMP
+  Server name:   59.66.24.99
+  License path:  27000@59.66.24.99
+  FLEXnet Licensing error:-15,570.  System Error: 115 "Operation now in progress"
+  For further information, refer to the FLEXnet Licensing End User Guide,
+  available at "www.macrovision.com".
+make[2]: *** [obj/CnocPortal.bo] 错误 1
+make[2]: *** 正在等待未完成的任务....
+make[2]: *** [obj/IfcNames.bo] 错误 1
+Error: Unknown position: (S0058)
+  Bluespec is unable to checkout the required license. Information from
+  license software is given below.
+  Cannot connect to license server system.
+   The license server manager (lmgrd) has not been started yet,
+   the wrong port@host or license file is being used, or the
+   port or hostname in the license file has been changed.
+  Feature:       BCOMP
+  Server name:   59.66.24.99
+  License path:  27000@59.66.24.99
+  FLEXnet Licensing error:-15,570.  System Error: 115 "Operation now in progress"
+  For further information, refer to the FLEXnet Licensing End User Guide,
+  available at "www.macrovision.com".
+Error: Unknown position: (S0058)
+  Bluespec is unable to checkout the required license. Information from
+  license software is given below.
+  Cannot connect to license server system.
+   The license server manager (lmgrd) has not been started yet,
+   the wrong port@host or license file is being used, or the
+   port or hostname in the license file has been changed.
+  Feature:       BCOMP
+  Server name:   59.66.24.99
+  License path:  27000@59.66.24.99
+  FLEXnet Licensing error:-15,570.  System Error: 115 "Operation now in progress"
+  For further information, refer to the FLEXnet Licensing End User Guide,
+  available at "www.macrovision.com".
+make[2]: *** [obj/SharedBuff.bo] 错误 1
+make[2]: *** [obj/Deparser.bo] 错误 1
+Error: Unknown position: (S0058)
+  Bluespec is unable to checkout the required license. Information from
+  license software is given below.
+  Cannot connect to license server system.
+   The license server manager (lmgrd) has not been started yet,
+   the wrong port@host or license file is being used, or the
+   port or hostname in the license file has been changed.
+  Feature:       BCOMP
+  Server name:   59.66.24.99
+  License path:  27000@59.66.24.99
+  FLEXnet Licensing error:-15,570.  System Error: 115 "Operation now in progress"
+  For further information, refer to the FLEXnet Licensing End User Guide,
+  available at "www.macrovision.com".
+make[2]: *** [obj/Board.bo] 错误 1
+Error: Unknown position: (S0058)
+  Bluespec is unable to checkout the required license. Information from
+  license software is given below.
+  Cannot connect to license server system.
+   The license server manager (lmgrd) has not been started yet,
+   the wrong port@host or license file is being used, or the
+   port or hostname in the license file has been changed.
+  Feature:       BCOMP
+  Server name:   59.66.24.99
+  License path:  27000@59.66.24.99
+  FLEXnet Licensing error:-15,570.  System Error: 115 "Operation now in progress"
+  For further information, refer to the FLEXnet Licensing End User Guide,
+  available at "www.macrovision.com".
+make[2]: *** [obj/CtrlMux.bo] 错误 1
+make[1]: *** [build.bluesim] 错误 2
+make[1]:正在离开目录 `/home/yhs/clickp4_fpga/01_start'
+make: *** [compile] 错误 2
+[1m[7m%[27m[1m[0m                                                                                ]2;yhs@yhs-OptiPlex-9020: ~/clickp4_fpga/01_start]1;..fpga/01_start[0m[27m[24m[J[01;31m➜  [36m01_start[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=make compile[?1l>
+]2;make compile]1;makegrep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make build.bluesim -j8
+grep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make[1]: 正在进入目录 `/home/yhs/clickp4_fpga/01_start'
+BOARD=bluesim PROJECTDIR=bluesim make --no-print-directory gentarget prebuild 
+touch bluesim/Makefile.autotop
+topgen ['/home/yhs/connectal/scripts/topgen.py', '--project-dir', 'bluesim/generatedbsv', '--cnoc', '--wrapper', 'MainRequest:Main.request', '--proxy', 'Main:MainIndication,MemServerIndication:host']
+options.proxy: ['Main:MainIndication,MemServerIndication:host']
+options.wrapper: MainRequest:Main.request {'uparam': '', 'inverse': '', 'xparam': '', 'tparam': '', 'usermod': 'MainRequest', 'memFlag': '', 'name': 'Main.request'}
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/Top.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/../jni/topEnum.h
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)']
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)', 'MainClockPeriod=20', 'DerivedClockPeriod=10.000000']
+fpga_vendor None
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/Makefile.new)
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/ConnectalProjectConfig.bsv.new)
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/jni/ConnectalProjectConfig.h.new)
+make -C bluesim --no-print-directory all
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+/home/yhs/p4fpga/bsv/infra/Main.bsv:111: Syntax error, token=TOKENDINSTANCE
+split ['PARSER', 'Parser']
+split ['DEPARSER', 'Deparser']
+split ['MATCHTABLE', 'Control']
+split ['TYPEDEF', 'StructDefines']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_METAGEN', '1']
+split ['NUM_PKTGEN', '1']
+split ['NicVersion', '2343625944']
+split ['DataBusWidth', '128']
+split ['ConnectalVersion', '16.11.1']
+split ['NumberOfMasters', '1']
+split ['PinType', 'Empty']
+split ['PinTypeInclude', 'Misc']
+split ['NumberOfUserTiles', '1']
+split ['SlaveDataBusWidth', '32']
+split ['SlaveControlAddrWidth', '5']
+split ['BurstLenSize', '12']
+split ['project_dir', '/home/yhs/clickp4_fpga/01_start/bluesim']
+split ['MainClockPeriod', '20']
+split ['DerivedClockPeriod', '10.000000']
+split ['PhysAddrWidth', '40']
+split ['CONNECTAL_BITS_DEPENDENCES', 'bsim']
+/home/yhs/connectal/scripts/bsvdepend.py -o obj/Makefile -D PARSER=Parser -D DEPARSER=Deparser -D MATCHTABLE=Control -D TYPEDEF=StructDefines -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D STREAM -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D NUM_METAGEN=1 -D NUM_PKTGEN=1 -D STREAM -D NicVersion=2343625944 -D DataBusWidth=128 -D IMPORT_HOSTIF -D BYTE_ENABLES -D ClockDefaultParam -D ConnectalVersion=16.11.1 -D NumberOfMasters=1 -D PinType=Empty -D PinTypeInclude=Misc -D NumberOfUserTiles=1 -D SlaveDataBusWidth=32 -D SlaveControlAddrWidth=5 -D BurstLenSize=12 -D project_dir=/home/yhs/clickp4_fpga/01_start/bluesim -D MainClockPeriod=20 -D DerivedClockPeriod=10.000000 -D CnocTop -D XsimHostInterface -D PhysAddrWidth=40 -D SIMULATION -D CONNECTAL_BITS_DEPENDENCES=bsim -D BOARD_bluesim --bsvpath=/home/yhs/p4fpga/bsv/infra:/home/yhs/connectal/bsv:/home/yhs/clickp4_fpga/01_start/generatedbsv:/home/yhs/sonic-lite/hw/bsv:/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv:/home/yhs/clickp4_fpga/01_start:/home/yhs/p4fpga/bsv/datapath:/home/yhs/p4fpga/bsv/generated:/home/yhs/p4fpga/bsv/library:/home/yhs/p4fpga/bsv/library/AsymmetricBRAM:/home/yhs/p4fpga/bsv/library/Bcam:/home/yhs/p4fpga/bsv/library/DMHC:/home/yhs/p4fpga/bsv:/home/yhs/connectal/lib/bsv:/home/yhs/connectal/generated/xilinx:/home/yhs/connectal/generated/altera --all /home/yhs/connectal/bsv/XsimTop.bsv
+bsvdepend: in /home/yhs/connectal/bsv/PS5LIB.bsv expecting module: (* always_ready, always_enabled, no_default_clock, no_default_reset, clock_prefix="", reset_prefix="" *)
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+prepare_bin_target
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgRequest.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgIndication.c
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/GeneratedCppCallbacks.cpp
+BSV_BO [ /home/yhs/connectal/bsv/CnocPortal.bsv]
+BSV_BO [ /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv]
+BSV_BO [ /home/yhs/connectal/bsv/CtrlMux.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/SharedBuff.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/Deparser.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/infra/Board.bsv]
+ubuntu.exe
+g++ -O -g -I/home/yhs/clickp4_fpga/01_start/bluesim/jni -shared -fpic -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -g -o /home/yhs/clickp4_fpga/01_start/bluesim/bin/libconnectal-sim.so /home/yhs/clickp4_fpga/01_start/bluesim/lib/TlpReplay.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/BsimDma.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/sock_utils.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portalPrintf.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimTop.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/poller.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportSocket.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportHardware.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportXsim.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portal.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/matchtable_model.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/mem_model.o
+"jni/ubuntu.exe" -> "bin/ubuntu.exe"
+ubuntu.exe done
+Error: "/home/yhs/clickp4_fpga/01_start/generatedbsv/DeparserGenerated.bsv", line 35, column 5: (P0075)
+  Case statement with no clauses
+make[2]: *** [obj/Deparser.bo] 错误 1
+make[2]: *** 正在等待未完成的任务....
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkBoardSynth.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkBoardSynth.ba
+make[1]: *** [build.bluesim] 错误 2
+make[1]:正在离开目录 `/home/yhs/clickp4_fpga/01_start'
+make: *** [compile] 错误 2
+[1m[7m%[27m[1m[0m                                                                                ]2;yhs@yhs-OptiPlex-9020: ~/clickp4_fpga/01_start]1;..fpga/01_start[0m[27m[24m[J[01;31m➜  [36m01_start[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=make compile[?1l>
+]2;make compile]1;makegrep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make build.bluesim -j8
+grep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make[1]: 正在进入目录 `/home/yhs/clickp4_fpga/01_start'
+BOARD=bluesim PROJECTDIR=bluesim make --no-print-directory gentarget prebuild 
+touch bluesim/Makefile.autotop
+topgen ['/home/yhs/connectal/scripts/topgen.py', '--project-dir', 'bluesim/generatedbsv', '--cnoc', '--wrapper', 'MainRequest:Main.request', '--proxy', 'Main:MainIndication,MemServerIndication:host']
+options.proxy: ['Main:MainIndication,MemServerIndication:host']
+options.wrapper: MainRequest:Main.request {'uparam': '', 'inverse': '', 'xparam': '', 'tparam': '', 'usermod': 'MainRequest', 'memFlag': '', 'name': 'Main.request'}
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/Top.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/../jni/topEnum.h
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)']
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)', 'MainClockPeriod=20', 'DerivedClockPeriod=10.000000']
+fpga_vendor None
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/Makefile.new)
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/ConnectalProjectConfig.bsv.new)
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/jni/ConnectalProjectConfig.h.new)
+make -C bluesim --no-print-directory all
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+/home/yhs/p4fpga/bsv/infra/Main.bsv:111: Syntax error, token=TOKENDINSTANCE
+split ['PARSER', 'Parser']
+split ['DEPARSER', 'Deparser']
+split ['MATCHTABLE', 'Control']
+split ['TYPEDEF', 'StructDefines']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_METAGEN', '1']
+split ['NUM_PKTGEN', '1']
+split ['NicVersion', '2343625944']
+split ['DataBusWidth', '128']
+split ['ConnectalVersion', '16.11.1']
+split ['NumberOfMasters', '1']
+split ['PinType', 'Empty']
+split ['PinTypeInclude', 'Misc']
+split ['NumberOfUserTiles', '1']
+split ['SlaveDataBusWidth', '32']
+split ['SlaveControlAddrWidth', '5']
+split ['BurstLenSize', '12']
+split ['project_dir', '/home/yhs/clickp4_fpga/01_start/bluesim']
+split ['MainClockPeriod', '20']
+split ['DerivedClockPeriod', '10.000000']
+split ['PhysAddrWidth', '40']
+split ['CONNECTAL_BITS_DEPENDENCES', 'bsim']
+/home/yhs/connectal/scripts/bsvdepend.py -o obj/Makefile -D PARSER=Parser -D DEPARSER=Deparser -D MATCHTABLE=Control -D TYPEDEF=StructDefines -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D STREAM -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D NUM_METAGEN=1 -D NUM_PKTGEN=1 -D STREAM -D NicVersion=2343625944 -D DataBusWidth=128 -D IMPORT_HOSTIF -D BYTE_ENABLES -D ClockDefaultParam -D ConnectalVersion=16.11.1 -D NumberOfMasters=1 -D PinType=Empty -D PinTypeInclude=Misc -D NumberOfUserTiles=1 -D SlaveDataBusWidth=32 -D SlaveControlAddrWidth=5 -D BurstLenSize=12 -D project_dir=/home/yhs/clickp4_fpga/01_start/bluesim -D MainClockPeriod=20 -D DerivedClockPeriod=10.000000 -D CnocTop -D XsimHostInterface -D PhysAddrWidth=40 -D SIMULATION -D CONNECTAL_BITS_DEPENDENCES=bsim -D BOARD_bluesim --bsvpath=/home/yhs/p4fpga/bsv/infra:/home/yhs/connectal/bsv:/home/yhs/clickp4_fpga/01_start/generatedbsv:/home/yhs/sonic-lite/hw/bsv:/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv:/home/yhs/clickp4_fpga/01_start:/home/yhs/p4fpga/bsv/datapath:/home/yhs/p4fpga/bsv/generated:/home/yhs/p4fpga/bsv/library:/home/yhs/p4fpga/bsv/library/AsymmetricBRAM:/home/yhs/p4fpga/bsv/library/Bcam:/home/yhs/p4fpga/bsv/library/DMHC:/home/yhs/p4fpga/bsv:/home/yhs/connectal/lib/bsv:/home/yhs/connectal/generated/xilinx:/home/yhs/connectal/generated/altera --all /home/yhs/connectal/bsv/XsimTop.bsv
+bsvdepend: in /home/yhs/connectal/bsv/PS5LIB.bsv expecting module: (* always_ready, always_enabled, no_default_clock, no_default_reset, clock_prefix="", reset_prefix="" *)
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+prepare_bin_target
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgRequest.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgIndication.c
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/GeneratedCppCallbacks.cpp
+BSV_BO [ /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/Table.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/StoreAndForward.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/Deparser.bsv]
+ubuntu.exe
+g++ -O -g -I/home/yhs/clickp4_fpga/01_start/bluesim/jni -shared -fpic -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -g -o /home/yhs/clickp4_fpga/01_start/bluesim/bin/libconnectal-sim.so /home/yhs/clickp4_fpga/01_start/bluesim/lib/TlpReplay.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/BsimDma.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/sock_utils.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portalPrintf.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimTop.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/poller.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportSocket.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportHardware.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportXsim.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portal.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/matchtable_model.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/mem_model.o
+"jni/ubuntu.exe" -> "bin/ubuntu.exe"
+ubuntu.exe done
+Warning: "/home/yhs/p4fpga/bsv/datapath/Table.bsv", line 61, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/SynthBuilder.defines
+Warning: "/home/yhs/p4fpga/bsv/datapath/Deparser.bsv", line 100, column 20: (T0054)
+  Field not defined: `read_perf_info'
+Warning: "/home/yhs/p4fpga/bsv/library/StoreAndForward.bsv", line 267, column 32: (T0054)
+  Field not defined: `freeDone'
+BSV_BO [ /home/yhs/p4fpga/bsv/library/HostChannel.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/HeaderSerializer.bsv]
+Warning: "/home/yhs/p4fpga/bsv/datapath/Deparser.bsv", line 100, column 8: (G0010)
+  Rule "rl_deparse_payload" was treated as more urgent than
+  "rl_stage3_cont". Conflicts:
+    "rl_deparse_payload" cannot fire before "rl_stage3_cont":
+      calls to
+	data_out_ff.enq vs. data_out_ff.enq
+	rg_processed.write vs. rg_processed.read
+	rg_shift_amt.write vs. rg_shift_amt.read
+    "rl_stage3_cont" cannot fire before "rl_deparse_payload":
+      calls to data_out_ff.enq vs. data_out_ff.enq
+Warning: "/home/yhs/p4fpga/bsv/datapath/Deparser.bsv", line 100, column 8: (G0010)
+  Rule "rl_deparse_payload" was treated as more urgent than
+  "rl_stage3_end". Conflicts:
+    "rl_deparse_payload" cannot fire before "rl_stage3_end":
+      calls to
+	data_out_ff.enq vs. data_out_ff.enq
+	rg_processed.write vs. rg_processed.read
+    "rl_stage3_end" cannot fire before "rl_deparse_payload":
+      calls to data_out_ff.enq vs. data_out_ff.enq
+Warning: "/home/yhs/p4fpga/bsv/datapath/Deparser.bsv", line 100, column 8: (G0010)
+  Rule "rl_stage3_begin" was treated as more urgent than
+  "rl_header_completion". Conflicts:
+    "rl_stage3_begin" cannot fire before "rl_header_completion":
+      calls to deparsing.write vs. deparsing.read
+    "rl_header_completion" cannot fire before "rl_stage3_begin":
+      calls to rg_shift_amt.write vs. rg_shift_amt.read
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkDeparser.sched
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/Control.bsv]
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkDeparser.ba
+BSV_BO [ /home/yhs/p4fpga/bsv/library/PktCapChannel.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/PktGenChannel.bsv]
+Warning: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 9, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/TieOff.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/TieOff.defines
+Warning: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 11, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/SynthBuilder.defines
+Warning: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 12, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/MatchTable.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/MatchTable.defines
+Error: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 37, column 21: (P0002)
+  Bad character in input: '\65306'
+make[2]: *** [obj/Control.bo] 错误 1
+make[2]: *** 正在等待未完成的任务....
+Warning: "/home/yhs/p4fpga/bsv/library/PktGenChannel.bsv", line 46, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/SynthBuilder.defines
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkHeaderSerializer.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkHeaderSerializer.ba
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkHostChannel.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkHostChannel.ba
+make[1]: *** [build.bluesim] 错误 2
+make[1]:正在离开目录 `/home/yhs/clickp4_fpga/01_start'
+make: *** [compile] 错误 2
+[1m[7m%[27m[1m[0m                                                                                ]2;yhs@yhs-OptiPlex-9020: ~/clickp4_fpga/01_start]1;..fpga/01_start[0m[27m[24m[J[01;31m➜  [36m01_start[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=make compile[?1l>
+]2;make compile]1;makegrep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make build.bluesim -j8
+grep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make[1]: 正在进入目录 `/home/yhs/clickp4_fpga/01_start'
+BOARD=bluesim PROJECTDIR=bluesim make --no-print-directory gentarget prebuild 
+touch bluesim/Makefile.autotop
+topgen ['/home/yhs/connectal/scripts/topgen.py', '--project-dir', 'bluesim/generatedbsv', '--cnoc', '--wrapper', 'MainRequest:Main.request', '--proxy', 'Main:MainIndication,MemServerIndication:host']
+options.proxy: ['Main:MainIndication,MemServerIndication:host']
+options.wrapper: MainRequest:Main.request {'uparam': '', 'inverse': '', 'xparam': '', 'tparam': '', 'usermod': 'MainRequest', 'memFlag': '', 'name': 'Main.request'}
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/Top.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/../jni/topEnum.h
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)']
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)', 'MainClockPeriod=20', 'DerivedClockPeriod=10.000000']
+fpga_vendor None
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/Makefile.new)
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/ConnectalProjectConfig.bsv.new)
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/jni/ConnectalProjectConfig.h.new)
+make -C bluesim --no-print-directory all
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+/home/yhs/p4fpga/bsv/infra/Main.bsv:111: Syntax error, token=TOKENDINSTANCE
+split ['PARSER', 'Parser']
+split ['DEPARSER', 'Deparser']
+split ['MATCHTABLE', 'Control']
+split ['TYPEDEF', 'StructDefines']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_METAGEN', '1']
+split ['NUM_PKTGEN', '1']
+split ['NicVersion', '2343625944']
+split ['DataBusWidth', '128']
+split ['ConnectalVersion', '16.11.1']
+split ['NumberOfMasters', '1']
+split ['PinType', 'Empty']
+split ['PinTypeInclude', 'Misc']
+split ['NumberOfUserTiles', '1']
+split ['SlaveDataBusWidth', '32']
+split ['SlaveControlAddrWidth', '5']
+split ['BurstLenSize', '12']
+split ['project_dir', '/home/yhs/clickp4_fpga/01_start/bluesim']
+split ['MainClockPeriod', '20']
+split ['DerivedClockPeriod', '10.000000']
+split ['PhysAddrWidth', '40']
+split ['CONNECTAL_BITS_DEPENDENCES', 'bsim']
+/home/yhs/connectal/scripts/bsvdepend.py -o obj/Makefile -D PARSER=Parser -D DEPARSER=Deparser -D MATCHTABLE=Control -D TYPEDEF=StructDefines -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D STREAM -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D NUM_METAGEN=1 -D NUM_PKTGEN=1 -D STREAM -D NicVersion=2343625944 -D DataBusWidth=128 -D IMPORT_HOSTIF -D BYTE_ENABLES -D ClockDefaultParam -D ConnectalVersion=16.11.1 -D NumberOfMasters=1 -D PinType=Empty -D PinTypeInclude=Misc -D NumberOfUserTiles=1 -D SlaveDataBusWidth=32 -D SlaveControlAddrWidth=5 -D BurstLenSize=12 -D project_dir=/home/yhs/clickp4_fpga/01_start/bluesim -D MainClockPeriod=20 -D DerivedClockPeriod=10.000000 -D CnocTop -D XsimHostInterface -D PhysAddrWidth=40 -D SIMULATION -D CONNECTAL_BITS_DEPENDENCES=bsim -D BOARD_bluesim --bsvpath=/home/yhs/p4fpga/bsv/infra:/home/yhs/connectal/bsv:/home/yhs/clickp4_fpga/01_start/generatedbsv:/home/yhs/sonic-lite/hw/bsv:/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv:/home/yhs/clickp4_fpga/01_start:/home/yhs/p4fpga/bsv/datapath:/home/yhs/p4fpga/bsv/generated:/home/yhs/p4fpga/bsv/library:/home/yhs/p4fpga/bsv/library/AsymmetricBRAM:/home/yhs/p4fpga/bsv/library/Bcam:/home/yhs/p4fpga/bsv/library/DMHC:/home/yhs/p4fpga/bsv:/home/yhs/connectal/lib/bsv:/home/yhs/connectal/generated/xilinx:/home/yhs/connectal/generated/altera --all /home/yhs/connectal/bsv/XsimTop.bsv
+bsvdepend: in /home/yhs/connectal/bsv/PS5LIB.bsv expecting module: (* always_ready, always_enabled, no_default_clock, no_default_reset, clock_prefix="", reset_prefix="" *)
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+prepare_bin_target
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgRequest.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgIndication.c
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/GeneratedCppCallbacks.cpp
+BSV_BO [ /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/Control.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/PacketModifier.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/RxChannel.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/TxChannel.bsv]
+ubuntu.exe
+g++ -O -g -I/home/yhs/clickp4_fpga/01_start/bluesim/jni -shared -fpic -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -g -o /home/yhs/clickp4_fpga/01_start/bluesim/bin/libconnectal-sim.so /home/yhs/clickp4_fpga/01_start/bluesim/lib/TlpReplay.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/BsimDma.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/sock_utils.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portalPrintf.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimTop.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/poller.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportSocket.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportHardware.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportXsim.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portal.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/matchtable_model.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/mem_model.o
+"jni/ubuntu.exe" -> "bin/ubuntu.exe"
+ubuntu.exe done
+Warning: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 9, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/TieOff.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/TieOff.defines
+Warning: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 11, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/SynthBuilder.defines
+Warning: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 12, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/MatchTable.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/MatchTable.defines
+Error: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 36, column 21: (P0002)
+  Bad character in input: '\65306'
+make[2]: *** [obj/Control.bo] 错误 1
+make[2]: *** 正在等待未完成的任务....
+Schedule dump file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPacketModifier.sched
+Elaborated module file created: /home/yhs/clickp4_fpga/01_start/bluesim/obj/mkPacketModifier.ba
+make[1]: *** [build.bluesim] 错误 2
+make[1]:正在离开目录 `/home/yhs/clickp4_fpga/01_start'
+make: *** [compile] 错误 2
+[1m[7m%[27m[1m[0m                                                                                ]2;yhs@yhs-OptiPlex-9020: ~/clickp4_fpga/01_start]1;..fpga/01_start[0m[27m[24m[J[01;31m➜  [36m01_start[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=make compile[?1l>
+]2;make compile]1;makegrep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make build.bluesim -j8
+grep: /home/yhs/connectal/boardinfo/.json: 没有那个文件或目录
+make[1]: 正在进入目录 `/home/yhs/clickp4_fpga/01_start'
+BOARD=bluesim PROJECTDIR=bluesim make --no-print-directory gentarget prebuild 
+touch bluesim/Makefile.autotop
+topgen ['/home/yhs/connectal/scripts/topgen.py', '--project-dir', 'bluesim/generatedbsv', '--cnoc', '--wrapper', 'MainRequest:Main.request', '--proxy', 'Main:MainIndication,MemServerIndication:host']
+options.proxy: ['Main:MainIndication,MemServerIndication:host']
+options.wrapper: MainRequest:Main.request {'uparam': '', 'inverse': '', 'xparam': '', 'tparam': '', 'usermod': 'MainRequest', 'memFlag': '', 'name': 'Main.request'}
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/Top.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv
+Writing: /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/../jni/topEnum.h
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)']
+['PARSER=Parser', 'DEPARSER=Deparser', 'MATCHTABLE=Control', 'TYPEDEF=StructDefines', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'STREAM', 'NUM_RXCHAN=1', 'NUM_TXCHAN=1', 'NUM_HOSTCHAN=1', 'NUM_METAGEN=1', 'NUM_PKTGEN=1', 'STREAM', 'NicVersion=2343625944', 'DataBusWidth=128', 'IMPORT_HOSTIF', 'BYTE_ENABLES', 'ClockDefaultParam', 'ConnectalVersion=16.11.1', 'NumberOfMasters=1', 'PinType=Empty', 'PinTypeInclude=Misc', 'NumberOfUserTiles=1', 'SlaveDataBusWidth=32', 'SlaveControlAddrWidth=5', 'BurstLenSize=12', 'project_dir=$(DTOP)', 'MainClockPeriod=20', 'DerivedClockPeriod=10.000000']
+fpga_vendor None
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/Makefile.new)
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/ConnectalProjectConfig.bsv.new)
+os.unlink(/home/yhs/clickp4_fpga/01_start/bluesim/jni/ConnectalProjectConfig.h.new)
+make -C bluesim --no-print-directory all
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+/home/yhs/p4fpga/bsv/infra/Main.bsv:111: Syntax error, token=TOKENDINSTANCE
+split ['PARSER', 'Parser']
+split ['DEPARSER', 'Deparser']
+split ['MATCHTABLE', 'Control']
+split ['TYPEDEF', 'StructDefines']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_RXCHAN', '1']
+split ['NUM_TXCHAN', '1']
+split ['NUM_HOSTCHAN', '1']
+split ['NUM_METAGEN', '1']
+split ['NUM_PKTGEN', '1']
+split ['NicVersion', '2343625944']
+split ['DataBusWidth', '128']
+split ['ConnectalVersion', '16.11.1']
+split ['NumberOfMasters', '1']
+split ['PinType', 'Empty']
+split ['PinTypeInclude', 'Misc']
+split ['NumberOfUserTiles', '1']
+split ['SlaveDataBusWidth', '32']
+split ['SlaveControlAddrWidth', '5']
+split ['BurstLenSize', '12']
+split ['project_dir', '/home/yhs/clickp4_fpga/01_start/bluesim']
+split ['MainClockPeriod', '20']
+split ['DerivedClockPeriod', '10.000000']
+split ['PhysAddrWidth', '40']
+split ['CONNECTAL_BITS_DEPENDENCES', 'bsim']
+/home/yhs/connectal/scripts/bsvdepend.py -o obj/Makefile -D PARSER=Parser -D DEPARSER=Deparser -D MATCHTABLE=Control -D TYPEDEF=StructDefines -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D STREAM -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D NUM_METAGEN=1 -D NUM_PKTGEN=1 -D STREAM -D NicVersion=2343625944 -D DataBusWidth=128 -D IMPORT_HOSTIF -D BYTE_ENABLES -D ClockDefaultParam -D ConnectalVersion=16.11.1 -D NumberOfMasters=1 -D PinType=Empty -D PinTypeInclude=Misc -D NumberOfUserTiles=1 -D SlaveDataBusWidth=32 -D SlaveControlAddrWidth=5 -D BurstLenSize=12 -D project_dir=/home/yhs/clickp4_fpga/01_start/bluesim -D MainClockPeriod=20 -D DerivedClockPeriod=10.000000 -D CnocTop -D XsimHostInterface -D PhysAddrWidth=40 -D SIMULATION -D CONNECTAL_BITS_DEPENDENCES=bsim -D BOARD_bluesim --bsvpath=/home/yhs/p4fpga/bsv/infra:/home/yhs/connectal/bsv:/home/yhs/clickp4_fpga/01_start/generatedbsv:/home/yhs/sonic-lite/hw/bsv:/home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv:/home/yhs/clickp4_fpga/01_start:/home/yhs/p4fpga/bsv/datapath:/home/yhs/p4fpga/bsv/generated:/home/yhs/p4fpga/bsv/library:/home/yhs/p4fpga/bsv/library/AsymmetricBRAM:/home/yhs/p4fpga/bsv/library/Bcam:/home/yhs/p4fpga/bsv/library/DMHC:/home/yhs/p4fpga/bsv:/home/yhs/connectal/lib/bsv:/home/yhs/connectal/generated/xilinx:/home/yhs/connectal/generated/altera --all /home/yhs/connectal/bsv/XsimTop.bsv
+bsvdepend: in /home/yhs/connectal/bsv/PS5LIB.bsv expecting module: (* always_ready, always_enabled, no_default_clock, no_default_reset, clock_prefix="", reset_prefix="" *)
+obj/Makefile:487: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:205: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:577: 警告：覆盖关于目标“verilog/mkPcieEndpointX7.v”的命令
+obj/Makefile:487: 警告：忽略关于目标“verilog/mkPcieEndpointX7.v”的旧命令
+obj/Makefile:716: 警告：覆盖关于目标“verilog/mkPcieRootPortX7.v”的命令
+obj/Makefile:256: 警告：忽略关于目标“verilog/mkPcieRootPortX7.v”的旧命令
+obj/Makefile:797: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:607: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:1205: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:797: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2155: 警告：覆盖关于目标“obj/StreamChannel.bo”的命令
+obj/Makefile:934: 警告：忽略关于目标“obj/StreamChannel.bo”的旧命令
+obj/Makefile:2162: 警告：覆盖关于目标“obj/PktGen.bo”的命令
+obj/Makefile:941: 警告：忽略关于目标“obj/PktGen.bo”的旧命令
+obj/Makefile:2169: 警告：覆盖关于目标“obj/Lists.bo”的命令
+obj/Makefile:948: 警告：忽略关于目标“obj/Lists.bo”的旧命令
+obj/Makefile:2176: 警告：覆盖关于目标“obj/Stream.bo”的命令
+obj/Makefile:955: 警告：忽略关于目标“obj/Stream.bo”的旧命令
+obj/Makefile:2206: 警告：覆盖关于目标“obj/DmaController.bo”的命令
+obj/Makefile:962: 警告：忽略关于目标“obj/DmaController.bo”的旧命令
+obj/Makefile:2220: 警告：覆盖关于目标“obj/LedController.bo”的命令
+obj/Makefile:999: 警告：忽略关于目标“obj/LedController.bo”的旧命令
+obj/Makefile:2229: 警告：覆盖关于目标“verilog/mkLedController.v”的命令
+obj/Makefile:1008: 警告：忽略关于目标“verilog/mkLedController.v”的旧命令
+obj/Makefile:2236: 警告：覆盖关于目标“obj/Register.bo”的命令
+obj/Makefile:1015: 警告：忽略关于目标“obj/Register.bo”的旧命令
+obj/Makefile:2243: 警告：覆盖关于目标“obj/ISA_Defs.bo”的命令
+obj/Makefile:1022: 警告：忽略关于目标“obj/ISA_Defs.bo”的旧命令
+obj/Makefile:2250: 警告：覆盖关于目标“obj/SharedBuffMemServerInternal.bo”的命令
+obj/Makefile:1029: 警告：忽略关于目标“obj/SharedBuffMemServerInternal.bo”的旧命令
+obj/Makefile:2257: 警告：覆盖关于目标“obj/SharedBuffMMU.bo”的命令
+obj/Makefile:1036: 警告：忽略关于目标“obj/SharedBuffMMU.bo”的旧命令
+obj/Makefile:2264: 警告：覆盖关于目标“obj/HeaderSerializer.bo”的命令
+obj/Makefile:1043: 警告：忽略关于目标“obj/HeaderSerializer.bo”的旧命令
+obj/Makefile:2280: 警告：覆盖关于目标“obj/Sims.bo”的命令
+obj/Makefile:1064: 警告：忽略关于目标“obj/Sims.bo”的旧命令
+obj/Makefile:2287: 警告：覆盖关于目标“obj/PriorityEncoder.bo”的命令
+obj/Makefile:1087: 警告：忽略关于目标“obj/PriorityEncoder.bo”的旧命令
+obj/Makefile:2294: 警告：覆盖关于目标“obj/Tap.bo”的命令
+obj/Makefile:1094: 警告：忽略关于目标“obj/Tap.bo”的旧命令
+obj/Makefile:2301: 警告：覆盖关于目标“obj/SharedBuffMemServer.bo”的命令
+obj/Makefile:1101: 警告：忽略关于目标“obj/SharedBuffMemServer.bo”的旧命令
+obj/Makefile:2308: 警告：覆盖关于目标“obj/DbgTypes.bo”的命令
+obj/Makefile:1124: 警告：忽略关于目标“obj/DbgTypes.bo”的旧命令
+obj/Makefile:2315: 警告：覆盖关于目标“obj/CPU_Common.bo”的命令
+obj/Makefile:1161: 警告：忽略关于目标“obj/CPU_Common.bo”的旧命令
+obj/Makefile:2322: 警告：覆盖关于目标“obj/StringUtils.bo”的命令
+obj/Makefile:1168: 警告：忽略关于目标“obj/StringUtils.bo”的旧命令
+obj/Makefile:2329: 警告：覆盖关于目标“obj/MemMgmt.bo”的命令
+obj/Makefile:1175: 警告：忽略关于目标“obj/MemMgmt.bo”的旧命令
+obj/Makefile:2336: 警告：覆盖关于目标“obj/MatchTable.bo”的命令
+obj/Makefile:1182: 警告：忽略关于目标“obj/MatchTable.bo”的旧命令
+obj/Makefile:2343: 警告：覆盖关于目标“obj/DbgDefs.bo”的命令
+obj/Makefile:1189: 警告：忽略关于目标“obj/DbgDefs.bo”的旧命令
+obj/Makefile:2357: 警告：覆盖关于目标“obj/Ddr3Controller.bo”的命令
+obj/Makefile:1196: 警告：忽略关于目标“obj/Ddr3Controller.bo”的旧命令
+obj/Makefile:2366: 警告：覆盖关于目标“verilog/mkDdr3.v”的命令
+obj/Makefile:1205: 警告：忽略关于目标“verilog/mkDdr3.v”的旧命令
+obj/Makefile:2373: 警告：覆盖关于目标“obj/XilinxEthPhy.bo”的命令
+obj/Makefile:1219: 警告：忽略关于目标“obj/XilinxEthPhy.bo”的旧命令
+obj/Makefile:2380: 警告：覆盖关于目标“obj/Ethernet.bo”的命令
+obj/Makefile:1226: 警告：忽略关于目标“obj/Ethernet.bo”的旧命令
+obj/Makefile:2387: 警告：覆盖关于目标“obj/StreamGearbox.bo”的命令
+obj/Makefile:1233: 警告：忽略关于目标“obj/StreamGearbox.bo”的旧命令
+obj/Makefile:2394: 警告：覆盖关于目标“obj/IMem.bo”的命令
+obj/Makefile:1240: 警告：忽略关于目标“obj/IMem.bo”的旧命令
+obj/Makefile:2408: 警告：覆盖关于目标“obj/TxChannel.bo”的命令
+obj/Makefile:1277: 警告：忽略关于目标“obj/TxChannel.bo”的旧命令
+obj/Makefile:2415: 警告：覆盖关于目标“obj/StoreAndForward.bo”的命令
+obj/Makefile:1291: 警告：忽略关于目标“obj/StoreAndForward.bo”的旧命令
+obj/Makefile:2422: 警告：覆盖关于目标“obj/PushButtonController.bo”的命令
+obj/Makefile:1319: 警告：忽略关于目标“obj/PushButtonController.bo”的旧命令
+obj/Makefile:2431: 警告：覆盖关于目标“verilog/mkPushButtonController.v”的命令
+obj/Makefile:1328: 警告：忽略关于目标“verilog/mkPushButtonController.v”的旧命令
+obj/Makefile:2438: 警告：覆盖关于目标“obj/PacketBuffer.bo”的命令
+obj/Makefile:1342: 警告：忽略关于目标“obj/PacketBuffer.bo”的旧命令
+obj/Makefile:2452: 警告：覆盖关于目标“obj/CPU.bo”的命令
+obj/Makefile:1372: 警告：忽略关于目标“obj/CPU.bo”的旧命令
+obj/Makefile:2466: 警告：覆盖关于目标“obj/EthMac.bo”的命令
+obj/Makefile:1393: 警告：忽略关于目标“obj/EthMac.bo”的旧命令
+obj/Makefile:2473: 警告：覆盖关于目标“obj/PrintTrace.bo”的命令
+obj/Makefile:1400: 警告：忽略关于目标“obj/PrintTrace.bo”的旧命令
+obj/Makefile:2480: 警告：覆盖关于目标“obj/Utils.bo”的命令
+obj/Makefile:1407: 警告：忽略关于目标“obj/Utils.bo”的旧命令
+obj/Makefile:2487: 警告：覆盖关于目标“obj/SynthBuilder.bo”的命令
+obj/Makefile:1414: 警告：忽略关于目标“obj/SynthBuilder.bo”的旧命令
+obj/Makefile:2494: 警告：覆盖关于目标“obj/RxChannel.bo”的命令
+obj/Makefile:1421: 警告：忽略关于目标“obj/RxChannel.bo”的旧命令
+obj/Makefile:2501: 警告：覆盖关于目标“obj/TxRx.bo”的命令
+obj/Makefile:1428: 警告：忽略关于目标“obj/TxRx.bo”的旧命令
+obj/Makefile:2515: 警告：覆盖关于目标“obj/SharedBuff.bo”的命令
+obj/Makefile:1435: 警告：忽略关于目标“obj/SharedBuff.bo”的旧命令
+obj/Makefile:2522: 警告：覆盖关于目标“obj/HostChannel.bo”的命令
+obj/Makefile:1442: 警告：忽略关于目标“obj/HostChannel.bo”的旧命令
+obj/Makefile:2538: 警告：覆盖关于目标“obj/NfsumePins.bo”的命令
+obj/Makefile:1456: 警告：忽略关于目标“obj/NfsumePins.bo”的旧命令
+prepare_bin_target
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgRequest.c
+mkdir -p  /home/yhs/clickp4_fpga/01_start/bluesim/lib
+cc -c   -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/XsimMsgIndication.c
+BSV_BO [ /home/yhs/clickp4_fpga/01_start/bluesim/generatedbsv/IfcNames.bsv]
+g++ -c  -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -o  /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o  /home/yhs/clickp4_fpga/01_start/bluesim/jni/GeneratedCppCallbacks.cpp
+BSV_BO [ /home/yhs/p4fpga/bsv/datapath/Control.bsv]
+BSV_BO [ /home/yhs/p4fpga/bsv/library/StreamChannel.bsv]
+ubuntu.exe
+g++ -O -g -I/home/yhs/clickp4_fpga/01_start/bluesim/jni -shared -fpic -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linux_x86_64/lib64" -fPIC -Ijni -I /home/yhs/connectal/cpp -I /home/yhs/connectal -O  -g -o /home/yhs/clickp4_fpga/01_start/bluesim/bin/libconnectal-sim.so /home/yhs/clickp4_fpga/01_start/bluesim/lib/TlpReplay.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/BsimDma.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/sock_utils.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portalPrintf.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimTop.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/poller.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportSocket.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportHardware.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/transportXsim.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/portal.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgRequest.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/XsimMsgIndication.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/GeneratedCppCallbacks.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/matchtable_model.o /home/yhs/clickp4_fpga/01_start/bluesim/lib/mem_model.o
+"jni/ubuntu.exe" -> "bin/ubuntu.exe"
+ubuntu.exe done
+Warning: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 9, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/TieOff.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/TieOff.defines
+Warning: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 11, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/SynthBuilder.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/SynthBuilder.defines
+Warning: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 12, column 1: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    /home/yhs/sonic-lite/hw/bsv/MatchTable.defines
+  Ignoring:
+    /home/yhs/p4fpga/bsv/library/MatchTable.defines
+Error: "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line 65, column 10: (T0099)
+  Duplicate typeclass instances defined for
+  Table::Action_execute#(UnionDefines::PipelineStartTblPipelineStartParam) The
+  previous instance was defined at
+  "/home/yhs/clickp4_fpga/01_start/generatedbsv/ControlGenerated.bsv", line
+  54, column 10 Please remove an applicable instance declaration or deriving
+  request
+make[2]: *** [obj/Control.bo] 错误 1
+make[2]: *** 正在等待未完成的任务....
+make[1]: *** [build.bluesim] 错误 2
+make[1]:正在离开目录 `/home/yhs/clickp4_fpga/01_start'
+make: *** [compile] 错误 2
+[1m[7m%[27m[1m[0m                                                                                ]2;yhs@yhs-OptiPlex-9020: ~/clickp4_fpga/01_start]1;..fpga/01_start[0m[27m[24m[J[01;31m➜  [36m01_start[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=a 

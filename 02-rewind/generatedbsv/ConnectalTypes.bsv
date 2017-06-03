@@ -9,4 +9,6 @@ instance DefaultValue#(PipelineRewindRewindTableReqT);
 endinstance
 typedef struct {
     Bit#(1) _action;
+    Bit#(8) _state;
+    Bit#(64) _bitmap;
 } PipelineRewindRewindTableRspT deriving (Bits, FShow);

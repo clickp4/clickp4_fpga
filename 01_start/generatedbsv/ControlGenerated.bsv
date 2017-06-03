@@ -33,9 +33,8 @@ instance Table_execute #(ConnectalTypes::PipelineStartTblPipelineStartRspT, Pipe
     function Action table_execute(ConnectalTypes::PipelineStartTblPipelineStartRspT resp, MetadataRequest metadata, Vector#(3, FIFOF#(Tuple2#(MetadataRequest, PipelineStartTblPipelineStartParam))) fifos);
         action
         case (unpack(resp._action)) matches
-        /////*****
-        ACTSETCHAIN0： begin
-            PipelineStartTblPipelineStartParam req1 = tagged ActSetChainReqT {_chainid: resp._chainid};
+        ACTSETCHAIN0: begin
+            PipelineStartTblPipelineStartParam req1 = tagged ActSetChainReqT {_chainid: resp._chainid, _bitmap: resp._bitmap};
             fifos[0].enq(tuple2(metadata,req1));
         end
         ACTSETBITMAP0: begin
@@ -45,7 +44,6 @@ instance Table_execute #(ConnectalTypes::PipelineStartTblPipelineStartRspT, Pipe
         NOACTION1: begin
             fifos[2].enq(tuple2(metadata,?));
         end
-        /////*****
         endcase
         endaction
     endfunction

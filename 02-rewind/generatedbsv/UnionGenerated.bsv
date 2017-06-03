@@ -2,9 +2,12 @@ import Ethernet::*;
 import StructDefines::*;
 typedef union tagged {
     struct {
-    } ReqT;
+        Bit#(8) _state;
+        Bit#(64) _bitmap;
+    } RewindReqT;
     struct {
-    } ReqT;
+        Bit#(0) unused;
+    } NoAction1ReqT;
 } PipelineRewindRewindTableParam deriving (Bits, Eq, FShow);
 import Ethernet::*;
 import StructDefines::*;

@@ -32,6 +32,13 @@ instance Table_execute #(ConnectalTypes::ModuleIfIfEqualRspT, ModuleIfIfEqualPar
     function Action table_execute(ConnectalTypes::ModuleIfIfEqualRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, ModuleIfIfEqualParam))) fifos);
         action
         case (unpack(resp._action)) matches
+            IFBRANCH0: begin
+                ModuleIfIfEqualParam req= tagged IfBranch0ReqT(_state: resp._state, _bitmap: resp._bitmap);
+                fifos[0].enq(tuple2(metadata, req));
+            end
+            NOACTION1: begin
+                fifos[0].enq(tuple2(metadata, ?));
+            end
         endcase
         endaction
     endfunction
@@ -58,6 +65,13 @@ instance Table_execute #(ConnectalTypes::ModuleIfIfLargeRspT, ModuleIfIfLargePar
     function Action table_execute(ConnectalTypes::ModuleIfIfLargeRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, ModuleIfIfLargeParam))) fifos);
         action
         case (unpack(resp._action)) matches
+            IFBRANCH1: begin
+                ModuleIfIfEqualParam req= tagged IfBranch1ReqT(_state: resp._state, _bitmap: resp._bitmap);
+                fifos[0].enq(tuple2(metadata, req));
+            end
+            NOACTION2: begin
+                fifos[0].enq(tuple2(metadata, ?));
+            end
         endcase
         endaction
     endfunction
@@ -84,6 +98,13 @@ instance Table_execute #(ConnectalTypes::ModuleIfIfSmallRspT, ModuleIfIfSmallPar
     function Action table_execute(ConnectalTypes::ModuleIfIfSmallRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, ModuleIfIfSmallParam))) fifos);
         action
         case (unpack(resp._action)) matches
+        IFBRANCH2: begin
+                ModuleIfIfEqualParam req= tagged IfBranch2ReqT(_state: resp._state, _bitmap: resp._bitmap);
+                fifos[0].enq(tuple2(metadata, req));
+            end
+            NOACTION3: begin
+                fifos[0].enq(tuple2(metadata, ?));
+            end
         endcase
         endaction
     endfunction
