@@ -8126,4 +8126,4 @@ make[2]: *** 正在等待未完成的任务....
 make[1]: *** [build.bluesim] 错误 2
 make[1]:正在离开目录 `/home/yhs/clickp4_fpga/01_start'
 make: *** [compile] 错误 2
-[1m[7m%[27m[1m[0m                                                                                ]2;yhs@yhs-OptiPlex-9020: ~/clickp4_fpga/01_start]1;..fpga/01_start[0m[27m[24m[J[01;31m➜  [36m01_start[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=a 
+[1m[7m%[27m[1m[0m                                                                                ]2;yhs@yhs-OptiPlex-9020: ~/clickp4_fpga/01_start]1;..fpga/01_start[0m[27m[24m[J[01;31m➜  [36m01_start[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=a make compile

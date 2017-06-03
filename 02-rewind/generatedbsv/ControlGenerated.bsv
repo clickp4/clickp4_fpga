@@ -97,28 +97,27 @@ module mkIngress (Ingress);
         node_2_req_ff.deq;
         let _req = node_2_req_ff.first;
         let meta = _req.meta;
-        let h = _req.meta.meta.click_metadata;
-        if (h.click_bitmap) begin
+        // if (meta.meta.click_bitmap==0) begin
             node_3_req_ff.enq(_req);
             dbprint(3, $format("node_2 true", fshow(meta)));
-        end
-        else begin
-            exit_req_ff.enq(_req);
-            dbprint(3, $format("node_2 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     exit_req_ff.enq(_req);
+        //     dbprint(3, $format("node_2 false", fshow(meta)));
+        // end
     endrule
     rule rl_node_3 if (node_3_req_ff.notEmpty);
         node_3_req_ff.deq;
         let _req = node_3_req_ff.first;
         let meta = _req.meta;
-        if (h.click_id) begin
-            pipeline_rewind.rewind_table_req_ff.enq(_req);
+        // if (meta.meta.click_id==0) begin
+            pipeline_rewind_rewind_table_req_ff.enq(_req);
             dbprint(3, $format("node_3 true", fshow(meta)));
-        end
-        else begin
-            exit_req_ff.enq(_req);
-            dbprint(3, $format("node_3 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     exit_req_ff.enq(_req);
+        //     dbprint(3, $format("node_3 false", fshow(meta)));
+        // end
     endrule
     rule rl_pipeline_rewind_rewind_table if (pipeline_rewind_rewind_table_rsp_ff.notEmpty);
         pipeline_rewind_rewind_table_rsp_ff.deq;
