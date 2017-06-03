@@ -1,3 +1,0 @@
-method Action module_l3_switch_forward_table_add_entry(ModuleL3SwitchForwardTableReqT key, ModuleL3SwitchForwardTableRspT val);
-method Action module_l3_switch_ipv4_nhop_add_entry(ModuleL3SwitchIpv4NhopReqT key, ModuleL3SwitchIpv4NhopRspT val);
-method Action module_l3_switch_send_frame_add_entry(ModuleL3SwitchSendFrameReqT key, ModuleL3SwitchSendFrameRspT val);

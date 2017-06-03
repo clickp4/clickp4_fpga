@@ -1,0 +1,2 @@
+method Action module_l2_switch_dmac_add_entry(ModuleL2SwitchDmacReqT key, ModuleL2SwitchDmacRspT val);
+method Action module_l2_switch_smac_add_entry(ModuleL2SwitchSmacReqT key, ModuleL2SwitchSmacRspT val);

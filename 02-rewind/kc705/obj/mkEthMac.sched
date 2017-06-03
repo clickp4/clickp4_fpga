@@ -1,0 +1,85 @@
+=== Generated schedule for mkEthMac ===
+
+Method schedule
+---------------
+Method: tx_get
+Ready signal: True
+Conflict-free: tx_get, rx_put, packet_tx_put, packet_rx_get
+ 
+Method: rx_put
+Ready signal: True
+Conflict-free: tx_get, rx_put, packet_tx_put, packet_rx_get
+ 
+Method: packet_tx_put
+Ready signal: tx_fifo.i_notFull
+Conflict-free: tx_get, rx_put, packet_rx_get
+Conflicts: packet_tx_put
+ 
+Method: packet_rx_get
+Ready signal: rx_fifo.i_notEmpty
+Conflict-free: tx_get, rx_put, packet_tx_put
+Conflicts: packet_rx_get
+ 
+Rule schedule
+-------------
+Rule: countup
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: dcm_locked_rx
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: dcm_locked_tx
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: tx_ready
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: tx_data
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: tx_keep
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: tx_last
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: tx_user
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: tx_valid
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: tx_dequeue
+Predicate: tx_fifo.i_notEmpty && tx_fifo.notEmpty
+Blocking rules: (none)
+ 
+Rule: rx_data
+Predicate: (! mac.rx_axis_tvalid) || rx_fifo.i_notFull
+Blocking rules: (none)
+ 
+Logical execution order: tx_get,
+			 rx_put,
+			 packet_rx_get,
+			 dcm_locked_rx,
+			 dcm_locked_tx,
+			 tx_ready,
+			 tx_dequeue,
+			 packet_tx_put,
+			 tx_data,
+			 tx_keep,
+			 tx_last,
+			 tx_user,
+			 tx_valid,
+			 rx_data,
+			 countup
+
+========================================

@@ -1,0 +1,89 @@
+=== Generated schedule for mkStreamGearboxUp_16_32 ===
+
+Method schedule
+---------------
+Method: datain_put
+Ready signal: in_ff.i_notFull
+Conflict-free: dataout_get,
+	       getEopCount,
+	       getSopCount,
+	       getIdleCount,
+	       getDataCount
+Conflicts: datain_put
+ 
+Method: dataout_get
+Ready signal: out_ff.i_notEmpty
+Conflict-free: datain_put,
+	       getEopCount,
+	       getSopCount,
+	       getIdleCount,
+	       getDataCount
+Conflicts: dataout_get
+ 
+Method: getEopCount
+Ready signal: True
+Conflict-free: datain_put,
+	       dataout_get,
+	       getEopCount,
+	       getSopCount,
+	       getIdleCount,
+	       getDataCount
+ 
+Method: getSopCount
+Ready signal: True
+Conflict-free: datain_put,
+	       dataout_get,
+	       getEopCount,
+	       getSopCount,
+	       getIdleCount,
+	       getDataCount
+ 
+Method: getIdleCount
+Ready signal: True
+Conflict-free: datain_put,
+	       dataout_get,
+	       getEopCount,
+	       getSopCount,
+	       getIdleCount,
+	       getDataCount
+ 
+Method: getDataCount
+Ready signal: True
+Conflict-free: datain_put,
+	       dataout_get,
+	       getEopCount,
+	       getSopCount,
+	       getIdleCount,
+	       getDataCount
+ 
+Rule schedule
+-------------
+Rule: startOfPacket
+Predicate: in_ff.i_notEmpty && (! inProgress)
+Blocking rules: (none)
+ 
+Rule: readPacketOdd
+Predicate: in_ff.i_notEmpty && ((! in_ff.first[0]) || out_ff.i_notFull) &&
+	   inProgress && oddBeat
+Blocking rules: (none)
+ 
+Rule: readPacketEven
+Predicate: in_ff.i_notEmpty && out_ff.i_notFull && inProgress && (! oddBeat)
+Blocking rules: (none)
+ 
+Rule: count_idle_cycles
+Predicate: ! inProgress
+Blocking rules: (none)
+ 
+Logical execution order: datain_put,
+			 dataout_get,
+			 getEopCount,
+			 getSopCount,
+			 getIdleCount,
+			 getDataCount,
+			 readPacketOdd,
+			 readPacketEven,
+			 count_idle_cycles,
+			 startOfPacket
+
+=======================================================

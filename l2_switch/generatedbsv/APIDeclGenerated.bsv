@@ -1,0 +1,2 @@
+method module_l2_switch_dmac_add_entry = prog.module_l2_switch_dmac_add_entry;
+method module_l2_switch_smac_add_entry = prog.module_l2_switch_smac_add_entry;
