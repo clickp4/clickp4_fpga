@@ -14,15 +14,15 @@ typedef enum {
     SETDMAC0,
     NOACTION1
 } ModuleL3SwitchForwardTableActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(19, 36, 1, module_l3_switch_forward_table)
+`MATCHTABLE_SIM(17, 36, 1, module_l3_switch_forward_table)
 typedef Table#(2, MetadataRequest, ModuleL3SwitchForwardTableParam, ConnectalTypes::ModuleL3SwitchForwardTableReqT, ConnectalTypes::ModuleL3SwitchForwardTableRspT) ModuleL3SwitchForwardTableTable;
-typedef MatchTable#(1, 19, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchForwardTableReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchForwardTableRspT)) ModuleL3SwitchForwardTableMatchTable;
+typedef MatchTable#(1, 17, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchForwardTableReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchForwardTableRspT)) ModuleL3SwitchForwardTableMatchTable;
 `SynthBuildModule1(mkMatchTable, String, ModuleL3SwitchForwardTableMatchTable, mkMatchTable_ModuleL3SwitchForwardTable)
 instance Table_request #(ConnectalTypes::ModuleL3SwitchForwardTableReqT);
     function ConnectalTypes::ModuleL3SwitchForwardTableReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleL3SwitchForwardTableReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+            let nhop_ipv4 = fromMaybe(?, data.meta.meta.nhop_ipv4);
             v = ConnectalTypes::ModuleL3SwitchForwardTableReqT {nhop_ipv4: nhop_ipv4, padding: 0};
         end
         return v;
@@ -32,33 +32,46 @@ instance Table_execute #(ConnectalTypes::ModuleL3SwitchForwardTableRspT, ModuleL
     function Action table_execute(ConnectalTypes::ModuleL3SwitchForwardTableRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, ModuleL3SwitchForwardTableParam))) fifos);
         action
         case (unpack(resp._action)) matches
+            SETDMAC0: begin
+                ModuleL3SwitchForwardTableParam req = tagged SetDMacReqT {_dmac: resp._dmac, _port: resp._port};
+                fifos[0].enq(tuple2(metadata, req));
+            end
+            NOACTION1: begin
+                fifos[1].enq(tuple2(metadata, ?));
+            end
         endcase
         endaction
     endfunction
 endinstance
 typedef enum {
     SETNHOP0,
-    BLOCK0,
     NOACTION2
 } ModuleL3SwitchIpv4NhopActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(20, 36, 2, module_l3_switch_ipv4_nhop)
-typedef Table#(3, MetadataRequest, ModuleL3SwitchIpv4NhopParam, ConnectalTypes::ModuleL3SwitchIpv4NhopReqT, ConnectalTypes::ModuleL3SwitchIpv4NhopRspT) ModuleL3SwitchIpv4NhopTable;
-typedef MatchTable#(1, 20, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchIpv4NhopReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchIpv4NhopRspT)) ModuleL3SwitchIpv4NhopMatchTable;
+`MATCHTABLE_SIM(18, 36, 1, module_l3_switch_ipv4_nhop)
+typedef Table#(2, MetadataRequest, ModuleL3SwitchIpv4NhopParam, ConnectalTypes::ModuleL3SwitchIpv4NhopReqT, ConnectalTypes::ModuleL3SwitchIpv4NhopRspT) ModuleL3SwitchIpv4NhopTable;
+typedef MatchTable#(1, 18, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchIpv4NhopReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchIpv4NhopRspT)) ModuleL3SwitchIpv4NhopMatchTable;
 `SynthBuildModule1(mkMatchTable, String, ModuleL3SwitchIpv4NhopMatchTable, mkMatchTable_ModuleL3SwitchIpv4Nhop)
 instance Table_request #(ConnectalTypes::ModuleL3SwitchIpv4NhopReqT);
     function ConnectalTypes::ModuleL3SwitchIpv4NhopReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleL3SwitchIpv4NhopReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+            let dst_addr = fromMaybe(?, data.meta.meta.dst_addr);
             v = ConnectalTypes::ModuleL3SwitchIpv4NhopReqT {dst_addr: dst_addr, padding: 0};
         end
         return v;
     endfunction
 endinstance
-instance Table_execute #(ConnectalTypes::ModuleL3SwitchIpv4NhopRspT, ModuleL3SwitchIpv4NhopParam, 3);
-    function Action table_execute(ConnectalTypes::ModuleL3SwitchIpv4NhopRspT resp, MetadataRequest metadata, Vector#(3, FIFOF#(Tuple2#(MetadataRequest, ModuleL3SwitchIpv4NhopParam))) fifos);
+instance Table_execute #(ConnectalTypes::ModuleL3SwitchIpv4NhopRspT, ModuleL3SwitchIpv4NhopParam, 2);
+    function Action table_execute(ConnectalTypes::ModuleL3SwitchIpv4NhopRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, ModuleL3SwitchIpv4NhopParam))) fifos);
         action
         case (unpack(resp._action)) matches
+            SETNHOP0: begin
+                ModuleL3SwitchIpv4NhopParam req = SetNHopReqT {_nhop_ipv4: resp._nhop_ipv4};
+                fifos[0].enq(tuple2(metadata,req));
+            end
+            NOACTION2: begin
+                fifos[1].enq(tuple2(metadata,?));
+            end
         endcase
         endaction
     endfunction
@@ -67,15 +80,15 @@ typedef enum {
     SETSMAC0,
     NOACTION3
 } ModuleL3SwitchSendFrameActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(21, 9, 1, module_l3_switch_send_frame)
+`MATCHTABLE_SIM(19, 9, 1, module_l3_switch_send_frame)
 typedef Table#(2, MetadataRequest, ModuleL3SwitchSendFrameParam, ConnectalTypes::ModuleL3SwitchSendFrameReqT, ConnectalTypes::ModuleL3SwitchSendFrameRspT) ModuleL3SwitchSendFrameTable;
-typedef MatchTable#(1, 21, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchSendFrameReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchSendFrameRspT)) ModuleL3SwitchSendFrameMatchTable;
+typedef MatchTable#(1, 19, 256, SizeOf#(ConnectalTypes::ModuleL3SwitchSendFrameReqT), SizeOf#(ConnectalTypes::ModuleL3SwitchSendFrameRspT)) ModuleL3SwitchSendFrameMatchTable;
 `SynthBuildModule1(mkMatchTable, String, ModuleL3SwitchSendFrameMatchTable, mkMatchTable_ModuleL3SwitchSendFrame)
 instance Table_request #(ConnectalTypes::ModuleL3SwitchSendFrameReqT);
     function ConnectalTypes::ModuleL3SwitchSendFrameReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleL3SwitchSendFrameReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+            let egress_spec = fromMaybe(?, data.meta.meta.egress_spec);
             v = ConnectalTypes::ModuleL3SwitchSendFrameReqT {egress_spec: egress_spec};
         end
         return v;
@@ -85,14 +98,18 @@ instance Table_execute #(ConnectalTypes::ModuleL3SwitchSendFrameRspT, ModuleL3Sw
     function Action table_execute(ConnectalTypes::ModuleL3SwitchSendFrameRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, ModuleL3SwitchSendFrameParam))) fifos);
         action
         case (unpack(resp._action)) matches
+            SETSMAC0: begin
+                ModuleL3SwitchSendFrameParam req = SetSMacReqT{_smac: resp._smac};
+                fifos[0].enq(tuple2(metadata,req));
+            end
+            NOACTION3: begin
+                fifos[1].enq(tuple2(metadata,?));
+            end
         endcase
         endaction
     endfunction
 endinstance
 typedef Engine#(1, MetadataRequest, ModuleL3SwitchSendFrameParam) NoActionAction;
-// INST (1) meta.security_metadata.drop_flag; = 1
-// mark_to_drop 
-typedef Engine#(1, MetadataRequest, ModuleL3SwitchIpv4NhopParam) BlockAction;
 // INST (48) hdr.ethernet.dst_addr; = dmac;
 // INST (9) standard_metadata.egress_spec; = port;
 typedef Engine#(1, MetadataRequest, ModuleL3SwitchForwardTableParam) SetDmacAction;
@@ -150,7 +167,6 @@ module mkIngress (Ingress);
     FIFOF#(MetadataRequest) exit_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) exit_rsp_ff <- mkFIFOF;
     Control::NoActionAction noAction_action <- mkEngine(toList(vec(step_1)));
-    Control::BlockAction block_action <- mkEngine(toList(vec(step_1)));
     Control::SetDmacAction setdmac_action <- mkEngine(toList(vec(step_1)));
     Control::SetNhopAction setnhop_action <- mkEngine(toList(vec(step_1)));
     Control::SetSmacAction setsmac_action <- mkEngine(toList(vec(step_1)));
@@ -168,14 +184,13 @@ module mkIngress (Ingress);
     messageM(printType(typeOf(module_l3_switch_send_frame)));
     mkConnection(toClient(module_l3_switch_forward_table_req_ff, module_l3_switch_forward_table_rsp_ff), module_l3_switch_forward_table.prev_control_state);
     mkConnection(module_l3_switch_forward_table.next_control_state[0], setdmac_action.prev_control_state);
-    mkConnection(module_l3_switch_forward_table.next_control_state[1], noAction_action.prev_control_state);
+    //mkConnection(module_l3_switch_forward_table.next_control_state[1], noAction_action.prev_control_state);
     mkConnection(toClient(module_l3_switch_ipv4_nhop_req_ff, module_l3_switch_ipv4_nhop_rsp_ff), module_l3_switch_ipv4_nhop.prev_control_state);
     mkConnection(module_l3_switch_ipv4_nhop.next_control_state[0], setnhop_action.prev_control_state);
-    mkConnection(module_l3_switch_ipv4_nhop.next_control_state[1], block_action.prev_control_state);
-    mkConnection(module_l3_switch_ipv4_nhop.next_control_state[2], noAction_action.prev_control_state);
+    //mkConnection(module_l3_switch_ipv4_nhop.next_control_state[1], noAction_action.prev_control_state);
     mkConnection(toClient(module_l3_switch_send_frame_req_ff, module_l3_switch_send_frame_rsp_ff), module_l3_switch_send_frame.prev_control_state);
     mkConnection(module_l3_switch_send_frame.next_control_state[0], setsmac_action.prev_control_state);
-    mkConnection(module_l3_switch_send_frame.next_control_state[1], noAction_action.prev_control_state);
+    //mkConnection(module_l3_switch_send_frame.next_control_state[1], noAction_action.prev_control_state);
     rule rl_entry if (entry_req_ff.notEmpty);
         entry_req_ff.deq;
         let _req = entry_req_ff.first;
@@ -189,40 +204,40 @@ module mkIngress (Ingress);
         node_2_req_ff.deq;
         let _req = node_2_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.click_bitmap20) begin
+        // if (h.hdr.click_bitmap20) begin
             node_3_req_ff.enq(_req);
             dbprint(3, $format("node_2 true", fshow(meta)));
-        end
-        else begin
-            _req_ff.enq(_req);
-            dbprint(3, $format("node_2 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     _req_ff.enq(_req);
+        //     dbprint(3, $format("node_2 false", fshow(meta)));
+        // end
     endrule
     rule rl_node_3 if (node_3_req_ff.notEmpty);
         node_3_req_ff.deq;
         let _req = node_3_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.state2) begin
+        // if (h.hdr.state2) begin
             node_4_req_ff.enq(_req);
             dbprint(3, $format("node_3 true", fshow(meta)));
-        end
-        else begin
-            _req_ff.enq(_req);
-            dbprint(3, $format("node_3 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     _req_ff.enq(_req);
+        //     dbprint(3, $format("node_3 false", fshow(meta)));
+        // end
     endrule
     rule rl_node_4 if (node_4_req_ff.notEmpty);
         node_4_req_ff.deq;
         let _req = node_4_req_ff.first;
         let meta = _req.meta;
-        if (meta.hdr.ipv4 matches tagged Valid .h &&& h.hdr.ttl > 0) begin
-            module_l3_switch.ipv4_nhop_req_ff.enq(_req);
+        // if (meta.hdr.ipv4 matches tagged Valid .h &&& h.hdr.ttl > 0) begin
+            module_l3_switch_ipv4_nhop_req_ff.enq(_req);
             dbprint(3, $format("node_4 true", fshow(meta)));
-        end
-        else begin
-            _req_ff.enq(_req);
-            dbprint(3, $format("node_4 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     _req_ff.enq(_req);
+        //     dbprint(3, $format("node_4 false", fshow(meta)));
+        // end
     endrule
     rule rl_module_l3_switch_ipv4_nhop if (module_l3_switch_ipv4_nhop_rsp_ff.notEmpty);
         module_l3_switch_ipv4_nhop_rsp_ff.deq;
@@ -232,7 +247,7 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                module_l3_switch.forward_table_req_ff.enq(req);
+                module_l3_switch_forward_table_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase
@@ -245,7 +260,7 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                module_l3_switch.send_frame_req_ff.enq(req);
+                module_l3_switch_send_frame_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase
@@ -258,7 +273,7 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                _req_ff.enq(req);
+                exit_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase

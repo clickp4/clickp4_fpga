@@ -8,6 +8,8 @@ instance DefaultValue#(ModuleL3SwitchForwardTableReqT);
 endinstance
 typedef struct {
     Bit#(1) _action;
+    Bit#(48) _dmac;
+    Bit#(9) _port;
 } ModuleL3SwitchForwardTableRspT deriving (Bits, FShow);
 import DefaultValue::*;
 typedef struct{
@@ -18,7 +20,8 @@ instance DefaultValue#(ModuleL3SwitchIpv4NhopReqT);
     defaultValue = unpack(0);
 endinstance
 typedef struct {
-    Bit#(2) _action;
+    Bit#(1) _action;
+    Bit#(32) _nhop_ipv4;
 } ModuleL3SwitchIpv4NhopRspT deriving (Bits, FShow);
 import DefaultValue::*;
 typedef struct{
@@ -29,4 +32,5 @@ instance DefaultValue#(ModuleL3SwitchSendFrameReqT);
 endinstance
 typedef struct {
     Bit#(1) _action;
+    Bit#(48) _smac;
 } ModuleL3SwitchSendFrameRspT deriving (Bits, FShow);

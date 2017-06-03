@@ -727,33 +727,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "name": "block",
-            "id": 3,
-            "runtime_data": [],
-            "primitives": [
-                {
-                    "op": "modify_field",
-                    "parameters": [
-                        {
-                            "type": "field",
-                            "value": [
-                                "security_metadata",
-                                "drop_flag"
-                            ]
-                        },
-                        {
-                            "type": "hexstr",
-                            "value": "0x1"
-                        }
-                    ]
-                },
-                {
-                    "op": "drop",
-                    "parameters": []
-                }
-            ]
         }
     ],
     "pipelines": [
@@ -782,12 +755,10 @@
                         }
                     ],
                     "actions": [
-                        "set_nhop",
-                        "block"
+                        "set_nhop"
                     ],
                     "next_tables": {
-                        "set_nhop": "forward_table",
-                        "block": "forward_table"
+                        "set_nhop": "forward_table"
                     },
                     "base_default_next": "forward_table"
                 },

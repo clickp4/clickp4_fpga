@@ -1,0 +1,38 @@
+=== Generated schedule for mkMainIndicationInverterV ===
+
+Method schedule
+---------------
+Method: ifc_read_version_rsp
+Ready signal: inv_read_version_rsp_inverter.RDY_mod_put
+Conflict-free: ifc_read_version_rsp,
+	       ifc_read_pktcap_perf_info_resp,
+	       inverseIfc_read_version_rsp,
+	       inverseIfc_read_pktcap_perf_info_resp
+ 
+Method: ifc_read_pktcap_perf_info_resp
+Ready signal: inv_read_pktcap_perf_info_resp_inverter.RDY_mod_put
+Conflict-free: ifc_read_version_rsp,
+	       ifc_read_pktcap_perf_info_resp,
+	       inverseIfc_read_version_rsp,
+	       inverseIfc_read_pktcap_perf_info_resp
+ 
+Method: inverseIfc_read_version_rsp
+Ready signal: inv_read_version_rsp_inverter.RDY_inverse_get
+Conflict-free: ifc_read_version_rsp,
+	       ifc_read_pktcap_perf_info_resp,
+	       inverseIfc_read_version_rsp,
+	       inverseIfc_read_pktcap_perf_info_resp
+ 
+Method: inverseIfc_read_pktcap_perf_info_resp
+Ready signal: inv_read_pktcap_perf_info_resp_inverter.RDY_inverse_get
+Conflict-free: ifc_read_version_rsp,
+	       ifc_read_pktcap_perf_info_resp,
+	       inverseIfc_read_version_rsp,
+	       inverseIfc_read_pktcap_perf_info_resp
+ 
+Logical execution order: ifc_read_version_rsp,
+			 ifc_read_pktcap_perf_info_resp,
+			 inverseIfc_read_version_rsp,
+			 inverseIfc_read_pktcap_perf_info_resp
+
+=========================================================
