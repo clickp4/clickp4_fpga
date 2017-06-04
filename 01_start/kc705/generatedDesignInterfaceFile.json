@@ -14,7 +14,7 @@
         "NUM_METAGEN=1", 
         "NUM_PKTGEN=1", 
         "STREAM", 
-        "NicVersion=0", 
+        "NicVersion=1579743661", 
         "DataBusWidth=128", 
         "IMPORT_HOSTIF", 
         "BYTE_ENABLES", 
@@ -271,7 +271,29 @@
                             "name": "Bit", 
                             "params": [
                                 {
-                                    "name": "2"
+                                    "name": "1"
+                                }
+                            ]
+                        }
+                    }, 
+                    {
+                        "pname": "_chain_id", 
+                        "ptype": {
+                            "name": "Bit", 
+                            "params": [
+                                {
+                                    "name": "32"
+                                }
+                            ]
+                        }
+                    }, 
+                    {
+                        "pname": "_bitmap", 
+                        "ptype": {
+                            "name": "Bit", 
+                            "params": [
+                                {
+                                    "name": "64"
                                 }
                             ]
                         }

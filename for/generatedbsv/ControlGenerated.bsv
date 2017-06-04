@@ -22,7 +22,7 @@ instance Table_request #(ConnectalTypes::ModuleForForEndReqT);
     function ConnectalTypes::ModuleForForEndReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleForForEndReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+            let click_id = fromMaybe(?, data.meta.meta.click_id);
             v = ConnectalTypes::ModuleForForEndReqT {click_id: click_id, padding: 0};
         end
         return v;
@@ -32,6 +32,13 @@ instance Table_execute #(ConnectalTypes::ModuleForForEndRspT, ModuleForForEndPar
     function Action table_execute(ConnectalTypes::ModuleForForEndRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, ModuleForForEndParam))) fifos);
         action
         case (unpack(resp._action)) matches
+            LOOPEND0: begin
+                ModuleForForEndParam req = LoopEndReqT {_state:resp._state, _bitmap:resp._bitmap};
+                fifos[0].enq(tuple2(metadata,req));
+            end
+            NOACTION1: begin
+                fifos[1].enq(tuple2(metadata,?));
+            end
         endcase
         endaction
     endfunction
@@ -48,7 +55,7 @@ instance Table_request #(ConnectalTypes::ModuleForForInitReqT);
     function ConnectalTypes::ModuleForForInitReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleForForInitReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+            let click_id = fromMaybe(?, data.meta.meta.click_id);
             v = ConnectalTypes::ModuleForForInitReqT {click_id: click_id, padding: 0};
         end
         return v;
@@ -58,6 +65,13 @@ instance Table_execute #(ConnectalTypes::ModuleForForInitRspT, ModuleForForInitP
     function Action table_execute(ConnectalTypes::ModuleForForInitRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, ModuleForForInitParam))) fifos);
         action
         case (unpack(resp._action)) matches
+            FORINIT0: begin
+                ModuleForForInitParam req = ForInitReqT{_threshold: resp._threshold};
+                fifos[0].enq(tuple2(metadata,req));
+            end
+            NOACTION2: begin
+                fifos[1].enq(tuple2(metadata,?));
+            end
         endcase
         endaction
     endfunction
@@ -74,7 +88,7 @@ instance Table_request #(ConnectalTypes::ModuleForForLoopReqT);
     function ConnectalTypes::ModuleForForLoopReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleForForLoopReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+            let click_id = fromMaybe(?, data.meta.meta.click_id);
             v = ConnectalTypes::ModuleForForLoopReqT {click_id: click_id, padding: 0};
         end
         return v;
@@ -84,6 +98,13 @@ instance Table_execute #(ConnectalTypes::ModuleForForLoopRspT, ModuleForForLoopP
     function Action table_execute(ConnectalTypes::ModuleForForLoopRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, ModuleForForLoopParam))) fifos);
         action
         case (unpack(resp._action)) matches
+            FORLOOP0: begin
+                ModuleForForLoopParam req = ForLoopReqT{_bitmap : resp._bitmap};
+                fifos[0].enq(tuple2(metadata,req));
+            end
+            NOACTION3: begin
+                fifos[1].enq(tuple2(metadata,?));
+            end
         endcase
         endaction
     endfunction
@@ -164,13 +185,13 @@ module mkIngress (Ingress);
     messageM(printType(typeOf(module_for_for_loop)));
     mkConnection(toClient(module_for_for_end_req_ff, module_for_for_end_rsp_ff), module_for_for_end.prev_control_state);
     mkConnection(module_for_for_end.next_control_state[0], loopend_action.prev_control_state);
-    mkConnection(module_for_for_end.next_control_state[1], noAction_action.prev_control_state);
+    //mkConnection(module_for_for_end.next_control_state[1], noAction_action.prev_control_state);
     mkConnection(toClient(module_for_for_init_req_ff, module_for_for_init_rsp_ff), module_for_for_init.prev_control_state);
     mkConnection(module_for_for_init.next_control_state[0], forinit_action.prev_control_state);
-    mkConnection(module_for_for_init.next_control_state[1], noAction_action.prev_control_state);
+    //mkConnection(module_for_for_init.next_control_state[1], noAction_action.prev_control_state);
     mkConnection(toClient(module_for_for_loop_req_ff, module_for_for_loop_rsp_ff), module_for_for_loop.prev_control_state);
     mkConnection(module_for_for_loop.next_control_state[0], forloop_action.prev_control_state);
-    mkConnection(module_for_for_loop.next_control_state[1], noAction_action.prev_control_state);
+    //mkConnection(module_for_for_loop.next_control_state[1], noAction_action.prev_control_state);
     rule rl_entry if (entry_req_ff.notEmpty);
         entry_req_ff.deq;
         let _req = entry_req_ff.first;
@@ -184,27 +205,27 @@ module mkIngress (Ingress);
         node_2_req_ff.deq;
         let _req = node_2_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.click_bitmap20) begin
+        // if (h.hdr.click_bitmap20) begin
             node_3_req_ff.enq(_req);
             dbprint(3, $format("node_2 true", fshow(meta)));
-        end
-        else begin
-            _req_ff.enq(_req);
-            dbprint(3, $format("node_2 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     _req_ff.enq(_req);
+        //     dbprint(3, $format("node_2 false", fshow(meta)));
+        // end
     endrule
     rule rl_node_3 if (node_3_req_ff.notEmpty);
         node_3_req_ff.deq;
         let _req = node_3_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.threshold0) begin
-            module_for.for_init_req_ff.enq(_req);
+        // if (h.hdr.threshold0) begin
+            module_for_for_init_req_ff.enq(_req);
             dbprint(3, $format("node_3 true", fshow(meta)));
-        end
-        else begin
-            node_5_req_ff.enq(_req);
-            dbprint(3, $format("node_3 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     node_5_req_ff.enq(_req);
+        //     dbprint(3, $format("node_3 false", fshow(meta)));
+        // end
     endrule
     rule rl_module_for_for_init if (module_for_for_init_rsp_ff.notEmpty);
         module_for_for_init_rsp_ff.deq;
@@ -223,14 +244,14 @@ module mkIngress (Ingress);
         node_5_req_ff.deq;
         let _req = node_5_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.ih.hdr.threshold) begin
-            module_for.for_loop_req_ff.enq(_req);
+        // if (h.hdr.ih.hdr.threshold) begin
+            module_for_for_loop_req_ff.enq(_req);
             dbprint(3, $format("node_5 true", fshow(meta)));
-        end
-        else begin
-            module_for.for_end_req_ff.enq(_req);
+        //end
+        // else begin
+            module_for_for_end_req_ff.enq(_req);
             dbprint(3, $format("node_5 false", fshow(meta)));
-        end
+        //end
     endrule
     rule rl_module_for_for_loop if (module_for_for_loop_rsp_ff.notEmpty);
         module_for_for_loop_rsp_ff.deq;
@@ -240,7 +261,7 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                _req_ff.enq(req);
+                exit_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase
@@ -253,7 +274,7 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                _req_ff.enq(req);
+                exit_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase

@@ -137,13 +137,16 @@ int MainRequest_read_pktcap_perf_info ( struct PortalInternal *p )
 
 int MainRequest_pipeline_start_tbl_pipeline_start_add_entry ( struct PortalInternal *p, const PipelineStartTblPipelineStartReqT key, const PipelineStartTblPipelineStartRspT val )
 {
-    volatile unsigned int* temp_working_addr_start = p->transport->mapchannelReq(p, CHAN_NUM_MainRequest_pipeline_start_tbl_pipeline_start_add_entry, 4);
+    volatile unsigned int* temp_working_addr_start = p->transport->mapchannelReq(p, CHAN_NUM_MainRequest_pipeline_start_tbl_pipeline_start_add_entry, 7);
     volatile unsigned int* temp_working_addr = temp_working_addr_start;
     if (p->transport->busywait(p, CHAN_NUM_MainRequest_pipeline_start_tbl_pipeline_start_add_entry, "MainRequest_pipeline_start_tbl_pipeline_start_add_entry")) return 1;
-    p->transport->write(p, &temp_working_addr, (key.src_addr>>22));
-    p->transport->write(p, &temp_working_addr, (key.dst_addr>>22)|(((unsigned long)key.src_addr)<<10));
-    p->transport->write(p, &temp_working_addr, val._action|(((unsigned long)key.proto)<<2)|(((unsigned long)key.dst_addr)<<10));
-    p->transport->send(p, temp_working_addr_start, (CHAN_NUM_MainRequest_pipeline_start_tbl_pipeline_start_add_entry << 16) | 4, -1);
+    p->transport->write(p, &temp_working_addr, (key.src_addr>>23));
+    p->transport->write(p, &temp_working_addr, (key.dst_addr>>23)|(((unsigned long)key.src_addr)<<9));
+    p->transport->write(p, &temp_working_addr, val._action|(((unsigned long)key.proto)<<1)|(((unsigned long)key.dst_addr)<<9));
+    p->transport->write(p, &temp_working_addr, val._chain_id);
+    p->transport->write(p, &temp_working_addr, (val._bitmap>>32));
+    p->transport->write(p, &temp_working_addr, val._bitmap);
+    p->transport->send(p, temp_working_addr_start, (CHAN_NUM_MainRequest_pipeline_start_tbl_pipeline_start_add_entry << 16) | 7, -1);
     return 0;
 };
 
@@ -165,7 +168,7 @@ MainRequestCb MainRequestProxyReq = {
 };
 MainRequestCb *pMainRequestProxyReq = &MainRequestProxyReq;
 
-const uint32_t MainRequest_reqinfo = 0xd0018;
+const uint32_t MainRequest_reqinfo = 0xd001c;
 const char * MainRequest_methodSignatures()
 {
     return "{\"read_pktcap_perf_info\": [], \"read_version\": [], \"writeMetaGenData\": [\"long\", \"long\", \"long\", \"long\"], \"metagen_start\": [\"long\", \"long\"], \"writePktGenData\": [\"long\", \"long\", \"long\", \"long\"], \"writePacketData\": [\"long\", \"long\", \"long\", \"long\"], \"pktcap_stop\": [], \"pktcap_start\": [\"long\"], \"pktgen_stop\": [], \"set_verbosity\": [\"long\"], \"pktgen_start\": [\"long\", \"long\", \"long\"], \"pipeline_start_tbl_pipeline_start_add_entry\": [\"long\", \"long\"], \"metagen_stop\": []}";
@@ -294,16 +297,22 @@ int MainRequest_handleMessage(struct PortalInternal *p, unsigned int channel, in
       } break;
     case CHAN_NUM_MainRequest_pipeline_start_tbl_pipeline_start_add_entry: {
         
-        p->transport->recv(p, temp_working_addr, 3, &tmpfd);
+        p->transport->recv(p, temp_working_addr, 6, &tmpfd);
         tmp = p->transport->read(p, &temp_working_addr);
-        tempdata.pipeline_start_tbl_pipeline_start_add_entry.key.src_addr = (uint32_t)(((uint32_t)(((tmp)&0x3fful))<<22));
+        tempdata.pipeline_start_tbl_pipeline_start_add_entry.key.src_addr = (uint32_t)(((uint32_t)(((tmp)&0x1fful))<<23));
         tmp = p->transport->read(p, &temp_working_addr);
-        tempdata.pipeline_start_tbl_pipeline_start_add_entry.key.dst_addr = (uint32_t)(((uint32_t)(((tmp)&0x3fful))<<22));
-        tempdata.pipeline_start_tbl_pipeline_start_add_entry.key.src_addr |= (uint32_t)(((tmp>>10)&0x3ffffful));
+        tempdata.pipeline_start_tbl_pipeline_start_add_entry.key.dst_addr = (uint32_t)(((uint32_t)(((tmp)&0x1fful))<<23));
+        tempdata.pipeline_start_tbl_pipeline_start_add_entry.key.src_addr |= (uint32_t)(((tmp>>9)&0x7ffffful));
         tmp = p->transport->read(p, &temp_working_addr);
-        tempdata.pipeline_start_tbl_pipeline_start_add_entry.val._action = (uint8_t)(((tmp)&0x3ul));
-        tempdata.pipeline_start_tbl_pipeline_start_add_entry.key.proto = (uint8_t)(((tmp>>2)&0xfful));
-        tempdata.pipeline_start_tbl_pipeline_start_add_entry.key.dst_addr |= (uint32_t)(((tmp>>10)&0x3ffffful));((MainRequestCb *)p->cb)->pipeline_start_tbl_pipeline_start_add_entry(p, tempdata.pipeline_start_tbl_pipeline_start_add_entry.key, tempdata.pipeline_start_tbl_pipeline_start_add_entry.val);
+        tempdata.pipeline_start_tbl_pipeline_start_add_entry.val._action = (uint8_t)(((tmp)&0x1ul));
+        tempdata.pipeline_start_tbl_pipeline_start_add_entry.key.proto = (uint8_t)(((tmp>>1)&0xfful));
+        tempdata.pipeline_start_tbl_pipeline_start_add_entry.key.dst_addr |= (uint32_t)(((tmp>>9)&0x7ffffful));
+        tmp = p->transport->read(p, &temp_working_addr);
+        tempdata.pipeline_start_tbl_pipeline_start_add_entry.val._chain_id = (uint32_t)(((tmp)&0xfffffffful));
+        tmp = p->transport->read(p, &temp_working_addr);
+        tempdata.pipeline_start_tbl_pipeline_start_add_entry.val._bitmap = (uint64_t)(((uint64_t)(((tmp)&0xfffffffful))<<32));
+        tmp = p->transport->read(p, &temp_working_addr);
+        tempdata.pipeline_start_tbl_pipeline_start_add_entry.val._bitmap |= (uint64_t)(((tmp)&0xfffffffful));((MainRequestCb *)p->cb)->pipeline_start_tbl_pipeline_start_add_entry(p, tempdata.pipeline_start_tbl_pipeline_start_add_entry.key, tempdata.pipeline_start_tbl_pipeline_start_add_entry.val);
       } break;
     default:
         PORTAL_PRINTF("MainRequest_handleMessage: unknown channel 0x%x\n", channel);

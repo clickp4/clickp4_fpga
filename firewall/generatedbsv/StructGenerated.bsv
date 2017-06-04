@@ -126,8 +126,6 @@ typedef struct {
 typedef struct {
     Maybe#(Bit#(16)) dst_port;
     Maybe#(Bit#(16)) src_port;
-    Maybe#(Bit#(16)) dst_port;
-    Maybe#(Bit#(16)) src_port;
     Maybe#(Bit#(32)) dst_addr;
     Maybe#(Bit#(32)) src_addr;
     Maybe#(ClickMetadataT) click_metadata;

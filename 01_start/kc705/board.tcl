@@ -2,8 +2,8 @@
 set partname {xc7k325tffg900-2}
 set boardname {kc705}
 ## for compatibility with older fpgamake. will be removed.
-set xbsvipdir {/home/yhs/clickp4_fpga/01_start/~/connectalip}
-set ipdir {/home/yhs/clickp4_fpga/01_start/~/connectalip}
+set xbsvipdir {/home/yhs/connectal/out}
+set ipdir {/home/yhs/connectal/out}
 set connectaldir {/home/yhs/connectal}
 set need_pcie {x7_gen1x8}
 set connectal_dut {mkPcieTop}
@@ -21,7 +21,7 @@ set NUM_HOSTCHAN {1}
 set NUM_METAGEN {1}
 set NUM_PKTGEN {1}
 set STREAM {}
-set NicVersion {0}
+set NicVersion {1579743661}
 set DataBusWidth {128}
 set IMPORT_HOSTIF {}
 set BYTE_ENABLES {}

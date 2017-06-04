@@ -22,7 +22,7 @@ instance Table_request #(ConnectalTypes::ModuleIfIfEqualReqT);
     function ConnectalTypes::ModuleIfIfEqualReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleIfIfEqualReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+             let click_id = fromMaybe(?, data.meta.meta.click_id);
             v = ConnectalTypes::ModuleIfIfEqualReqT {click_id: click_id, padding: 0};
         end
         return v;
@@ -55,7 +55,7 @@ instance Table_request #(ConnectalTypes::ModuleIfIfLargeReqT);
     function ConnectalTypes::ModuleIfIfLargeReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleIfIfLargeReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+             let click_id = fromMaybe(?, data.meta.meta.click_id);
             v = ConnectalTypes::ModuleIfIfLargeReqT {click_id: click_id, padding: 0};
         end
         return v;
@@ -88,7 +88,7 @@ instance Table_request #(ConnectalTypes::ModuleIfIfSmallReqT);
     function ConnectalTypes::ModuleIfIfSmallReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleIfIfSmallReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+             let click_id = fromMaybe(?, data.meta.meta.click_id);
             v = ConnectalTypes::ModuleIfIfSmallReqT {click_id: click_id, padding: 0};
         end
         return v;
@@ -181,27 +181,27 @@ module mkIngress (Ingress);
         node_2_req_ff.deq;
         let _req = node_2_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.click_bitmap20) begin
+        // if (h.hdr.click_bitmap20) begin
             node_3_req_ff.enq(_req);
             dbprint(3, $format("node_2 true", fshow(meta)));
-        end
-        else begin
-            _req_ff.enq(_req);
-            dbprint(3, $format("node_2 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     _req_ff.enq(_req);
+        //     dbprint(3, $format("node_2 false", fshow(meta)));
+        // end
     endrule
     rule rl_node_3 if (node_3_req_ff.notEmpty);
         node_3_req_ff.deq;
         let _req = node_3_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.lefth.hdr.right) begin
+        // if (h.hdr.lefth.hdr.right) begin
             module_if.if_small_req_ff.enq(_req);
             dbprint(3, $format("node_3 true", fshow(meta)));
-        end
-        else begin
-            node_5_req_ff.enq(_req);
-            dbprint(3, $format("node_3 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     node_5_req_ff.enq(_req);
+        //     dbprint(3, $format("node_3 false", fshow(meta)));
+        // end
     endrule
     rule rl_module_if_if_small if (module_if_if_small_rsp_ff.notEmpty);
         module_if_if_small_rsp_ff.deq;
@@ -211,7 +211,7 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                _req_ff.enq(req);
+                exit_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase
@@ -220,14 +220,14 @@ module mkIngress (Ingress);
         node_5_req_ff.deq;
         let _req = node_5_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.left > h.hdr.right) begin
-            module_if.if_large_req_ff.enq(_req);
+        // if (h.hdr.left > h.hdr.right) begin
+            module_if_if_large_req_ff.enq(_req);
             dbprint(3, $format("node_5 true", fshow(meta)));
-        end
-        else begin
-            module_if.if_equal_req_ff.enq(_req);
-            dbprint(3, $format("node_5 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     module_if.if_equal_req_ff.enq(_req);
+        //     dbprint(3, $format("node_5 false", fshow(meta)));
+        // end
     endrule
     rule rl_module_if_if_large if (module_if_if_large_rsp_ff.notEmpty);
         module_if_if_large_rsp_ff.deq;

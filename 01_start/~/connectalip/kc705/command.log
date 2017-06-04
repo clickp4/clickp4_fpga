@@ -1,2 +1,0 @@
-create_ip -name pcie_7x -version 3.2 -vendor xilinx.com -library ip -module_name pcie_7x_0 -dir /home/yhs/clickp4_fpga/01_start/~/connectalip/kc705
-    Elapsed time 0 seconds

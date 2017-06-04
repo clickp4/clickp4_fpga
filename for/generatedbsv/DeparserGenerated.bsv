@@ -1,6 +1,6 @@
 `ifdef DEPARSER_STRUCT
 typedef enum {
-    StateDeparseStart,
+    StateDeparseStart
 } DeparserState deriving (Bits, Eq, FShow);
 `endif  // DEPARSER_STRUCT
 `ifdef DEPARSER_RULES
@@ -32,8 +32,8 @@ function Action transit_next_state(MetadataT metadata);
 endfunction
 function MetadataT update_metadata(DeparserState state);
     let metadata = rg_metadata;
-    case (state) matches
-    endcase
+    // case (state) matches
+    // endcase
     return metadata;
 endfunction
 let initState = StateDeparseStart;

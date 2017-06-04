@@ -1,0 +1,115 @@
+=== Generated schedule for mkPacketModifier ===
+
+Method schedule
+---------------
+Method: prev_enq
+Ready signal: req_ff.i_notFull
+Conflict-free: writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty,
+	       set_verbosity
+Sequenced after: prev_notFull
+Conflicts: prev_enq
+ 
+Method: prev_notFull
+Ready signal: True
+Conflict-free: prev_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty,
+	       set_verbosity
+Sequenced before: prev_enq
+ 
+Method: writeServer_enq
+Ready signal: deparser.RDY_writeServer_enq
+Conflict-free: prev_enq,
+	       prev_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty,
+	       set_verbosity
+Sequenced after: writeServer_notFull
+Conflicts: writeServer_enq
+ 
+Method: writeServer_notFull
+Ready signal: True
+Conflict-free: prev_enq,
+	       prev_notFull,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty,
+	       set_verbosity
+Sequenced before: writeServer_enq
+ 
+Method: writeClient_first
+Ready signal: serializer.RDY_writeClient_first
+Conflict-free: prev_enq,
+	       prev_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_notEmpty,
+	       set_verbosity
+Sequenced before: writeClient_deq
+ 
+Method: writeClient_deq
+Ready signal: serializer.RDY_writeClient_deq
+Conflict-free: prev_enq,
+	       prev_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       set_verbosity
+Sequenced after: writeClient_first, writeClient_notEmpty
+Conflicts: writeClient_deq
+ 
+Method: writeClient_notEmpty
+Ready signal: True
+Conflict-free: prev_enq,
+	       prev_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_notEmpty,
+	       set_verbosity
+Sequenced before: writeClient_deq
+ 
+Method: set_verbosity
+Ready signal: True
+Conflict-free: prev_enq,
+	       prev_notFull,
+	       writeServer_enq,
+	       writeServer_notFull,
+	       writeClient_first,
+	       writeClient_deq,
+	       writeClient_notEmpty
+Sequenced before (restricted): set_verbosity
+ 
+Rule schedule
+-------------
+Rule: rl_req
+Predicate: serializer.RDY_metadata_enq &&
+	   deparser.RDY_metadata_enq && req_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: deparse_to_serializer
+Predicate: serializer.RDY_writeServer_enq &&
+	   deparser.RDY_writeClient_first && deparser.RDY_writeClient_deq
+Blocking rules: (none)
+ 
+Logical execution order: prev_notFull,
+			 prev_enq,
+			 writeServer_notFull,
+			 writeServer_enq,
+			 writeClient_first,
+			 writeClient_notEmpty,
+			 writeClient_deq,
+			 set_verbosity,
+			 rl_req,
+			 deparse_to_serializer
+
+================================================

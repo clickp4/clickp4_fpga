@@ -177,6 +177,8 @@ int MainRequestJson_pipeline_start_tbl_pipeline_start_add_entry ( struct PortalI
     Json::Value _valValue;
     _valValue["__type__"]="PipelineStartTblPipelineStartRspT";
     _valValue["_action"] = (Json::UInt64)val._action;
+    _valValue["_chain_id"] = (Json::UInt64)val._chain_id;
+    _valValue["_bitmap"] = (Json::UInt64)val._bitmap;
     request.append(_valValue);
 
     std::string requestjson = Json::FastWriter().write(request);;

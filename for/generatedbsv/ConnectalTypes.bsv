@@ -8,6 +8,8 @@ instance DefaultValue#(ModuleForForEndReqT);
 endinstance
 typedef struct {
     Bit#(1) _action;
+    Bit#(8) _state;
+    Bit#(64) _bitmap;
 } ModuleForForEndRspT deriving (Bits, FShow);
 import DefaultValue::*;
 typedef struct{
@@ -19,6 +21,7 @@ instance DefaultValue#(ModuleForForInitReqT);
 endinstance
 typedef struct {
     Bit#(1) _action;
+    Bit#(32) _threshold;
 } ModuleForForInitRspT deriving (Bits, FShow);
 import DefaultValue::*;
 typedef struct{
@@ -30,4 +33,5 @@ instance DefaultValue#(ModuleForForLoopReqT);
 endinstance
 typedef struct {
     Bit#(1) _action;
+    Bit#(64) _bitmap;
 } ModuleForForLoopRspT deriving (Bits, FShow);

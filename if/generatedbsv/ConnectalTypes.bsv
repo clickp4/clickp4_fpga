@@ -8,6 +8,8 @@ instance DefaultValue#(ModuleIfIfEqualReqT);
 endinstance
 typedef struct {
     Bit#(1) _action;
+    Bit#(8) _state;
+    Bit#(64) _bitmap;
 } ModuleIfIfEqualRspT deriving (Bits, FShow);
 import DefaultValue::*;
 typedef struct{
@@ -19,6 +21,8 @@ instance DefaultValue#(ModuleIfIfLargeReqT);
 endinstance
 typedef struct {
     Bit#(1) _action;
+    Bit#(8) _state;
+    Bit#(64) _bitmap;
 } ModuleIfIfLargeRspT deriving (Bits, FShow);
 import DefaultValue::*;
 typedef struct{
@@ -30,4 +34,6 @@ instance DefaultValue#(ModuleIfIfSmallReqT);
 endinstance
 typedef struct {
     Bit#(1) _action;
+    Bit#(8) _state;
+    Bit#(64) _bitmap;
 } ModuleIfIfSmallRspT deriving (Bits, FShow);

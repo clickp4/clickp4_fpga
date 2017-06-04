@@ -70,6 +70,26 @@ instance DefaultValue#(ClickMetadataT);
     defaultValue = unpack(0);
 endinstance
 typedef struct {
+    Bit#(32) condition;
+} ConditionMetadataT deriving (Bits, Eq, FShow);
+instance DefaultValue#(ConditionMetadataT);
+    defaultValue = unpack(0);
+endinstance
+typedef struct {
+    Bit#(32) i;
+    Bit#(32) threshold;
+} ForMetadataT deriving (Bits, Eq, FShow);
+instance DefaultValue#(ForMetadataT);
+    defaultValue = unpack(0);
+endinstance
+typedef struct {
+    Bit#(32) left;
+    Bit#(32) right;
+} IfMetadataT deriving (Bits, Eq, FShow);
+instance DefaultValue#(IfMetadataT);
+    defaultValue = unpack(0);
+endinstance
+typedef struct {
     Bit#(48) ingress_global_timestamp;
     Bit#(8) lf_field_list;
     Bit#(16) mcast_grp;
@@ -90,6 +110,13 @@ instance DefaultValue#(SecurityMetadataT);
     defaultValue = unpack(0);
 endinstance
 typedef struct {
+    Bit#(32) value;
+    Bit#(32) threshold;
+} WhileMetadataT deriving (Bits, Eq, FShow);
+instance DefaultValue#(WhileMetadataT);
+    defaultValue = unpack(0);
+endinstance
+typedef struct {
     Maybe#(Header#(EthernetT)) ethernet;
     Maybe#(Header#(Ipv4T)) ipv4;
     Maybe#(Header#(Ipv6T)) ipv6;
@@ -97,12 +124,16 @@ typedef struct {
     Maybe#(Header#(UdpT)) udp;
 } Headers deriving (Bits, Eq, FShow);
 typedef struct {
+    Maybe#(Bit#(8)) proto;
     Maybe#(Bit#(32)) dst_addr;
     Maybe#(Bit#(32)) src_addr;
-    Maybe#(Bit#(8)) proto;
     Maybe#(ClickMetadataT) click_metadata;
+    Maybe#(ConditionMetadataT) condition_metadata;
+    Maybe#(ForMetadataT) for_metadata;
+    Maybe#(IfMetadataT) if_metadata;
     Maybe#(IntrinsicMetadataT) intrinsic_metadata;
     Maybe#(SecurityMetadataT) security_metadata;
+    Maybe#(WhileMetadataT) while_metadata;
 } Metadata deriving (Bits, Eq, FShow);
 instance DefaultValue#(Metadata);
     defaultValue = unpack(0);

@@ -25,7 +25,9 @@ typedef struct PipelineStartTblPipelineStartReqT {
     uint8_t proto : 8;
 } PipelineStartTblPipelineStartReqT;
 typedef struct PipelineStartTblPipelineStartRspT {
-    uint8_t _action : 2;
+    uint8_t _action : 1;
+    uint32_t _chain_id : 32;
+    uint64_t _bitmap : 64;
 } PipelineStartTblPipelineStartRspT;
 typedef uint64_t LUInt;
 typedef int64_t LInt;

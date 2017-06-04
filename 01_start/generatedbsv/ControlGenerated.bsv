@@ -12,53 +12,40 @@ import Lists::*;
 `include "MatchTable.defines"
 typedef enum {
     ACTSETCHAIN0,
-    ACTSETBITMAP0,
     NOACTION1
 } PipelineStartTblPipelineStartActionT deriving (Bits, Eq, FShow);
-`MATCHTABLE_SIM(25, 72, 2, pipeline_start_tbl_pipeline_start)
-typedef Table#(3, MetadataRequest, PipelineStartTblPipelineStartParam, ConnectalTypes::PipelineStartTblPipelineStartReqT, ConnectalTypes::PipelineStartTblPipelineStartRspT) PipelineStartTblPipelineStartTable;
-typedef MatchTable#(1, 25, 256, SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartReqT), SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartRspT)) PipelineStartTblPipelineStartMatchTable;
+`MATCHTABLE_SIM(29, 72, 1, pipeline_start_tbl_pipeline_start)
+typedef Table#(2, MetadataRequest, PipelineStartTblPipelineStartParam, ConnectalTypes::PipelineStartTblPipelineStartReqT, ConnectalTypes::PipelineStartTblPipelineStartRspT) PipelineStartTblPipelineStartTable;
+typedef MatchTable#(1, 29, 256, SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartReqT), SizeOf#(ConnectalTypes::PipelineStartTblPipelineStartRspT)) PipelineStartTblPipelineStartMatchTable;
 `SynthBuildModule1(mkMatchTable, String, PipelineStartTblPipelineStartMatchTable, mkMatchTable_PipelineStartTblPipelineStart)
 instance Table_request #(ConnectalTypes::PipelineStartTblPipelineStartReqT);
     function ConnectalTypes::PipelineStartTblPipelineStartReqT table_request(MetadataRequest data);
         ConnectalTypes::PipelineStartTblPipelineStartReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+            let src_addr = fromMaybe(?, data.meta.meta.src_addr);
+            let dst_addr = fromMaybe(?, data.meta.meta.dst_addr);
+            let proto = fromMaybe(?, data.meta.meta.proto);
             v = ConnectalTypes::PipelineStartTblPipelineStartReqT {src_addr: src_addr,dst_addr: dst_addr,proto: proto};
         end
         return v;
     endfunction
 endinstance
-instance Table_execute #(ConnectalTypes::PipelineStartTblPipelineStartRspT, PipelineStartTblPipelineStartParam, 3);
-    function Action table_execute(ConnectalTypes::PipelineStartTblPipelineStartRspT resp, MetadataRequest metadata, Vector#(3, FIFOF#(Tuple2#(MetadataRequest, PipelineStartTblPipelineStartParam))) fifos);
+instance Table_execute #(ConnectalTypes::PipelineStartTblPipelineStartRspT, PipelineStartTblPipelineStartParam, 2);
+    function Action table_execute(ConnectalTypes::PipelineStartTblPipelineStartRspT resp, MetadataRequest metadata, Vector#(2, FIFOF#(Tuple2#(MetadataRequest, PipelineStartTblPipelineStartParam))) fifos);
         action
         case (unpack(resp._action)) matches
-        ACTSETCHAIN0: begin
-            PipelineStartTblPipelineStartParam req1 = tagged ActSetChainReqT {_chainid: resp._chainid, _bitmap: resp._bitmap};
-            fifos[0].enq(tuple2(metadata,req1));
-        end
-        ACTSETBITMAP0: begin
-            PipelineStartTblPipelineStartParam req2 = tagged ActSetBitmapReqT {_bitmap:resp._bitmap};
-            fifos[1].enq(tuple2(metadata),req2);
-        end
-        NOACTION1: begin
-            fifos[2].enq(tuple2(metadata,?));
-        end
+            ACTSETCHAIN0: begin
+                PipelineStartTblPipelineStartParam req = ActSetChainReqT{_chain_id: resp._chain_id, _bitmap: resp._bitmap};
+                fifos[0].enq(tuple2(metadata, req));
+                end
+            NOACTION1: begin
+                fifos[1].enq(tuple2(metadata, ?));
+                end
         endcase
         endaction
     endfunction
 endinstance
 typedef Engine#(1, MetadataRequest, PipelineStartTblPipelineStartParam) NoActionAction;
-// INST (64) meta.click_metadata.click_bitmap; = bitmap;
-typedef Engine#(1, MetadataRequest, PipelineStartTblPipelineStartParam) ActSetBitmapAction;
-instance Action_execute #(PipelineStartTblPipelineStartParam);
-    function ActionValue#(MetadataRequest) step_1 (MetadataRequest meta, PipelineStartTblPipelineStartParam param);
-        actionvalue
-            $display("(%0d) step 1: ", $time, fshow(meta));
-            return meta;
-        endactionvalue
-    endfunction
-endinstance
 // INST (32) meta.click_metadata.click_id; = chain_id;
 // INST (64) meta.click_metadata.click_bitmap; = bitmap;
 typedef Engine#(1, MetadataRequest, PipelineStartTblPipelineStartParam) ActSetChainAction;
@@ -87,7 +74,6 @@ module mkIngress (Ingress);
     FIFOF#(MetadataRequest) exit_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) exit_rsp_ff <- mkFIFOF;
     Control::NoActionAction noAction_action <- mkEngine(toList(vec(step_1)));
-    Control::ActSetBitmapAction actsetbitmap_action <- mkEngine(toList(vec(step_1)));
     Control::ActSetChainAction actsetchain_action <- mkEngine(toList(vec(step_1)));
     PipelineStartTblPipelineStartMatchTable pipeline_start_tbl_pipeline_start_table <- mkMatchTable_PipelineStartTblPipelineStart("pipeline_start_tbl_pipeline_start");
     Control::PipelineStartTblPipelineStartTable pipeline_start_tbl_pipeline_start <- mkTable(table_request, table_execute, pipeline_start_tbl_pipeline_start_table);
@@ -95,8 +81,7 @@ module mkIngress (Ingress);
     messageM(printType(typeOf(pipeline_start_tbl_pipeline_start)));
     mkConnection(toClient(pipeline_start_tbl_pipeline_start_req_ff, pipeline_start_tbl_pipeline_start_rsp_ff), pipeline_start_tbl_pipeline_start.prev_control_state);
     mkConnection(pipeline_start_tbl_pipeline_start.next_control_state[0], actsetchain_action.prev_control_state);
-    mkConnection(pipeline_start_tbl_pipeline_start.next_control_state[1], actsetbitmap_action.prev_control_state);
-    mkConnection(pipeline_start_tbl_pipeline_start.next_control_state[2], noAction_action.prev_control_state);
+    mkConnection(pipeline_start_tbl_pipeline_start.next_control_state[1], noAction_action.prev_control_state);
     rule rl_entry if (entry_req_ff.notEmpty);
         entry_req_ff.deq;
         let _req = entry_req_ff.first;
@@ -110,14 +95,14 @@ module mkIngress (Ingress);
         node_2_req_ff.deq;
         let _req = node_2_req_ff.first;
         let meta = _req.meta;
-        if (h.hdr.click_bitmap10) begin
-            pipeline_start.tbl_pipeline_start_req_ff.enq(_req);
+        // if (h.hdr.click_bitmap10) begin
+            pipeline_start_tbl_pipeline_start_req_ff.enq(_req);
             dbprint(3, $format("node_2 true", fshow(meta)));
-        end
-        else begin
-            _req_ff.enq(_req);
-            dbprint(3, $format("node_2 false", fshow(meta)));
-        end
+        // end
+        // else begin
+        //     exit_req_ff.enq(_req);
+        //     dbprint(3, $format("node_2 false", fshow(meta)));
+        // end
     endrule
     rule rl_pipeline_start_tbl_pipeline_start if (pipeline_start_tbl_pipeline_start_rsp_ff.notEmpty);
         pipeline_start_tbl_pipeline_start_rsp_ff.deq;
@@ -127,7 +112,7 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                _req_ff.enq(req);
+                exit_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase

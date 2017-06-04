@@ -14,7 +14,7 @@
         "NUM_METAGEN=1", 
         "NUM_PKTGEN=1", 
         "STREAM", 
-        "NicVersion=3738351552", 
+        "NicVersion=1579743661", 
         "DataBusWidth=128", 
         "IMPORT_HOSTIF", 
         "BYTE_ENABLES", 

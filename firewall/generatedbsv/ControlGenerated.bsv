@@ -23,7 +23,10 @@ instance Table_request #(ConnectalTypes::ModuleFirewallFirewallWithTcpReqT);
     function ConnectalTypes::ModuleFirewallFirewallWithTcpReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleFirewallFirewallWithTcpReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+            let src_addr = fromMaybe(?, data.meta.meta.src_addr);
+            let dst_addr = fromMaybe(?, data.meta.meta.dst_addr);
+            let src_port = fromMaybe(?, data.meta.meta.src_port);
+            let dst_port = fromMaybe(?, data.meta.meta.dst_port);
             v = ConnectalTypes::ModuleFirewallFirewallWithTcpReqT {src_addr: src_addr,dst_addr: dst_addr,src_port: src_port,dst_port: dst_port, padding: 0};
         end
         return v;
@@ -33,6 +36,17 @@ instance Table_execute #(ConnectalTypes::ModuleFirewallFirewallWithTcpRspT, Modu
     function Action table_execute(ConnectalTypes::ModuleFirewallFirewallWithTcpRspT resp, MetadataRequest metadata, Vector#(3, FIFOF#(Tuple2#(MetadataRequest, ModuleFirewallFirewallWithTcpParam))) fifos);
         action
         case (unpack(resp._action)) matches
+            BLOCK0: begin
+                ModuleFirewallFirewallWithTcpParam req1 = Block0ReqT{};
+                fifos[0].enq(tuple2(metadata,req1));
+            end
+            NOP0: begin
+                ModuleFirewallFirewallWithTcpParam req2 = Nop0ReqT{};
+                fifos[1].enq(tuple2(metadata,req2));
+                end
+            NOACTION1: begin
+                fifos[2].enq(tuple2(metadata,?));
+            end
         endcase
         endaction
     endfunction
@@ -50,7 +64,10 @@ instance Table_request #(ConnectalTypes::ModuleFirewallFirewallWithUdpReqT);
     function ConnectalTypes::ModuleFirewallFirewallWithUdpReqT table_request(MetadataRequest data);
         ConnectalTypes::ModuleFirewallFirewallWithUdpReqT v = defaultValue;
         if (data.meta.hdr.ethernet matches tagged Valid .ethernet) begin
-            let dstAddr = ethernet.hdr.dstAddr;
+            let src_addr = fromMaybe(?, data.meta.meta.src_addr);
+            let dst_addr = fromMaybe(?, data.meta.meta.dst_addr);
+            let src_port = fromMaybe(?, data.meta.meta.src_port);
+            let dst_port = fromMaybe(?, data.meta.meta.dst_port);
             v = ConnectalTypes::ModuleFirewallFirewallWithUdpReqT {src_addr: src_addr,dst_addr: dst_addr,src_port: src_port,dst_port: dst_port, padding: 0};
         end
         return v;
@@ -60,6 +77,17 @@ instance Table_execute #(ConnectalTypes::ModuleFirewallFirewallWithUdpRspT, Modu
     function Action table_execute(ConnectalTypes::ModuleFirewallFirewallWithUdpRspT resp, MetadataRequest metadata, Vector#(3, FIFOF#(Tuple2#(MetadataRequest, ModuleFirewallFirewallWithUdpParam))) fifos);
         action
         case (unpack(resp._action)) matches
+            BLOCK0: begin
+                ModuleFirewallFirewallWithTcpParam req1 = Block1ReqT{};
+                fifos[0].enq(tuple2(metadata,req1));
+            end
+            NOP0: begin
+                ModuleFirewallFirewallWithTcpParam req2 = Nop1ReqT{};
+                fifos[1].enq(tuple2(metadata,req2));
+                end
+            NOACTION1: begin
+                fifos[2].enq(tuple2(metadata,?));
+            end
         endcase
         endaction
     endfunction
@@ -91,7 +119,7 @@ module mkIngress (Ingress);
     FIFOF#(MetadataRequest) node_6_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) exit_req_ff <- mkFIFOF;
     FIFOF#(MetadataRequest) exit_rsp_ff <- mkFIFOF;
-    Control::NoActionAction noAction_action <- mkEngine(toList(vec(step_1)));
+    //Control::NoActionAction noAction_action <- mkEngine(toList(vec(step_1)));
     Control::BlockAction block_action <- mkEngine(toList(vec(step_1)));
     Control::NopAction nop_action <- mkEngine(toList(vec(step_1)));
     ModuleFirewallFirewallWithTcpMatchTable module_firewall_firewall_with_tcp_table <- mkMatchTable_ModuleFirewallFirewallWithTcp("module_firewall_firewall_with_tcp");

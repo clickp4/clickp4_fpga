@@ -8,5 +8,7 @@ instance DefaultValue#(PipelineStartTblPipelineStartReqT);
     defaultValue = unpack(0);
 endinstance
 typedef struct {
-    Bit#(2) _action;
+    Bit#(1) _action;
+    Bit#(32) _chain_id;
+    Bit#(64) _bitmap;
 } PipelineStartTblPipelineStartRspT deriving (Bits, FShow);

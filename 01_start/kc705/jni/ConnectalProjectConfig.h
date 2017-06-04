@@ -15,7 +15,7 @@
 #define NUM_METAGEN 1
 #define NUM_PKTGEN 1
 #define STREAM ""
-#define NicVersion 0
+#define NicVersion 1579743661
 #define DataBusWidth 128
 #define IMPORT_HOSTIF ""
 #define BYTE_ENABLES ""

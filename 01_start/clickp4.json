@@ -547,9 +547,9 @@
             "id": 0,
             "order": [
                 "ethernet",
-                "ipv6",
                 "ipv4",
                 "tcp",
+                "ipv6",
                 "udp"
             ]
         }
@@ -603,34 +603,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "name": "act_set_bitmap",
-            "id": 1,
-            "runtime_data": [
-                {
-                    "name": "bitmap",
-                    "bitwidth": 64
-                }
-            ],
-            "primitives": [
-                {
-                    "op": "modify_field",
-                    "parameters": [
-                        {
-                            "type": "field",
-                            "value": [
-                                "click_metadata",
-                                "click_bitmap"
-                            ]
-                        },
-                        {
-                            "type": "runtime_data",
-                            "value": 0
-                        }
-                    ]
-                }
-            ]
         }
     ],
     "pipelines": [
@@ -675,12 +647,10 @@
                         }
                     ],
                     "actions": [
-                        "act_set_chain",
-                        "act_set_bitmap"
+                        "act_set_chain"
                     ],
                     "next_tables": {
-                        "act_set_chain": null,
-                        "act_set_bitmap": null
+                        "act_set_chain": null
                     },
                     "base_default_next": null
                 }
