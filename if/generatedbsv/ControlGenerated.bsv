@@ -33,7 +33,7 @@ instance Table_execute #(ConnectalTypes::ModuleIfIfEqualRspT, ModuleIfIfEqualPar
         action
         case (unpack(resp._action)) matches
             IFBRANCH0: begin
-                ModuleIfIfEqualParam req= tagged IfBranch0ReqT(_state: resp._state, _bitmap: resp._bitmap);
+                ModuleIfIfEqualParam req = tagged IfBranch0ReqT{_state: resp._state, _bitmap: resp._bitmap};
                 fifos[0].enq(tuple2(metadata, req));
             end
             NOACTION1: begin
@@ -66,7 +66,7 @@ instance Table_execute #(ConnectalTypes::ModuleIfIfLargeRspT, ModuleIfIfLargePar
         action
         case (unpack(resp._action)) matches
             IFBRANCH1: begin
-                ModuleIfIfEqualParam req= tagged IfBranch1ReqT(_state: resp._state, _bitmap: resp._bitmap);
+                ModuleIfIfLargeParam req = tagged IfBranch1ReqT{_state: resp._state, _bitmap: resp._bitmap};
                 fifos[0].enq(tuple2(metadata, req));
             end
             NOACTION2: begin
@@ -99,7 +99,7 @@ instance Table_execute #(ConnectalTypes::ModuleIfIfSmallRspT, ModuleIfIfSmallPar
         action
         case (unpack(resp._action)) matches
         IFBRANCH2: begin
-                ModuleIfIfEqualParam req= tagged IfBranch2ReqT(_state: resp._state, _bitmap: resp._bitmap);
+                ModuleIfIfSmallParam req= tagged IfBranch2ReqT{_state: resp._state, _bitmap: resp._bitmap};
                 fifos[0].enq(tuple2(metadata, req));
             end
             NOACTION3: begin
@@ -160,14 +160,14 @@ module mkIngress (Ingress);
     messageM(printType(typeOf(module_if_if_small_table)));
     messageM(printType(typeOf(module_if_if_small)));
     mkConnection(toClient(module_if_if_equal_req_ff, module_if_if_equal_rsp_ff), module_if_if_equal.prev_control_state);
-    mkConnection(module_if_if_equal.next_control_state[0], ifbranch_action.prev_control_state);
-    mkConnection(module_if_if_equal.next_control_state[1], noAction_action.prev_control_state);
+    //mkConnection(module_if_if_equal.next_control_state[0], ifbranch_action.prev_control_state);
+    //mkConnection(module_if_if_equal.next_control_state[1], noAction_action.prev_control_state);
     mkConnection(toClient(module_if_if_large_req_ff, module_if_if_large_rsp_ff), module_if_if_large.prev_control_state);
-    mkConnection(module_if_if_large.next_control_state[0], ifbranch_action.prev_control_state);
-    mkConnection(module_if_if_large.next_control_state[1], noAction_action.prev_control_state);
+    //mkConnection(module_if_if_large.next_control_state[0], ifbranch_action.prev_control_state);
+   // mkConnection(module_if_if_large.next_control_state[1], noAction_action.prev_control_state);
     mkConnection(toClient(module_if_if_small_req_ff, module_if_if_small_rsp_ff), module_if_if_small.prev_control_state);
-    mkConnection(module_if_if_small.next_control_state[0], ifbranch_action.prev_control_state);
-    mkConnection(module_if_if_small.next_control_state[1], noAction_action.prev_control_state);
+   //mkConnection(module_if_if_small.next_control_state[0], ifbranch_action.prev_control_state);
+    //mkConnection(module_if_if_small.next_control_state[1], noAction_action.prev_control_state);
     rule rl_entry if (entry_req_ff.notEmpty);
         entry_req_ff.deq;
         let _req = entry_req_ff.first;
@@ -195,7 +195,7 @@ module mkIngress (Ingress);
         let _req = node_3_req_ff.first;
         let meta = _req.meta;
         // if (h.hdr.lefth.hdr.right) begin
-            module_if.if_small_req_ff.enq(_req);
+            module_if_if_small_req_ff.enq(_req);
             dbprint(3, $format("node_3 true", fshow(meta)));
         // end
         // else begin
@@ -225,8 +225,8 @@ module mkIngress (Ingress);
             dbprint(3, $format("node_5 true", fshow(meta)));
         // end
         // else begin
-        //     module_if.if_equal_req_ff.enq(_req);
-        //     dbprint(3, $format("node_5 false", fshow(meta)));
+            module_if_if_equal_req_ff.enq(_req);
+            dbprint(3, $format("node_5 false", fshow(meta)));
         // end
     endrule
     rule rl_module_if_if_large if (module_if_if_large_rsp_ff.notEmpty);
@@ -237,7 +237,7 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                _req_ff.enq(req);
+                exit_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase
@@ -250,7 +250,7 @@ module mkIngress (Ingress);
         case (_rsp) matches
             default: begin
                 MetadataRequest req = MetadataRequest { pkt : pkt, meta : meta};
-                _req_ff.enq(req);
+                exit_req_ff.enq(req);
                 dbprint(3, $format("default ", fshow(meta)));
             end
         endcase

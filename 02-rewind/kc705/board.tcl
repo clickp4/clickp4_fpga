@@ -21,7 +21,7 @@ set NUM_HOSTCHAN {1}
 set NUM_METAGEN {1}
 set NUM_PKTGEN {1}
 set STREAM {}
-set NicVersion {2495520822}
+set NicVersion {2597774736}
 set DataBusWidth {128}
 set IMPORT_HOSTIF {}
 set BYTE_ENABLES {}

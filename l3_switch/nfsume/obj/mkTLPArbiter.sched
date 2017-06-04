@@ -1,0 +1,60 @@
+=== Generated schedule for mkTLPArbiter ===
+
+Method schedule
+---------------
+Method: outToBus_get
+Ready signal: tlp_out_fifo.i_notEmpty
+Conflict-free: in_0_put, in_1_put, in_2_put, in_3_put
+Conflicts: outToBus_get
+ 
+Method: in_0_put
+Ready signal: tlp_in_fifo_0.i_notFull
+Conflict-free: outToBus_get, in_1_put, in_2_put, in_3_put
+Conflicts: in_0_put
+ 
+Method: in_1_put
+Ready signal: tlp_in_fifo_1.i_notFull
+Conflict-free: outToBus_get, in_0_put, in_2_put, in_3_put
+Conflicts: in_1_put
+ 
+Method: in_2_put
+Ready signal: tlp_in_fifo_2.i_notFull
+Conflict-free: outToBus_get, in_0_put, in_1_put, in_3_put
+Conflicts: in_2_put
+ 
+Method: in_3_put
+Ready signal: tlp_in_fifo_3.i_notFull
+Conflict-free: outToBus_get, in_0_put, in_1_put, in_2_put
+Conflicts: in_3_put
+ 
+Rule schedule
+-------------
+Rule: arbitrate_outgoing_TLP
+Predicate: routeFrom[2]
+	   ? (! (PrimArrayDynSelect (PrimBuildArray tlp_in_fifo_0.i_notEmpty
+						    tlp_in_fifo_1.i_notEmpty
+						    tlp_in_fifo_2.i_notEmpty
+						    tlp_in_fifo_3.i_notEmpty)
+				    routeFrom[1:0])) ||
+	     tlp_out_fifo.i_notFull
+	   : (((! tlp_in_fifo_0.i_notEmpty) ||
+	       (! tlp_in_fifo_0.first[152]) || tlp_out_fifo.i_notFull) &&
+	      (tlp_in_fifo_0.i_notEmpty || (! tlp_in_fifo_1.i_notEmpty) ||
+	       (! tlp_in_fifo_1.first[152]) || tlp_out_fifo.i_notFull) &&
+	      (tlp_in_fifo_1.i_notEmpty || tlp_in_fifo_0.i_notEmpty ||
+	       (! tlp_in_fifo_2.i_notEmpty) ||
+	       (! tlp_in_fifo_2.first[152]) || tlp_out_fifo.i_notFull) &&
+	      (tlp_in_fifo_2.i_notEmpty ||
+	       tlp_in_fifo_1.i_notEmpty || tlp_in_fifo_0.i_notEmpty ||
+	       (! tlp_in_fifo_3.i_notEmpty) ||
+	       (! tlp_in_fifo_3.first[152]) || tlp_out_fifo.i_notFull))
+Blocking rules: (none)
+ 
+Logical execution order: outToBus_get,
+			 in_0_put,
+			 in_1_put,
+			 in_2_put,
+			 in_3_put,
+			 arbitrate_outgoing_TLP
+
+============================================

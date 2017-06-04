@@ -26,9 +26,9 @@ CXXFLAGS_PROJECT = -std=c++11 -L"/home/hwang/questasim/questa_sim/gcc-4.3.3-linu
 XELABFLAGS = 
 XSIMFLAGS  = -R
 TOPBSVFILE = /home/yhs/connectal/bsv/PcieTop.bsv
-BSVDEFINES =  -D PARSER=Parser -D DEPARSER=Deparser -D MATCHTABLE=Control -D TYPEDEF=StructDefines -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D STREAM -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D NUM_METAGEN=1 -D NUM_PKTGEN=1 -D STREAM -D NicVersion=2495520822 -D DataBusWidth=128 -D IMPORT_HOSTIF -D BYTE_ENABLES -D ClockDefaultParam -D ConnectalVersion=16.11.1 -D NumberOfMasters=1 -D PinType=Empty -D PinTypeInclude=Misc -D NumberOfUserTiles=1 -D SlaveDataBusWidth=32 -D SlaveControlAddrWidth=5 -D BurstLenSize=12 -D project_dir=$(DTOP) -D MainClockPeriod=8 -D DerivedClockPeriod=4.000000 -D PcieClockPeriod=8 -D XILINX=1 -D Kintex7 -D PCIE -D PCIE1 -D PcieHostInterface -D PhysAddrWidth=40 -D PcieLanes=8 -D CONNECTAL_BITS_DEPENDENCES=hw/mkTop.bit -D CONNECTAL_RUN_SCRIPT=$(CONNECTALDIR)/scripts/run.pcietest -D BOARD_kc705
+BSVDEFINES =  -D PARSER=Parser -D DEPARSER=Deparser -D MATCHTABLE=Control -D TYPEDEF=StructDefines -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D STREAM -D NUM_RXCHAN=1 -D NUM_TXCHAN=1 -D NUM_HOSTCHAN=1 -D NUM_METAGEN=1 -D NUM_PKTGEN=1 -D STREAM -D NicVersion=2597774736 -D DataBusWidth=128 -D IMPORT_HOSTIF -D BYTE_ENABLES -D ClockDefaultParam -D ConnectalVersion=16.11.1 -D NumberOfMasters=1 -D PinType=Empty -D PinTypeInclude=Misc -D NumberOfUserTiles=1 -D SlaveDataBusWidth=32 -D SlaveControlAddrWidth=5 -D BurstLenSize=12 -D project_dir=$(DTOP) -D MainClockPeriod=8 -D DerivedClockPeriod=4.000000 -D PcieClockPeriod=8 -D XILINX=1 -D Kintex7 -D PCIE -D PCIE1 -D PcieHostInterface -D PhysAddrWidth=40 -D PcieLanes=8 -D CONNECTAL_BITS_DEPENDENCES=hw/mkTop.bit -D CONNECTAL_RUN_SCRIPT=$(CONNECTALDIR)/scripts/run.pcietest -D BOARD_kc705
 QTUSED = 
-export BSVDEFINES_LIST = PARSER=Parser DEPARSER=Deparser MATCHTABLE=Control TYPEDEF=StructDefines NUM_RXCHAN=1 NUM_TXCHAN=1 NUM_HOSTCHAN=1 STREAM NUM_RXCHAN=1 NUM_TXCHAN=1 NUM_HOSTCHAN=1 NUM_METAGEN=1 NUM_PKTGEN=1 STREAM NicVersion=2495520822 DataBusWidth=128 IMPORT_HOSTIF BYTE_ENABLES ClockDefaultParam ConnectalVersion=16.11.1 NumberOfMasters=1 PinType=Empty PinTypeInclude=Misc NumberOfUserTiles=1 SlaveDataBusWidth=32 SlaveControlAddrWidth=5 BurstLenSize=12 project_dir=$(DTOP) MainClockPeriod=8 DerivedClockPeriod=4.000000 PcieClockPeriod=8 XILINX=1 Kintex7 PCIE PCIE1 PcieHostInterface PhysAddrWidth=40 PcieLanes=8 CONNECTAL_BITS_DEPENDENCES=hw/mkTop.bit CONNECTAL_RUN_SCRIPT=$(CONNECTALDIR)/scripts/run.pcietest BOARD_kc705
+export BSVDEFINES_LIST = PARSER=Parser DEPARSER=Deparser MATCHTABLE=Control TYPEDEF=StructDefines NUM_RXCHAN=1 NUM_TXCHAN=1 NUM_HOSTCHAN=1 STREAM NUM_RXCHAN=1 NUM_TXCHAN=1 NUM_HOSTCHAN=1 NUM_METAGEN=1 NUM_PKTGEN=1 STREAM NicVersion=2597774736 DataBusWidth=128 IMPORT_HOSTIF BYTE_ENABLES ClockDefaultParam ConnectalVersion=16.11.1 NumberOfMasters=1 PinType=Empty PinTypeInclude=Misc NumberOfUserTiles=1 SlaveDataBusWidth=32 SlaveControlAddrWidth=5 BurstLenSize=12 project_dir=$(DTOP) MainClockPeriod=8 DerivedClockPeriod=4.000000 PcieClockPeriod=8 XILINX=1 Kintex7 PCIE PCIE1 PcieHostInterface PhysAddrWidth=40 PcieLanes=8 CONNECTAL_BITS_DEPENDENCES=hw/mkTop.bit CONNECTAL_RUN_SCRIPT=$(CONNECTALDIR)/scripts/run.pcietest BOARD_kc705
 export DUT_NAME = mkPcieTop
 
 
@@ -49,7 +49,7 @@ NUM_HOSTCHAN=1
 NUM_METAGEN=1
 NUM_PKTGEN=1
 STREAM=STREAM
-NicVersion=2495520822
+NicVersion=2597774736
 DataBusWidth=128
 IMPORT_HOSTIF=IMPORT_HOSTIF
 BYTE_ENABLES=BYTE_ENABLES
